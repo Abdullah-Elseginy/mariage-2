@@ -1,9 +1,9 @@
 export const getBackendUrl = () => {
-  if (typeof window !== 'undefined') {
+  if (typeof window !== "undefined") {
     const queryParams = new URLSearchParams(window.location.search);
-    const backendParam = queryParams.get('backend');
-    if (backendParam === 'local' || backendParam === 'global') {
-      localStorage.setItem('backend_mode', backendParam);
+    const backendParam = queryParams.get("backend");
+    if (backendParam === "local" || backendParam === "global") {
+      localStorage.setItem("backend_mode", backendParam);
     }
   }
 
@@ -12,9 +12,12 @@ export const getBackendUrl = () => {
     return "http://127.0.0.1:8000/api/v1";
   }
   if (mode === "global") {
-    return "https://adequate-blessing-production-4ffe.up.railway.app/api/v1";
+    return "https://mariage-2-production.up.railway.app/api/v1";
   }
-  return process.env.REACT_APP_API_BASE_URL || "https://adequate-blessing-production-4ffe.up.railway.app/api/v1";
+  return (
+    process.env.REACT_APP_API_BASE_URL ||
+    "https://mariage-2-production.up.railway.app/api/v1"
+  );
 };
 
 export const getBackendMode = () => {
@@ -39,7 +42,11 @@ export const setBackendMode = (mode) => {
 export const getFrontendUrl = () => {
   const mode = getBackendMode();
   if (mode === "local") {
-    if (typeof window !== "undefined" && (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1")) {
+    if (
+      typeof window !== "undefined" &&
+      (window.location.hostname === "localhost" ||
+        window.location.hostname === "127.0.0.1")
+    ) {
       // If the dashboard is on port 3000, local frontend must be on port 3001
       if (window.location.port === "3000") {
         return "http://localhost:3001";
@@ -51,5 +58,8 @@ export const getFrontendUrl = () => {
     }
     return "http://localhost:3000";
   }
-  return process.env.REACT_APP_PUBLIC_FRONTEND_URL || "https://marriage-five-pi.vercel.app";
+  return (
+    process.env.REACT_APP_PUBLIC_FRONTEND_URL ||
+    "https://marriage-five-pi.vercel.app"
+  );
 };

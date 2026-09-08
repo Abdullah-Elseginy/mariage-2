@@ -1,9 +1,9 @@
 export const getBackendUrl = () => {
-  if (typeof window !== 'undefined') {
+  if (typeof window !== "undefined") {
     const queryParams = new URLSearchParams(window.location.search);
-    const backendParam = queryParams.get('backend');
-    if (backendParam === 'local' || backendParam === 'global') {
-      localStorage.setItem('backend_mode', backendParam);
+    const backendParam = queryParams.get("backend");
+    if (backendParam === "local" || backendParam === "global") {
+      localStorage.setItem("backend_mode", backendParam);
     }
   }
 
@@ -12,9 +12,12 @@ export const getBackendUrl = () => {
     return "http://localhost:8000/api/v1";
   }
   if (mode === "global") {
-    return "https://adequate-blessing-production-4ffe.up.railway.app/api/v1";
+    return "https://mariage-2-production.up.railway.app/api/v1";
   }
-  return process.env.REACT_APP_API_BASE_URL || "https://adequate-blessing-production-4ffe.up.railway.app/api/v1";
+  return (
+    process.env.REACT_APP_API_BASE_URL ||
+    "https://mariage-2-production.up.railway.app/api/v1"
+  );
 };
 
 export const getBackendMode = () => {

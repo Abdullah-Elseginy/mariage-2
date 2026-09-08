@@ -3,7 +3,9 @@ import { toast } from "react-toastify";
 import i18n from "../i18n";
 import { getBackendUrl } from "./apiConfig";
 
-const BASE_URL = process.env.REACT_APP_API_BASE_URL || "https://adequate-blessing-production-4ffe.up.railway.app/api/v1";
+const BASE_URL =
+  process.env.REACT_APP_API_BASE_URL ||
+  "https://mariage-2-production.up.railway.app/api/v1";
 
 export const APIS = {
   studentDetailsData: "/students/getStudentByNationalId",
@@ -38,7 +40,7 @@ axiosInstance.interceptors.response.use(
 
     toast.error(err);
     return Promise.reject(error);
-  }
+  },
 );
 
 const Axios = async ({

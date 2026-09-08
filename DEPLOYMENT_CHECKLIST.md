@@ -20,7 +20,7 @@
 - Build command: `npm run build`
 - Output directory: `build`
 - Set:
-  - `REACT_APP_API_BASE_URL=https://adequate-blessing-production-4ffe.up.railway.app/api/v1`
+  - `REACT_APP_API_BASE_URL=https://mariage-2-production.up.railway.app/api/v1`
   - `REACT_APP_PUBLIC_FRONTEND_URL=https://marriage-five-pi.vercel.app`
 - `dashboard-marriage/vercel.json` provides SPA route rewrites.
 
@@ -30,5 +30,5 @@
 - Build command: `npm run build`
 - Output directory: `build`
 - Set:
-  - `REACT_APP_API_BASE_URL=https://adequate-blessing-production-4ffe.up.railway.app/api/v1`
+  - `REACT_APP_API_BASE_URL=https://mariage-2-production.up.railway.app/api/v1`
 - `frontend-mariage/vercel.json` provides SPA route rewrites.
