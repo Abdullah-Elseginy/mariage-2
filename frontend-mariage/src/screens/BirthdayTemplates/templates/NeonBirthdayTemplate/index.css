@@ -1,0 +1,571 @@
+@import url('https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&family=Cairo:wght@300;400;500;600;700;800;900&family=El+Messiri:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800;900&family=Tajawal:wght@300;400;500;700;900&display=swap');
+
+/* ============================
+   NeonBirthdayTemplate Styles
+   Dark neon / aurora aesthetic
+   ============================ */
+
+.neon-birthday-template {
+  --neon-cyan: #00f5ff;
+  --neon-violet: #8b5cf6;
+  --neon-pink: #f472b6;
+  --neon-gold: #fbbf24;
+  --neon-green: #34d399;
+  --bg-deep: #05070f;
+  --bg-card: rgba(255, 255, 255, 0.04);
+  --bg-card-hover: rgba(255, 255, 255, 0.08);
+  --text-primary: #f0f4ff;
+  --text-secondary: rgba(200, 210, 255, 0.7);
+  --border-glow: rgba(0, 245, 255, 0.2);
+
+  font-family: 'El Messiri', 'Inter', 'Cairo', 'Tajawal', sans-serif;
+  background-color: var(--bg-deep);
+  color: var(--text-primary);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ── Aurora Background ── */
+.neon-birthday-template .aurora-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+.neon-birthday-template .aurora-bg::before {
+  content: '';
+  position: absolute;
+  top: -30%;
+  left: -20%;
+  width: 70%;
+  height: 70%;
+  background: radial-gradient(ellipse at center, rgba(139, 92, 246, 0.18) 0%, transparent 70%);
+  animation: aurora-drift-1 18s ease-in-out infinite alternate;
+  filter: blur(60px);
+}
+.neon-birthday-template .aurora-bg::after {
+  content: '';
+  position: absolute;
+  bottom: -20%;
+  right: -15%;
+  width: 65%;
+  height: 65%;
+  background: radial-gradient(ellipse at center, rgba(0, 245, 255, 0.12) 0%, transparent 70%);
+  animation: aurora-drift-2 22s ease-in-out infinite alternate;
+  filter: blur(80px);
+}
+.neon-birthday-template .aurora-accent {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60%;
+  height: 40%;
+  background: radial-gradient(ellipse at center, rgba(244, 114, 182, 0.1) 0%, transparent 70%);
+  animation: aurora-drift-3 25s ease-in-out infinite alternate;
+  filter: blur(70px);
+}
+@keyframes aurora-drift-1 {
+  0% { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(8%, 5%) scale(1.15); }
+}
+@keyframes aurora-drift-2 {
+  0% { transform: translate(0, 0) scale(1.1); }
+  100% { transform: translate(-6%, -4%) scale(1); }
+}
+@keyframes aurora-drift-3 {
+  0% { transform: translate(-50%, -50%) scale(1); opacity: 0.6; }
+  100% { transform: translate(-45%, -55%) scale(1.2); opacity: 1; }
+}
+
+/* ── Floating Particles ── */
+.neon-birthday-template .particle {
+  position: fixed;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 1;
+  will-change: transform, opacity;
+}
+.neon-birthday-template .particle-cyan {
+  background: radial-gradient(circle, rgba(0, 245, 255, 0.9) 0%, transparent 70%);
+  box-shadow: 0 0 10px rgba(0, 245, 255, 0.6);
+}
+.neon-birthday-template .particle-violet {
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.9) 0%, transparent 70%);
+  box-shadow: 0 0 10px rgba(139, 92, 246, 0.6);
+}
+.neon-birthday-template .particle-pink {
+  background: radial-gradient(circle, rgba(244, 114, 182, 0.9) 0%, transparent 70%);
+  box-shadow: 0 0 10px rgba(244, 114, 182, 0.6);
+}
+@keyframes float-particle {
+  0% { transform: translateY(110vh) translateX(0) scale(0); opacity: 0; }
+  5% { opacity: 1; }
+  95% { opacity: 0.7; }
+  100% { transform: translateY(-10vh) translateX(var(--drift, 20px)) scale(0.3); opacity: 0; }
+}
+
+/* ── Glass Cards ── */
+.neon-birthday-template .glass-panel {
+  background: var(--bg-card);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-glow);
+  border-radius: 20px;
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+.neon-birthday-template .glass-panel:hover {
+  background: var(--bg-card-hover);
+  border-color: rgba(0, 245, 255, 0.4);
+}
+.neon-birthday-template .glass-panel-solid {
+  background: rgba(10, 12, 25, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(0, 245, 255, 0.15);
+  border-radius: 20px;
+}
+
+/* ── Neon Glows ── */
+.neon-birthday-template .neon-text-cyan {
+  color: var(--neon-cyan);
+  text-shadow:
+    0 0 10px rgba(0, 245, 255, 0.8),
+    0 0 30px rgba(0, 245, 255, 0.4),
+    0 0 60px rgba(0, 245, 255, 0.2);
+}
+.neon-birthday-template .neon-text-violet {
+  color: var(--neon-violet);
+  text-shadow:
+    0 0 10px rgba(139, 92, 246, 0.8),
+    0 0 30px rgba(139, 92, 246, 0.4);
+}
+.neon-birthday-template .neon-text-pink {
+  color: var(--neon-pink);
+  text-shadow:
+    0 0 10px rgba(244, 114, 182, 0.8),
+    0 0 30px rgba(244, 114, 182, 0.4);
+}
+.neon-birthday-template .neon-glow-border-cyan {
+  box-shadow:
+    0 0 15px rgba(0, 245, 255, 0.25),
+    0 0 40px rgba(0, 245, 255, 0.1),
+    inset 0 0 15px rgba(0, 245, 255, 0.05);
+}
+.neon-birthday-template .neon-glow-border-violet {
+  box-shadow:
+    0 0 15px rgba(139, 92, 246, 0.3),
+    0 0 40px rgba(139, 92, 246, 0.12);
+}
+.neon-birthday-template .neon-glow-border-pink {
+  box-shadow:
+    0 0 15px rgba(244, 114, 182, 0.3),
+    0 0 40px rgba(244, 114, 182, 0.12);
+}
+
+/* ── Gradient Text ── */
+.neon-birthday-template .gradient-text-neon {
+  background: linear-gradient(135deg, var(--neon-cyan) 0%, var(--neon-violet) 50%, var(--neon-pink) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 0 20px rgba(0, 245, 255, 0.3));
+}
+.neon-birthday-template .gradient-text-warm {
+  background: linear-gradient(135deg, var(--neon-gold) 0%, var(--neon-pink) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Glitch Effect ── */
+@keyframes glitch-1 {
+  0%, 85%, 100% { clip-path: none; transform: none; }
+  86% { clip-path: inset(40% 0 50% 0); transform: translate(-3px, 0); }
+  88% { clip-path: inset(70% 0 10% 0); transform: translate(3px, 0); }
+  90% { clip-path: inset(20% 0 70% 0); transform: translate(-2px, 0); }
+}
+@keyframes glitch-2 {
+  0%, 85%, 100% { clip-path: none; transform: none; opacity: 0; }
+  86% { clip-path: inset(30% 0 60% 0); transform: translate(4px, 0); opacity: 0.7; color: var(--neon-cyan); }
+  88% { clip-path: inset(60% 0 20% 0); transform: translate(-4px, 0); opacity: 0.5; color: var(--neon-pink); }
+}
+.neon-birthday-template .glitch-text {
+  position: relative;
+  display: inline-block;
+}
+.neon-birthday-template .glitch-text::before,
+.neon-birthday-template .glitch-text::after {
+  content: attr(data-text);
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.neon-birthday-template .glitch-text::before {
+  animation: glitch-1 8s infinite;
+  color: var(--neon-violet);
+  left: 2px;
+}
+.neon-birthday-template .glitch-text::after {
+  animation: glitch-2 8s infinite 0.1s;
+  left: -2px;
+}
+
+/* ── Scanner Line ── */
+.neon-birthday-template .scanner-line {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--neon-cyan), transparent);
+  opacity: 0.5;
+  animation: scan-down 4s ease-in-out infinite;
+  pointer-events: none;
+}
+@keyframes scan-down {
+  0% { top: 0%; opacity: 0; }
+  10% { opacity: 0.6; }
+  90% { opacity: 0.4; }
+  100% { top: 100%; opacity: 0; }
+}
+
+/* ── Countdown Digits ── */
+.neon-birthday-template .countdown-digit-box {
+  background: rgba(0, 245, 255, 0.05);
+  border: 1px solid rgba(0, 245, 255, 0.2);
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0, 245, 255, 0.1), inset 0 1px 0 rgba(0, 245, 255, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+.neon-birthday-template .countdown-digit-box::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: rgba(0, 245, 255, 0.15);
+  transform: translateY(-50%);
+}
+
+/* ── Neon Button ── */
+.neon-birthday-template .neon-btn {
+  position: relative;
+  background: transparent;
+  border: 1px solid var(--neon-cyan);
+  color: var(--neon-cyan);
+  border-radius: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  transition: all 0.3s ease;
+  overflow: hidden;
+  cursor: pointer;
+}
+.neon-birthday-template .neon-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(0, 245, 255, 0.08), rgba(139, 92, 246, 0.08));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.neon-birthday-template .neon-btn:hover::before { opacity: 1; }
+.neon-birthday-template .neon-btn:hover {
+  box-shadow: 0 0 20px rgba(0, 245, 255, 0.4), 0 0 40px rgba(0, 245, 255, 0.15);
+  text-shadow: 0 0 10px rgba(0, 245, 255, 0.8);
+}
+.neon-birthday-template .neon-btn-filled {
+  background: linear-gradient(135deg, rgba(0, 245, 255, 0.15), rgba(139, 92, 246, 0.15));
+  border: 1px solid rgba(0, 245, 255, 0.3);
+  color: var(--neon-cyan);
+  border-radius: 10px;
+  font-weight: 700;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+.neon-birthday-template .neon-btn-filled:hover {
+  background: linear-gradient(135deg, rgba(0, 245, 255, 0.25), rgba(139, 92, 246, 0.25));
+  box-shadow: 0 0 25px rgba(0, 245, 255, 0.3);
+}
+.neon-birthday-template .neon-btn-pink {
+  background: linear-gradient(135deg, rgba(244, 114, 182, 0.15), rgba(139, 92, 246, 0.15));
+  border: 1px solid rgba(244, 114, 182, 0.3);
+  color: var(--neon-pink);
+  border-radius: 10px;
+  font-weight: 700;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+.neon-birthday-template .neon-btn-pink:hover {
+  box-shadow: 0 0 25px rgba(244, 114, 182, 0.3);
+}
+
+/* ── Passcode Input ── */
+.neon-birthday-template .neon-input {
+  background: rgba(0, 245, 255, 0.05);
+  border: 1px solid rgba(0, 245, 255, 0.25);
+  border-radius: 12px;
+  color: var(--neon-cyan);
+  caret-color: var(--neon-cyan);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  width: 100%;
+  padding: 14px 18px;
+  font-size: 1.1rem;
+  text-align: center;
+  letter-spacing: 0.25em;
+  outline: none;
+}
+.neon-birthday-template .neon-input:focus {
+  border-color: var(--neon-cyan);
+  box-shadow: 0 0 20px rgba(0, 245, 255, 0.25), inset 0 0 10px rgba(0, 245, 255, 0.05);
+}
+
+/* ── Album Infinite Marquee ── */
+.neon-birthday-template .neon-marquee-container {
+  display: flex;
+  overflow: hidden;
+  user-select: none;
+  position: relative;
+  width: 100%;
+}
+.neon-birthday-template .neon-marquee-track {
+  display: flex;
+  flex-shrink: 0;
+  min-width: 100%;
+  animation: scroll-marquee 30s linear infinite;
+}
+.neon-birthday-template .neon-marquee-container:hover .neon-marquee-track {
+  animation-play-state: paused;
+}
+.neon-birthday-template .neon-marquee-group {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: space-around;
+  min-width: 100%;
+}
+.neon-birthday-template .neon-marquee-item {
+  width: 220px;
+  height: 280px;
+  flex-shrink: 0;
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(0, 245, 255, 0.15);
+  cursor: zoom-in;
+  margin-right: 16px;
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.neon-birthday-template .neon-marquee-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.neon-birthday-template .neon-marquee-item:hover {
+  transform: scale(1.05);
+  border-color: var(--neon-cyan);
+  box-shadow: 0 0 20px rgba(0, 245, 255, 0.3);
+}
+.neon-birthday-template .album-photo-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 245, 255, 0.15), transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.neon-birthday-template .neon-marquee-item:hover .album-photo-overlay {
+  opacity: 1;
+}
+
+@keyframes scroll-marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ── Scrollbar ── */
+.neon-birthday-template::-webkit-scrollbar { width: 4px; }
+.neon-birthday-template::-webkit-scrollbar-track { background: transparent; }
+.neon-birthday-template::-webkit-scrollbar-thumb {
+  background: rgba(0, 245, 255, 0.3);
+  border-radius: 4px;
+}
+
+/* ── Typewriter Cursor ── */
+.neon-birthday-template .neon-typewriter::after {
+  content: '|';
+  color: var(--neon-cyan);
+  animation: neon-blink 0.7s infinite;
+  text-shadow: 0 0 10px rgba(0, 245, 255, 0.8);
+}
+@keyframes neon-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* ── Horizontal line with neon glow ── */
+.neon-birthday-template .neon-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(0, 245, 255, 0.4), rgba(139, 92, 246, 0.4), transparent);
+  border: none;
+  margin: 0;
+}
+
+/* ── Wish card ── */
+.neon-birthday-template .wish-card {
+  background: linear-gradient(135deg, rgba(0, 245, 255, 0.04), rgba(139, 92, 246, 0.04));
+  border: 1px solid rgba(139, 92, 246, 0.2);
+  border-radius: 16px;
+  transition: border-color 0.4s ease, box-shadow 0.4s ease;
+}
+.neon-birthday-template .wish-card.active {
+  border-color: rgba(0, 245, 255, 0.35);
+  box-shadow: 0 0 30px rgba(0, 245, 255, 0.1);
+}
+
+/* ── Envelope Card ── */
+.neon-birthday-template .envelope-card {
+  background: linear-gradient(135deg, rgba(244, 114, 182, 0.06), rgba(139, 92, 246, 0.06));
+  border: 1px solid rgba(244, 114, 182, 0.2);
+  border-radius: 20px;
+  overflow: hidden;
+  transition: border-color 0.3s ease;
+}
+.neon-birthday-template .envelope-card:hover {
+  border-color: rgba(244, 114, 182, 0.4);
+  box-shadow: 0 0 40px rgba(244, 114, 182, 0.1);
+}
+
+/* ── Pulse ring ── */
+@keyframes pulse-ring {
+  0% { transform: scale(1); opacity: 0.6; }
+  100% { transform: scale(2.5); opacity: 0; }
+}
+.neon-birthday-template .pulse-ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 2px solid var(--neon-cyan);
+  animation: pulse-ring 2s ease-out infinite;
+}
+
+/* ── Section heading bar ── */
+.neon-birthday-template .section-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--neon-cyan);
+  opacity: 0.8;
+}
+.neon-birthday-template .section-label::before {
+  content: '';
+  display: block;
+  width: 24px;
+  height: 1px;
+  background: var(--neon-cyan);
+  opacity: 0.6;
+}
+.neon-birthday-template .section-label::after {
+  content: '';
+  display: block;
+  width: 24px;
+  height: 1px;
+  background: var(--neon-cyan);
+  opacity: 0.6;
+}
+
+/* ── Music toggle ── */
+.neon-birthday-template .music-toggle {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 50;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(0, 245, 255, 0.1);
+  border: 1px solid rgba(0, 245, 255, 0.3);
+  color: var(--neon-cyan);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(12px);
+}
+.neon-birthday-template .music-toggle:hover {
+  background: rgba(0, 245, 255, 0.2);
+  box-shadow: 0 0 20px rgba(0, 245, 255, 0.3);
+}
+
+/* ── Confetti burst ── */
+@keyframes confetti-burst {
+  0% { transform: translate(0, 0) rotate(0deg) scale(1); opacity: 1; }
+  100% { transform: translate(var(--tx), var(--ty)) rotate(var(--rot)) scale(0.2); opacity: 0; }
+}
+
+/* ── Shake Animation ── */
+.neon-birthday-template .animate-shake {
+  animation: shake 0.4s ease-in-out;
+}
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-6px); }
+  40%, 80% { transform: translateX(6px); }
+}
+
+/* ── Plaintext Input ── */
+.neon-birthday-template .neon-input-plaintext {
+  background: rgba(255, 255, 255, 0.03);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  color: var(--neon-cyan);
+  outline: none;
+  font-family: 'Outfit', 'Cairo', sans-serif;
+  text-shadow: 0 0 10px rgba(0, 245, 255, 0.4);
+  box-shadow: inset 0 0 12px rgba(0, 245, 255, 0.03);
+}
+.neon-birthday-template .neon-input-plaintext::placeholder {
+  color: rgba(200, 210, 255, 0.25);
+  text-shadow: none;
+}
+.neon-birthday-template .neon-input-plaintext:focus {
+  border-color: var(--neon-cyan);
+  box-shadow: 0 0 20px rgba(0, 245, 255, 0.25), inset 0 0 10px rgba(0, 245, 255, 0.05);
+}
+
+/* ── Modernized Recipient Name ── */
+.neon-birthday-template .neon-recipient-name {
+  font-family: 'Outfit', 'El Messiri', 'Cairo', sans-serif !important;
+  letter-spacing: -0.01em;
+}
+
+/* Beautiful Heading & Quote Overrides */
+.neon-birthday-template h1,
+.neon-birthday-template h2,
+.neon-birthday-template h3,
+.neon-birthday-template .gradient-text-neon,
+.neon-birthday-template .gradient-text-warm {
+  font-family: 'El Messiri', 'Cairo', serif !important;
+}
+
+/* Secondary font overrides - body text, paragraphs, spans, buttons, inputs use Inter/Cairo/Tajawal first */
+.neon-birthday-template p,
+.neon-birthday-template span,
+.neon-birthday-template button,
+.neon-birthday-template input {
+  font-family: 'Inter', 'Cairo', 'Tajawal', sans-serif !important;
+}
+
+/* Custom classes for specific font styles */
+.neon-birthday-template .font-amiri {
+  font-family: 'Amiri', 'Cairo', serif !important;
+}
+
+.neon-birthday-template .font-display {
+  font-family: 'El Messiri', 'Cairo', sans-serif !important;
+}

@@ -1,0 +1,387 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap');
+.signature-marble{--ink:#373530;--muted:#77736b;--gold:#c8a96a;--edge:rgba(167,157,140,.36);position:relative;isolation:isolate;overflow:hidden;background:#fdfbf7;color:var(--ink);font-family:Inter,Arial,sans-serif}.signature-marble:before{content:"";position:absolute;inset:0;z-index:-2;opacity:.78;background:radial-gradient(ellipse at 7% 12%,rgba(180,180,175,.2),transparent 29%),radial-gradient(ellipse at 94% 28%,rgba(218,209,195,.34),transparent 30%),repeating-linear-gradient(132deg,transparent 0 44px,rgba(162,160,155,.05) 45px 47px,transparent 49px 97px),#fdfbf7}.signature-section,.signature-hero{position:relative;padding:88px 20px}.signature-shell{width:min(1120px,100%);margin:auto}.signature-heading{max-width:600px;margin-bottom:42px}.signature-heading.center{text-align:center;margin-left:auto;margin-right:auto}.signature-heading p,.signature-eyebrow{margin:0 0 9px;color:#9a7b42;font-size:10px;font-weight:700;letter-spacing:.28em;text-transform:uppercase}.signature-heading h2,.signature-hero h1,.signature-footer strong,.signature-timeline h3,.signature-thanks h3{margin:0;font-family:"Cormorant Garamond",Georgia,serif;font-weight:600;line-height:.92}.signature-heading h2{font-size:clamp(2.7rem,6vw,4.9rem)}.signature-gold-divider{display:flex;align-items:center;gap:9px;width:150px;margin-top:18px;color:var(--gold);font-size:12px}.signature-heading.center .signature-gold-divider,.signature-footer .signature-gold-divider{margin-left:auto;margin-right:auto}.signature-gold-divider i{height:1px;flex:1;background:linear-gradient(90deg,transparent,var(--gold))}.signature-gold-divider i:last-child{transform:rotate(180deg)}
+.signature-corner{position:absolute;width:96px;height:96px;opacity:.68;pointer-events:none}.signature-corner:before,.signature-corner:after,.signature-corner i{content:"";position:absolute;border-color:var(--gold);border-style:solid}.signature-corner:before{inset:12px;border-width:1px 0 0 1px}.signature-corner:after{inset:0;border-width:1px 0 0 1px}.signature-corner i{left:28px;top:28px;width:42px;height:42px;border-width:1px 0 0 1px;transform:rotate(45deg)}.signature-corner b{position:absolute;top:25px;left:24px;color:var(--gold);font-size:23px;font-weight:400}.signature-corner.top-left{top:22px;left:22px}.signature-corner.top-right{top:22px;right:22px;transform:scaleX(-1)}.signature-corner.bottom-left{bottom:22px;left:22px;transform:scaleY(-1)}.signature-corner.bottom-right{right:22px;bottom:22px;transform:scale(-1)}
+.signature-prelude{position:fixed;inset:0;z-index:100;display:grid;place-items:center;padding:24px;text-align:center;background:radial-gradient(circle,rgba(255,255,255,.94),rgba(236,236,236,.98));color:var(--ink)}.signature-prelude p{font-size:10px;letter-spacing:.32em;color:#977a46}.signature-prelude strong{display:block;max-width:min(760px,90vw);font:600 clamp(3rem,10vw,7rem)/.9 "Cormorant Garamond",serif}.signature-prelude .signature-gold-divider{margin:20px auto}.signature-particles{position:fixed;z-index:3;inset:0;pointer-events:none;opacity:.45;background-image:radial-gradient(circle,rgba(200,169,106,.7) 0 1px,transparent 1.8px);background-size:170px 140px;animation:signature-drift 17s linear infinite}.signature-hero{min-height:100svh;display:grid;align-content:end;justify-items:center;gap:0;padding:0 20px 30px;isolation:isolate;text-align:center;background:radial-gradient(circle at 50% 47%,#fff 0%,#fdfbf7 46%,#ececec 100%)}.signature-hero:after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(ellipse at 50% 50%,transparent 38%,rgba(200,169,106,.18) 70%,rgba(236,236,236,.72) 100%)}.signature-hero-copy{position:relative;z-index:2;max-width:680px;padding:18px 26px;background:rgba(253,251,247,.72);border:1px solid rgba(200,169,106,.38);backdrop-filter:blur(12px)}.signature-hero h1{font-size:clamp(2.8rem,8vw,6.6rem);letter-spacing:-.045em;text-wrap:balance}.signature-hero-copy .signature-gold-divider{margin:14px auto}.signature-hero-body{max-width:590px;margin:12px auto 0;color:var(--muted);font-size:13px;line-height:1.7}.signature-date{margin:12px 0 0;font:600 clamp(1.15rem,3vw,1.6rem)/1 "Cormorant Garamond",serif;color:#7e6a49}.signature-date em{padding:0 13px;color:var(--gold);font-style:normal}.signature-film-frame{position:absolute;inset:0;z-index:0;width:100%;height:100%;padding:0;border:0;background:transparent;box-shadow:none}.signature-film-frame:before,.signature-film-frame:after{display:none}.signature-film-inner{position:relative;display:grid;place-items:center;width:100%;height:100%;overflow:hidden;aspect-ratio:auto;background:radial-gradient(circle at 50% 45%,#fff 0%,#fdfbf7 55%,#ececec 100%)}.signature-film-inner video{width:100%;height:100%;object-fit:contain;display:block;mix-blend-mode:multiply;filter:saturate(.68) contrast(.96) brightness(1.06)}.signature-film-inner:after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,rgba(253,251,247,.46),transparent 25% 75%,rgba(253,251,247,.46)),radial-gradient(ellipse at center,transparent 45%,rgba(245,242,236,.4) 100%)}.signature-film-glint{position:absolute;inset:0;background:linear-gradient(115deg,transparent 25%,rgba(255,255,255,.36) 48%,transparent 58%);transform:translateX(-100%);animation:signature-glint 8s ease-in-out infinite}.signature-scroll-cue{position:relative;z-index:2;margin-top:16px;color:#887247;font-size:10px;font-weight:700;letter-spacing:.2em;text-decoration:none;text-transform:uppercase}.signature-scroll-cue span{display:block;margin-top:8px;font-size:19px;color:var(--gold);animation:signature-bob 1.8s ease-in-out infinite}
+.signature-details{background:rgba(245,242,236,.62);border-top:1px solid var(--edge);border-bottom:1px solid var(--edge)}.signature-detail-grid{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--edge);background:rgba(255,255,255,.53);backdrop-filter:blur(11px)}.signature-detail-grid article{min-height:243px;padding:34px 27px;border-inline-end:1px solid var(--edge)}.signature-detail-grid article:last-child{border:0}.signature-detail-grid svg{font-size:21px;color:var(--gold)}.signature-detail-grid span{display:block;margin-top:31px;font-size:10px;font-weight:700;letter-spacing:.2em;color:#977a46}.signature-detail-grid strong{display:block;margin-top:9px;font:600 1.9rem/1.05 "Cormorant Garamond",serif}.signature-detail-grid p{margin:10px 0;color:var(--muted);font-size:13px;line-height:1.65}.signature-detail-grid a{display:inline-flex;align-items:center;gap:6px;margin-top:12px;color:#896f3c;font-size:11px;font-weight:700;text-decoration:none;text-transform:uppercase;letter-spacing:.08em}.signature-story{background:linear-gradient(90deg,rgba(255,255,255,.2),rgba(236,236,236,.62),rgba(255,255,255,.2))}.signature-timeline{max-width:770px;margin:auto}.signature-timeline article{display:grid;grid-template-columns:92px 1fr;gap:24px;padding:28px 0;border-bottom:1px solid var(--edge)}.signature-timeline-number{font:600 2rem "Cormorant Garamond",serif;color:var(--gold)}.signature-timeline time{font-size:10px;color:#977a46;font-weight:700;letter-spacing:.18em}.signature-timeline h3{margin-top:7px;font-size:2.2rem}.signature-timeline p{margin:9px 0 0;color:var(--muted);font-size:14px;line-height:1.8}.signature-gallery{background:#f5f2ec}.signature-gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:170px;gap:12px}.signature-gallery-grid figure{margin:0;overflow:hidden;border:8px solid rgba(255,255,255,.72);outline:1px solid rgba(200,169,106,.45);background:#eee}.signature-gallery-grid figure:first-child{grid-column:span 2;grid-row:span 2}.signature-gallery-grid img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.8);transition:transform .7s ease,filter .7s ease}.signature-gallery-grid figure:hover img{transform:scale(1.06);filter:saturate(1)}
+.signature-countdown{overflow:hidden;text-align:center}.signature-timer{display:grid;grid-template-columns:repeat(4,1fr);max-width:680px;margin:35px auto 0;border:1px solid var(--edge);background:rgba(255,255,255,.52);backdrop-filter:blur(10px)}.signature-timer div{padding:25px 9px;border-inline-end:1px solid var(--edge)}.signature-timer div:last-child{border:0}.signature-timer strong{display:block;font:600 clamp(2.5rem,7vw,4.5rem)/.85 "Cormorant Garamond",serif;color:#8b7040}.signature-timer span{display:block;margin-top:11px;color:var(--muted);font-size:9px;font-weight:700;letter-spacing:.15em;text-transform:uppercase}.signature-rsvp{background:linear-gradient(145deg,rgba(236,236,236,.8),rgba(253,251,247,.95));overflow:hidden}.signature-rsvp-card{max-width:640px;margin:auto;padding:42px;border:1px solid var(--edge);background:rgba(255,255,255,.64);box-shadow:0 18px 50px rgba(74,68,58,.07);backdrop-filter:blur(14px)}.signature-rsvp-card label{display:block;margin-top:18px;color:#756a58;font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase}.signature-rsvp-card input,.signature-rsvp-card textarea{display:block;box-sizing:border-box;width:100%;margin-top:8px;padding:13px 0;border:0;border-bottom:1px solid #cfc8bc;border-radius:0;background:transparent;color:var(--ink);font:14px Inter,sans-serif;outline:none}.signature-rsvp-card textarea{resize:vertical}.signature-rsvp-card input:focus,.signature-rsvp-card textarea:focus{border-color:var(--gold)}.signature-attendance{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:22px}.signature-attendance button{min-height:46px;border:1px solid var(--edge);background:rgba(255,255,255,.4);color:#746b5e;font:600 10px Inter,sans-serif;letter-spacing:.07em;text-transform:uppercase;cursor:pointer}.signature-attendance button.active{border-color:var(--gold);background:#f5f0e7;color:#765d2e}.signature-submit{display:flex;align-items:center;justify-content:center;gap:9px;width:100%;min-height:51px;margin-top:26px;border:1px solid #aa8a4f;background:#c8a96a;color:#fff;font:700 10px Inter,sans-serif;letter-spacing:.16em;text-transform:uppercase;cursor:pointer;transition:background .25s,transform .25s}.signature-submit:hover{background:#ae8b4d;transform:translateY(-2px)}.signature-submit:disabled{opacity:.6;cursor:wait}.signature-form-error{margin:12px 0 0;color:#a2473e;font-size:13px}.signature-thanks{text-align:center}.signature-thanks>svg{font-size:26px;color:var(--gold)}.signature-thanks h3{margin:15px 0 8px;font-size:2.6rem}.signature-thanks p{color:var(--muted);line-height:1.7}.signature-footer{padding:65px 20px;text-align:center;background:#f5f2ec;border-top:1px solid var(--edge)}.signature-footer>svg{color:var(--gold)}.signature-footer strong{display:block;margin-top:10px;font-size:clamp(2.6rem,7vw,4.4rem)}.signature-footer p{max-width:530px;margin:16px auto 0;color:var(--muted);font-size:12px;line-height:1.7}
+@keyframes signature-drift{to{background-position:170px 140px}}@keyframes signature-glint{0%,60%{transform:translateX(-110%)}80%,100%{transform:translateX(110%)}}@keyframes signature-bob{50%{transform:translateY(5px)}}@media(max-width:700px){.signature-section{padding:67px 18px}.signature-hero{gap:25px;padding:82px 18px 42px}.signature-hero h1{font-size:clamp(3.5rem,17vw,5.7rem)}.signature-corner{width:58px;height:58px}.signature-corner:before{inset:8px}.signature-corner i{left:17px;top:17px;width:27px;height:27px}.signature-corner b{top:13px;left:12px;font-size:16px}.signature-corner.top-left{top:13px;left:13px}.signature-corner.top-right{top:13px;right:13px}.signature-corner.bottom-left{bottom:13px;left:13px}.signature-corner.bottom-right{bottom:13px;right:13px}.signature-detail-grid{grid-template-columns:1fr}.signature-detail-grid article{min-height:0;padding:26px 23px;border-inline-end:0;border-bottom:1px solid var(--edge)}.signature-detail-grid article:last-child{border-bottom:0}.signature-detail-grid span{margin-top:14px}.signature-timeline article{grid-template-columns:55px 1fr;gap:14px}.signature-gallery-grid{grid-template-columns:repeat(2,1fr);grid-auto-rows:142px;gap:9px}.signature-timer div{padding:21px 4px}.signature-rsvp-card{padding:30px 20px}.signature-heading{margin-bottom:32px}.signature-prelude strong{font-size:3.6rem}}@media(prefers-reduced-motion:reduce){.signature-marble *{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important}}
+/* Full-screen invitation film: paused until the guest opens the invitation. */
+.signature-video-intro{position:fixed;inset:0;z-index:140;display:grid;place-items:center;overflow:hidden;background:#fdfbf7;isolation:isolate}.signature-intro-marble{position:absolute;inset:0;z-index:-2;background:radial-gradient(circle at 50% 46%,#fff 0%,#fdfbf7 45%,#ececec 100%),repeating-linear-gradient(126deg,transparent 0 58px,rgba(163,158,149,.07) 59px 61px,transparent 62px 112px)}.signature-video-intro:after{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;background:radial-gradient(ellipse at center,transparent 42%,rgba(200,169,106,.2) 74%,rgba(245,242,236,.8) 100%)}.signature-video-intro .signature-corner{z-index:5}.signature-intro-film{position:absolute;inset:0;z-index:0;display:grid;place-items:center}.signature-intro-film video{width:100%;height:100%;object-fit:contain;display:block;mix-blend-mode:multiply;filter:saturate(.7) contrast(.97) brightness(1.05)}.signature-intro-controls{position:relative;z-index:4;align-self:end;display:grid;justify-items:center;gap:14px;margin:0 18px 7svh;padding:20px 24px;min-width:min(350px,calc(100vw - 36px));border:1px solid rgba(200,169,106,.54);background:rgba(253,251,247,.72);box-shadow:0 16px 48px rgba(77,68,55,.1);backdrop-filter:blur(15px);text-align:center}.signature-intro-controls p{margin:0;color:#897145;font:600 12px/1.2 "Cormorant Garamond",Georgia,serif;letter-spacing:.13em;text-transform:uppercase}.signature-intro-controls button{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 27px;border:1px solid #b89555;background:#c8a96a;color:#fff;font:700 10px Inter,Arial,sans-serif;letter-spacing:.17em;text-transform:uppercase;cursor:pointer;transition:transform .3s ease,background .3s ease,box-shadow .3s ease}.signature-intro-controls button:hover{transform:translateY(-3px);background:#ae8b4d;box-shadow:0 13px 26px rgba(174,139,77,.25)}.signature-intro-controls button svg{font-size:17px}.signature-intro-playing{color:#806c48;font-size:10px;font-weight:700;letter-spacing:.15em;text-transform:uppercase}.signature-video-intro.is-playing .signature-intro-controls{background:rgba(253,251,247,.42);opacity:.78;transition:opacity .4s ease}.signature-interior-hero{align-content:center;min-height:72svh;padding:100px 20px 58px}.signature-interior-hero .signature-hero-copy{margin:auto}.signature-interior-hero .signature-scroll-cue{margin-top:30px}
+@media(max-width:700px){.signature-video-intro .signature-corner{display:none}.signature-intro-controls{margin-bottom:5svh;padding:17px 18px;min-width:calc(100vw - 32px)}.signature-intro-controls button{width:100%}.signature-interior-hero{min-height:68svh;padding:80px 18px 42px}.signature-interior-hero .signature-hero-copy{padding:17px 18px}}
+/* Centered minimal opener and a smoke-like handoff into the invitation. */
+.signature-video-intro:before{content:"";position:absolute;inset:-24%;z-index:7;pointer-events:none;opacity:0;background:radial-gradient(ellipse at 15% 70%,rgba(255,255,255,.94) 0 11%,transparent 27%),radial-gradient(ellipse at 44% 48%,rgba(245,242,236,.95) 0 13%,transparent 33%),radial-gradient(ellipse at 78% 67%,rgba(255,255,255,.95) 0 12%,transparent 31%),radial-gradient(ellipse at 60% 22%,rgba(236,236,236,.92) 0 10%,transparent 28%);filter:blur(22px);transform:scale(.68)}.signature-video-intro.is-ending:before{animation:signature-smoke-reveal .82s cubic-bezier(.76,0,.24,1) forwards}.signature-video-intro.is-ending .signature-intro-controls{opacity:0;transform:scale(.94);transition:opacity .25s ease,transform .25s ease}.signature-video-intro.is-ending .signature-intro-film{filter:blur(4px);transition:filter .45s ease}.signature-intro-controls{position:absolute;inset:0;z-index:4;align-self:auto;display:grid;place-items:center;gap:0;margin:0;min-width:0;padding:0;border:0;background:transparent;box-shadow:none;backdrop-filter:none;pointer-events:none}.signature-intro-controls p{display:none}.signature-intro-controls button{pointer-events:auto;min-height:44px;padding:0 20px;border:1px solid rgba(200,169,106,.9);background:rgba(253,251,247,.58);color:#806638;font:700 9px Inter,Arial,sans-serif;letter-spacing:.18em;box-shadow:none;backdrop-filter:blur(8px)}.signature-intro-controls button:hover{background:#c8a96a;color:#fff;box-shadow:0 10px 24px rgba(174,139,77,.18)}.signature-intro-playing{align-self:end;margin-bottom:7svh;color:#806c48}.signature-video-intro.is-playing .signature-intro-controls{background:transparent;opacity:1}.signature-video-intro.is-playing .signature-intro-controls{place-items:end center}@keyframes signature-smoke-reveal{0%{opacity:0;transform:scale(.65) translateY(18%)}42%{opacity:.96}100%{opacity:1;transform:scale(1.16) translateY(-5%)}}
+@media(max-width:700px){.signature-video-intro,.signature-intro-film{width:100vw;height:100svh}.signature-intro-film video{width:100vw;height:100svh;object-fit:cover;mix-blend-mode:normal;filter:saturate(.78) contrast(.98) brightness(1.02)}.signature-video-intro:after{background:linear-gradient(180deg,rgba(253,251,247,.08),transparent 33%,rgba(245,242,236,.16) 100%)}.signature-intro-controls button{min-height:42px;padding:0 18px;font-size:8px}.signature-intro-playing{margin-bottom:5svh}}
+/* Circular invitation opener. */
+.signature-intro-controls button{display:grid;place-items:center;width:86px;min-width:86px;height:86px;min-height:86px;padding:0;border:1px solid rgba(200,169,106,.95);border-radius:50%;background:rgba(253,251,247,.78);color:#b38d49;box-shadow:0 0 0 8px rgba(253,251,247,.26),0 12px 30px rgba(125,101,53,.18);backdrop-filter:blur(10px);animation:signature-open-pulse 2.4s ease-in-out infinite}.signature-intro-controls button:hover{background:#c8a96a;color:#fff;box-shadow:0 0 0 10px rgba(253,251,247,.36),0 16px 34px rgba(174,139,77,.32);transform:scale(1.08)}.signature-intro-controls button svg{font-size:31px;fill:currentColor;transition:transform .25s ease}.signature-intro-controls button:hover svg{transform:scale(1.13)}@keyframes signature-open-pulse{50%{box-shadow:0 0 0 13px rgba(253,251,247,.1),0 14px 32px rgba(125,101,53,.22)}}
+@media(max-width:700px){.signature-intro-controls button{width:78px;min-width:78px;height:78px;min-height:78px;padding:0}}
+/* Editorial mobile interior and a physical page-turning photo album. */
+.signature-book{position:relative;width:min(680px,100%);margin:0 auto;padding:18px 18px 14px;border:1px solid rgba(200,169,106,.48);background:linear-gradient(135deg,#e5dfd5,#fffdf8 16%,#ebe7df 100%);box-shadow:0 22px 42px rgba(69,61,48,.13),inset 0 0 0 5px rgba(255,255,255,.55);perspective:1200px}.signature-book-spine{position:absolute;z-index:3;top:13px;bottom:59px;left:50%;width:19px;transform:translateX(-50%);background:linear-gradient(90deg,rgba(87,76,59,.16),rgba(255,255,255,.8),rgba(87,76,59,.14));box-shadow:inset 1px 0 rgba(255,255,255,.8)}.signature-book-pages{position:relative;overflow:hidden;aspect-ratio:1.25/1;background:#dfdbd4;box-shadow:inset 0 0 38px rgba(73,62,46,.18)}.signature-book-pages figure{position:absolute;inset:0;margin:0;transform-origin:left center;backface-visibility:hidden}.signature-book-pages figure:after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,rgba(63,52,37,.16),transparent 17%,transparent 76%,rgba(255,255,255,.16));box-shadow:inset 0 0 0 8px rgba(255,253,248,.52)}.signature-book-pages img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.78) contrast(.97)}.signature-book-count{position:absolute;z-index:4;right:18px;bottom:14px;display:flex;align-items:center;gap:8px;color:#9b7b43;font:700 9px Inter,Arial,sans-serif;letter-spacing:.18em}.signature-book-count i{width:27px;height:1px;background:#c8a96a}.signature-book-actions{position:relative;z-index:4;display:flex;align-items:center;justify-content:center;gap:17px;margin-top:14px;color:#846f48;font:700 9px Inter,Arial,sans-serif;letter-spacing:.15em;text-transform:uppercase}.signature-book-actions button{display:grid;place-items:center;width:34px;height:34px;border:1px solid rgba(200,169,106,.65);border-radius:50%;background:#fffdf8;color:#96763e;cursor:pointer;transition:transform .25s ease,background .25s ease}.signature-book-actions button:not(:disabled):hover{transform:scale(1.1);background:#c8a96a;color:#fff}.signature-book-actions button:disabled{opacity:.32;cursor:not-allowed}.signature-book-actions svg{font-size:18px}
+@media(max-width:700px){.signature-marble{background:radial-gradient(circle at 50% 2%,#fff 0,#fdfbf7 31%,#f0ede7 100%)}.signature-section{padding:74px 16px}.signature-interior-hero{min-height:78svh;padding:92px 22px 48px;background:radial-gradient(circle at 50% 38%,rgba(255,255,255,.98),rgba(245,242,236,.9) 66%,rgba(229,223,211,.8))}.signature-interior-hero .signature-hero-copy{width:100%;box-sizing:border-box;padding:31px 22px 27px;border-radius:28px;border-color:rgba(200,169,106,.56);box-shadow:0 18px 42px rgba(91,78,53,.1),inset 0 1px rgba(255,255,255,.9)}.signature-interior-hero .signature-hero-copy:before{content:"";display:block;width:38px;height:38px;margin:0 auto 14px;border:1px solid rgba(200,169,106,.6);border-radius:50%;box-shadow:0 0 0 6px rgba(200,169,106,.08)}.signature-hero h1{font-size:clamp(3.7rem,17vw,5.6rem);line-height:.83}.signature-hero-body{font-size:14px;line-height:1.85}.signature-date{font-size:1.55rem}.signature-details{padding-top:65px;background:linear-gradient(160deg,rgba(236,236,236,.76),rgba(253,251,247,.96))}.signature-details .signature-heading{text-align:center;margin-left:auto;margin-right:auto}.signature-details .signature-gold-divider{margin-left:auto;margin-right:auto}.signature-detail-grid{gap:12px;border:0;background:transparent;backdrop-filter:none}.signature-detail-grid article{min-height:0;padding:25px 22px;border:1px solid rgba(200,169,106,.37)!important;border-radius:22px;background:rgba(255,255,255,.66);box-shadow:0 12px 27px rgba(79,68,50,.06);backdrop-filter:blur(13px)}.signature-detail-grid article:nth-child(2){margin-inline:18px}.signature-detail-grid article:nth-child(3){margin-inline:5px}.signature-detail-grid span{margin-top:15px}.signature-detail-grid strong{font-size:2.15rem}.signature-story{padding-top:79px;background:linear-gradient(180deg,#fdfbf7,#ece9e3)}.signature-timeline article{grid-template-columns:45px 1fr;gap:14px;padding:23px 14px;border:1px solid rgba(200,169,106,.27);border-radius:18px;background:rgba(255,255,255,.48);box-shadow:0 10px 22px rgba(79,68,50,.04)}.signature-timeline{display:grid;gap:12px}.signature-timeline-number{font-size:1.6rem}.signature-timeline h3{font-size:2rem}.signature-gallery{padding:76px 16px;background:linear-gradient(150deg,#ded9d0,#f8f6f1 40%,#e8e3da)}.signature-book{padding:12px 12px 13px;border-radius:6px}.signature-book-spine{top:9px;bottom:55px;width:14px}.signature-book-pages{aspect-ratio:.78}.signature-book-count{right:13px;bottom:11px}.signature-book-actions{gap:14px;margin-top:12px}.signature-book-actions span{font-size:8px}.signature-countdown{background:#fdfbf7}.signature-timer{border-radius:20px;overflow:hidden;box-shadow:0 12px 30px rgba(87,72,42,.08)}.signature-timer strong{font-size:2.8rem}.signature-rsvp{padding:74px 16px;background:linear-gradient(145deg,#e9e5dd,#fdfbf7)}.signature-rsvp-card{padding:34px 21px;border-radius:25px;border-color:rgba(200,169,106,.55);box-shadow:0 18px 42px rgba(73,62,46,.1)}.signature-footer{padding:58px 18px}.signature-heading h2{font-size:clamp(3rem,13vw,4.1rem)}}
+/* Direct wedding-name reveal — no content card in the first interior section. */
+.signature-interior-hero .signature-names-reveal{display:flex;flex-direction:column;align-items:center;width:auto;max-width:min(760px,94vw);padding:0!important;border:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important;backdrop-filter:none!important}.signature-interior-hero .signature-names-reveal:before{display:none!important}.signature-wedding-line{margin:0;color:#927441;font:600 clamp(1.15rem,2.7vw,1.65rem)/1.2 "Cormorant Garamond",Georgia,serif;letter-spacing:.1em}.signature-flower{display:block;margin:20px 0 15px;color:#c8a96a;font-size:clamp(2.2rem,5vw,3.3rem);line-height:1;filter:drop-shadow(0 4px 9px rgba(200,169,106,.18))}.signature-names-reveal h1{font-size:clamp(4.4rem,11vw,8.2rem);line-height:.76;letter-spacing:-.045em;text-shadow:0 8px 25px rgba(77,65,42,.08)}.signature-ampersand{margin:12px 0;color:#c8a96a;font:500 clamp(1.7rem,3vw,2.4rem)/1 "Cormorant Garamond",Georgia,serif}.signature-names-reveal .signature-date{margin-top:27px}
+@media(max-width:700px){.signature-interior-hero{justify-items:center;padding-top:104px}.signature-interior-hero .signature-names-reveal{max-width:100%}.signature-wedding-line{font-size:1.35rem;letter-spacing:.06em}.signature-flower{margin:22px 0 18px;font-size:2.8rem}.signature-names-reveal h1{font-size:clamp(4.6rem,21vw,6.7rem);line-height:.74}.signature-ampersand{margin:13px 0;font-size:2rem}.signature-names-reveal .signature-date{margin-top:30px;font-size:1.45rem}}
+/* Sequential gold line: sentence → groom → bride. */
+.signature-interior-hero .signature-name-journey{display:flex;flex-direction:column;align-items:center;width:auto;max-width:min(760px,94vw);padding:0!important;border:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important;backdrop-filter:none!important}.signature-interior-hero .signature-name-journey:before{display:none!important}.signature-name-journey .signature-wedding-line{margin:0;color:#927441;font:600 clamp(1.15rem,2.7vw,1.65rem)/1.2 "Cormorant Garamond",Georgia,serif;letter-spacing:.1em}.signature-journey-line{display:block;width:1px;height:clamp(43px,6vw,65px);margin:19px 0;background:linear-gradient(180deg,rgba(200,169,106,.18),#c8a96a 45%,rgba(200,169,106,.16));box-shadow:0 0 9px rgba(200,169,106,.28);transform-origin:top}.signature-journey-line-second{height:clamp(36px,5vw,54px);margin:18px 0}.signature-name-journey h1{margin:0;font-size:clamp(4.4rem,11vw,8.2rem);line-height:.76;letter-spacing:-.045em;text-shadow:0 8px 25px rgba(77,65,42,.08)}.signature-name-journey .signature-date{margin-top:27px}
+@media(max-width:700px){.signature-name-journey .signature-wedding-line{font-size:1.35rem;letter-spacing:.06em}.signature-journey-line{height:53px;margin:21px 0}.signature-journey-line-second{height:42px;margin:19px 0}.signature-name-journey h1{font-size:clamp(4.6rem,21vw,6.7rem);line-height:.74}.signature-name-journey .signature-date{margin-top:31px;font-size:1.45rem}}
+/* Floral zigzag route revealed after the video intro exits. */
+.signature-interior-hero .signature-floral-journey{display:flex;flex-direction:column;align-items:center;width:min(760px,94vw);max-width:none;padding:0!important;border:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important;backdrop-filter:none!important}.signature-interior-hero .signature-floral-journey:before{display:none!important}.signature-floral-journey .signature-wedding-line{margin:0;color:#927441;font:600 clamp(1.15rem,2.7vw,1.65rem)/1.2 "Cormorant Garamond",Georgia,serif;letter-spacing:.1em}.signature-floral-route{position:relative;width:100%;height:232px;margin:13px 0 4px}.signature-floral-route svg{position:absolute;top:0;left:8%;width:120px;height:230px;overflow:visible}.signature-floral-route path{fill:none;stroke:#c8a96a;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;filter:drop-shadow(0 2px 3px rgba(200,169,106,.25))}.signature-floral-route .signature-floral-branch{stroke-width:1}.signature-floral-route circle{fill:#c8a96a;stroke:#fdfbf7;stroke-width:2}.signature-floral-route h1{position:absolute;left:31%;width:65%;margin:0;font-size:clamp(3.7rem,9vw,6.8rem);line-height:.8;letter-spacing:-.045em;text-align:start;text-shadow:0 8px 25px rgba(77,65,42,.08)}.signature-floral-route .signature-groom-name{top:43px}.signature-floral-route .signature-bride-name{top:151px}.signature-marble[dir="rtl"] .signature-floral-route svg{right:8%;left:auto;transform:scaleX(-1)}.signature-marble[dir="rtl"] .signature-floral-route h1{right:31%;left:auto;text-align:end}.signature-floral-journey .signature-date{margin-top:27px}
+@media(max-width:700px){.signature-interior-hero .signature-floral-journey{width:100%}.signature-floral-journey .signature-wedding-line{font-size:1.35rem;letter-spacing:.06em}.signature-floral-route{height:246px;margin-top:18px}.signature-floral-route svg{left:0;width:112px;height:238px}.signature-floral-route h1{left:27%;width:73%;font-size:clamp(3.65rem,16.5vw,5.5rem)}.signature-floral-route .signature-groom-name{top:50px}.signature-floral-route .signature-bride-name{top:162px}.signature-marble[dir="rtl"] .signature-floral-route svg{right:0;left:auto}.signature-marble[dir="rtl"] .signature-floral-route h1{right:27%;left:auto}.signature-floral-journey .signature-date{margin-top:27px;font-size:1.45rem}}
+/* Real paper depth and swipe-ready page turn. */
+.signature-book{transform-style:preserve-3d;perspective:1800px}.signature-book:before,.signature-book:after{content:"";position:absolute;z-index:0;left:26px;right:26px;height:calc(100% - 82px);background:#f8f3e9;border:1px solid rgba(139,117,77,.19);box-shadow:0 8px 0 #e6dfd1,0 16px 0 #dcd3c4}.signature-book:before{top:25px;transform:translateZ(-18px) rotateY(-2deg)}.signature-book:after{top:31px;transform:translateZ(-35px) rotateY(2deg)}.signature-book-pages{z-index:2;overflow:visible;transform-style:preserve-3d;perspective:1500px;border:8px solid #fffaf1;background:linear-gradient(90deg,#e4dbca,#fffdf8 8%,#fbf7ef 92%,#ded3c1);box-shadow:inset 20px 0 22px rgba(80,61,37,.09),inset -12px 0 18px rgba(80,61,37,.05),0 22px 26px rgba(70,55,35,.18)}.signature-book-pages:before{content:"";position:absolute;z-index:1;top:0;bottom:0;left:50%;width:20px;transform:translateX(-50%) translateZ(2px);background:linear-gradient(90deg,rgba(82,62,37,.18),rgba(255,255,255,.9) 45%,rgba(82,62,37,.14));pointer-events:none}.signature-book-pages .signature-book-sheet{z-index:2;transform-style:preserve-3d;cursor:grab;touch-action:pan-y;box-shadow:0 14px 28px rgba(59,45,28,.18)}.signature-book-pages .signature-book-sheet:active{cursor:grabbing}.signature-book-pages .signature-book-sheet:before{content:"";position:absolute;inset:0;z-index:-1;background:#eee5d5;transform:rotateY(180deg) translateZ(-1px);backface-visibility:hidden}.signature-book-pages .signature-book-sheet:after{box-shadow:inset 12px 0 20px rgba(54,39,22,.14),inset -5px 0 12px rgba(255,255,255,.35)}.signature-book-count{z-index:5}.signature-book-spine{z-index:5;transform:translateX(-50%) translateZ(10px)}
+@media(max-width:700px){.signature-book:before,.signature-book:after{left:19px;right:19px;height:calc(100% - 74px)}.signature-book-pages{border-width:6px;perspective:1100px}.signature-book-pages .signature-book-sheet{box-shadow:0 14px 24px rgba(59,45,28,.2)}}
+/* StPageFlip pages: real curled paper, touch drag, and responsive portrait mode. */
+.signature-real-book-wrap{display:grid;justify-items:center;gap:17px;width:100%;margin:0 auto}.signature-real-book{filter:drop-shadow(0 25px 28px rgba(61,47,28,.2));touch-action:pan-y}.signature-flip-page{box-sizing:border-box;background:#f8f2e6;padding:10px;overflow:hidden}.signature-flip-page-inner{position:relative;width:100%;height:100%;overflow:hidden;border:1px solid rgba(200,169,106,.5);background:#ece4d7;box-shadow:inset 0 0 0 7px rgba(255,253,248,.8),inset 14px 0 20px rgba(69,50,25,.1)}.signature-flip-page-inner:after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,rgba(70,51,27,.17),transparent 16%,transparent 79%,rgba(255,255,255,.18));box-shadow:inset 0 0 42px rgba(68,52,31,.16)}.signature-flip-page img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.8) contrast(.98)}.signature-flip-page span{position:absolute;z-index:2;right:14px;bottom:12px;color:#9b7b43;font:700 9px Inter,Arial,sans-serif;letter-spacing:.17em;text-shadow:0 1px #fff}.signature-real-book-wrap .signature-book-actions{margin-top:0}.signature-real-book-wrap .signature-book-actions span{font-size:9px}@media(max-width:700px){.signature-real-book-wrap{gap:14px}.signature-flip-page{padding:7px}.signature-real-book-wrap .signature-book-actions span{font-size:8px}}
+/* Keep the open two-page spread inside every viewport. */
+.signature-real-book-wrap .stf__parent{max-width:100%;margin-inline:auto}.signature-real-book-wrap .stf__block{perspective:2400px}.signature-real-book-wrap .stf__item{background:#f8f2e6}.signature-real-book-wrap .stf__outerShadow{opacity:.4!important}.signature-real-book-wrap .stf__innerShadow{opacity:.55!important}@media(max-width:700px){.signature-real-book-wrap{overflow:visible}.signature-real-book-wrap .stf__parent{transform:translateZ(0) scale(.98);transform-origin:center top}.signature-real-book-wrap .signature-book-actions{margin-top:-2px}}
+/* GSAP-controlled entrance timeline and a calmer angled physical book. */
+.signature-gsap-timeline .signature-wedding-line{transform:translateY(-18px)}.signature-gsap-timeline .signature-groom-name{transform:translateX(-18px)}.signature-gsap-timeline .signature-bride-name{transform:translateX(18px)}.signature-gsap-timeline .signature-date{transform:translateY(16px)}.signature-gsap-timeline .signature-flower-one,.signature-gsap-timeline .signature-flower-two{transform-box:fill-box;transform-origin:center;transform:scale(0)}.signature-real-book-wrap .stf__parent{box-shadow:0 32px 46px rgba(60,43,21,.18);transform:perspective(1600px) rotateX(3deg) rotateZ(-.45deg);transform-origin:center center;transition:transform .45s cubic-bezier(.16,1,.3,1),box-shadow .45s ease}.signature-real-book-wrap .stf__parent:hover{transform:perspective(1600px) rotateX(0deg) rotateZ(0);box-shadow:0 38px 54px rgba(60,43,21,.23)}@media(max-width:700px){.signature-real-book-wrap .stf__parent{transform:perspective(1100px) rotateX(2deg) rotateZ(-.25deg)}.signature-real-book-wrap .stf__parent:hover{transform:perspective(1100px) rotateX(0) rotateZ(0)}}
+/* Clear centered timeline for the invitation opening. */
+.signature-floral-route{height:270px;margin:18px 0 0}.signature-floral-route svg{left:50%;height:266px;transform:translateX(-50%)}.signature-floral-route h1{z-index:2;width:calc(50% - 40px);font-size:clamp(3.35rem,7vw,5.9rem);line-height:.84;text-align:center;text-shadow:0 3px 0 rgba(253,251,247,.95),0 12px 25px rgba(77,65,42,.1)}.signature-floral-route .signature-groom-name{top:45px;left:calc(50% + 37px)}.signature-floral-route .signature-bride-name{top:162px;left:calc(50% - 50% + 3px)}.signature-marble[dir="rtl"] .signature-floral-route svg{right:auto;left:50%;transform:translateX(-50%) scaleX(-1)}.signature-marble[dir="rtl"] .signature-floral-route h1{right:auto;left:auto;text-align:center}.signature-marble[dir="rtl"] .signature-floral-route .signature-groom-name{right:auto;left:calc(50% + 37px)}.signature-marble[dir="rtl"] .signature-floral-route .signature-bride-name{right:auto;left:3px}.signature-floral-route circle{filter:drop-shadow(0 2px 5px rgba(200,169,106,.32))}.signature-floral-journey .signature-date{position:relative;margin-top:12px;padding-top:17px}.signature-floral-journey .signature-date:before{content:"";position:absolute;top:0;left:50%;width:42px;height:1px;transform:translateX(-50%);background:#c8a96a}
+@media(max-width:700px){.signature-interior-hero{min-height:82svh}.signature-floral-route{height:260px;margin-top:21px}.signature-floral-route svg{left:50%;width:106px;height:255px;transform:translateX(-50%)}.signature-floral-route h1{width:calc(50% - 24px);font-size:clamp(2.65rem,12.5vw,4.25rem);line-height:.86}.signature-floral-route .signature-groom-name{top:49px;left:calc(50% + 20px)}.signature-floral-route .signature-bride-name{top:165px;left:4px}.signature-marble[dir="rtl"] .signature-floral-route svg{right:auto;left:50%;transform:translateX(-50%) scaleX(-1)}.signature-marble[dir="rtl"] .signature-floral-route .signature-groom-name{right:auto;left:calc(50% + 20px)}.signature-marble[dir="rtl"] .signature-floral-route .signature-bride-name{right:auto;left:4px}.signature-floral-journey .signature-date{margin-top:16px}}
+/* Real flower bloom opening: intentionally replaces the old zigzag route. */
+.signature-interior-hero .signature-bloom-timeline{display:flex;flex-direction:column;align-items:center;width:min(680px,92vw);padding:0!important;border:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important;backdrop-filter:none!important;text-align:center}.signature-interior-hero .signature-bloom-timeline:before{display:none!important}.signature-bloom-timeline .signature-wedding-line{margin:0;color:#927441;font:600 clamp(1.25rem,3vw,1.8rem)/1.25 "Cormorant Garamond",Georgia,serif;letter-spacing:.1em;transform:translateY(-18px)}.signature-growing-flower{display:block;width:clamp(145px,21vw,225px);height:clamp(145px,21vw,225px);margin:18px auto 13px;object-fit:contain;opacity:0;transform:scale(.12) rotate(-16deg);filter:drop-shadow(0 13px 15px rgba(121,96,54,.16))}.signature-bloom-timeline h1{margin:0;font-size:clamp(4.2rem,10vw,7.6rem);line-height:.78;letter-spacing:-.045em;text-shadow:0 4px 0 rgba(253,251,247,.96),0 12px 24px rgba(77,65,42,.08);opacity:0}.signature-bloom-timeline .signature-groom-name{transform:translateY(18px)}.signature-bloom-timeline .signature-bride-name{margin-top:15px;transform:translateY(18px)}.signature-bloom-timeline .signature-date{position:relative;margin:29px 0 0;padding-top:17px;transform:translateY(16px);opacity:0}.signature-bloom-timeline .signature-date:before{content:"";position:absolute;top:0;left:50%;width:42px;height:1px;transform:translateX(-50%);background:#c8a96a}
+@media(max-width:700px){.signature-interior-hero{min-height:82svh}.signature-interior-hero .signature-bloom-timeline{width:100%}.signature-bloom-timeline .signature-wedding-line{font-size:1.38rem;letter-spacing:.06em}.signature-growing-flower{width:178px;height:178px;margin:20px auto 12px}.signature-bloom-timeline h1{font-size:clamp(4.35rem,19vw,6.15rem);line-height:.76}.signature-bloom-timeline .signature-bride-name{margin-top:16px}.signature-bloom-timeline .signature-date{margin-top:31px;font-size:1.42rem}}
+/* Names become living branches of the blooming flower. */
+.signature-bloom-tree{position:relative;width:min(520px,100%);height:232px;margin:11px auto 2px}.signature-bloom-tree .signature-growing-flower{position:absolute;z-index:1;bottom:0;left:50%;width:190px;height:190px;margin:0;transform:translateX(-50%) scale(.12) rotate(-16deg)}.signature-bloom-tree h1{position:absolute;z-index:2;width:42%;margin:0;font-size:clamp(2.1rem,4.8vw,3.55rem);line-height:.92;letter-spacing:-.03em;text-shadow:0 3px 0 rgba(253,251,247,.98),0 7px 16px rgba(77,65,42,.08);transform-origin:center bottom}.signature-bloom-tree h1:before{content:"";position:absolute;top:57%;width:44px;height:1px;background:linear-gradient(90deg,transparent,#b49255);box-shadow:0 0 5px rgba(180,146,85,.34)}.signature-bloom-tree h1:after{content:"✦";position:absolute;top:calc(57% - 8px);color:#c8a96a;font-size:13px;text-shadow:0 1px #fff}.signature-bloom-tree .signature-groom-name{top:48px;left:2%;text-align:end;transform:translateY(18px)}.signature-bloom-tree .signature-groom-name:before{right:-45px;transform:rotate(21deg);transform-origin:left}.signature-bloom-tree .signature-groom-name:after{right:-50px}.signature-bloom-tree .signature-bride-name{right:2%;top:126px;text-align:start;transform:translateY(18px)}.signature-bloom-tree .signature-bride-name:before{left:-45px;transform:rotate(-21deg);transform-origin:right}.signature-bloom-tree .signature-bride-name:after{left:-50px}.signature-bloom-timeline .signature-date{margin-top:22px}
+@media(max-width:700px){.signature-bloom-tree{width:100%;height:216px;margin-top:13px}.signature-bloom-tree .signature-growing-flower{width:167px;height:167px}.signature-bloom-tree h1{width:43%;font-size:clamp(1.85rem,9.2vw,3rem)}.signature-bloom-tree .signature-groom-name{top:43px;left:0}.signature-bloom-tree .signature-bride-name{top:121px;right:0}.signature-bloom-tree h1:before{width:32px}.signature-bloom-tree .signature-groom-name:before{right:-33px}.signature-bloom-tree .signature-groom-name:after{right:-38px}.signature-bloom-tree .signature-bride-name:before{left:-33px}.signature-bloom-tree .signature-bride-name:after{left:-38px}}
+/* Keep the botanical art inside the invitation's ivory-and-gold palette. */
+.signature-bloom-tree .signature-growing-flower {
+  filter: sepia(.8) saturate(.6) hue-rotate(350deg) brightness(1.1) contrast(.88) drop-shadow(0 13px 15px rgba(121, 96, 54, .16));
+}
+
+.signature-bloom-tree h1::before {
+  background: linear-gradient(90deg, transparent, #f5f2ec 14%, #c8a96a 48%, #f5f2ec 86%, transparent);
+}
+/* Ceremony details — a single editorial composition rather than generic cards. */
+.signature-details{
+  overflow:hidden;
+  padding-block:110px;
+  background:radial-gradient(ellipse at 50% 0%,rgba(255,255,255,.96),rgba(245,242,236,.78) 52%,rgba(232,228,220,.72));
+}
+.signature-details:before,.signature-details:after{
+  content:"";position:absolute;z-index:0;width:300px;height:300px;border:1px solid rgba(200,169,106,.24);border-radius:50%;pointer-events:none;
+}
+.signature-details:before{top:142px;left:-185px;box-shadow:0 0 0 18px rgba(255,255,255,.27),0 0 0 37px rgba(200,169,106,.05)}
+.signature-details:after{right:-190px;bottom:65px;box-shadow:0 0 0 19px rgba(255,255,255,.28),0 0 0 38px rgba(200,169,106,.05)}
+.signature-details .signature-shell{position:relative;z-index:1;max-width:900px}
+.signature-details .signature-heading{margin-bottom:54px}
+.signature-detail-grid{display:grid;grid-template-columns:1fr;gap:22px;border:0;background:transparent;backdrop-filter:none}
+.signature-detail-moment{display:grid;grid-template-columns:1fr 52px 1fr;align-items:stretch;border-top:1px solid rgba(200,169,106,.52);border-bottom:1px solid rgba(200,169,106,.52);background:rgba(255,255,255,.38);box-shadow:inset 0 1px rgba(255,255,255,.82);backdrop-filter:blur(14px)}
+.signature-detail-moment article{display:flex;min-height:204px;padding:34px 28px;align-items:center;justify-content:center;text-align:center;flex-direction:column;border:0!important;background:transparent!important;box-shadow:none!important}
+.signature-detail-icon{display:grid!important;place-items:center;width:39px;height:39px;margin:0 0 15px!important;border:1px solid rgba(200,169,106,.62);border-radius:50%;color:#ad8b4c;box-shadow:0 0 0 5px rgba(200,169,106,.08)}
+.signature-detail-icon svg{font-size:17px!important;color:inherit!important}
+.signature-detail-moment article>span:not(.signature-detail-icon),.signature-detail-venue div>span{display:block;margin:0;color:#947644;font-size:9px;font-weight:700;letter-spacing:.25em;text-transform:uppercase}
+.signature-detail-moment strong{margin-top:12px;font-size:clamp(2.05rem,4.4vw,3.45rem);line-height:.9;color:#514936}
+.signature-detail-stem{display:grid;place-items:center;align-self:center;height:112px;border-inline:1px solid rgba(200,169,106,.3);color:var(--gold);font-style:normal;font-size:13px;text-shadow:0 0 10px rgba(200,169,106,.35)}
+.signature-detail-venue{position:relative;display:grid;grid-template-columns:60px 1fr auto;align-items:center;gap:20px;min-height:142px;padding:28px 34px!important;border:1px solid rgba(200,169,106,.42)!important;border-radius:0!important;background:rgba(253,251,247,.72)!important;box-shadow:0 18px 38px rgba(71,60,43,.07),inset 0 1px rgba(255,255,255,.94)!important;backdrop-filter:blur(15px)}
+.signature-detail-venue:before{content:"";position:absolute;inset:8px;border:1px solid rgba(200,169,106,.18);pointer-events:none}
+.signature-detail-venue .signature-detail-icon{position:relative;z-index:1;width:47px;height:47px;margin:0!important}
+.signature-detail-venue div{position:relative;z-index:1;min-width:0}
+.signature-detail-venue strong{display:block;margin-top:8px;font:600 clamp(1.85rem,3.5vw,2.8rem)/.95 "Cormorant Garamond",Georgia,serif;color:#514936}
+.signature-detail-venue p{position:relative;z-index:1;margin:8px 0 0;font-size:12px;line-height:1.5}
+.signature-detail-venue a{position:relative;z-index:1;display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:43px;margin:0;padding:0 17px;border:1px solid rgba(174,139,77,.72);background:#c8a96a;color:#fff;font-size:9px;letter-spacing:.14em;transition:transform .3s ease,background .3s ease,box-shadow .3s ease}
+.signature-detail-venue a:hover{background:#ae8b4d;transform:translateY(-3px);box-shadow:0 12px 20px rgba(174,139,77,.2)}
+.signature-detail-venue a svg{font-size:14px}
+@media(max-width:700px){
+  .signature-details{padding:82px 16px;background:radial-gradient(ellipse at 50% 0%,#fff,rgba(245,242,236,.9) 56%,rgba(232,228,220,.82))}
+  .signature-details:before{top:150px;left:-237px}.signature-details:after{right:-247px;bottom:62px}
+  .signature-details .signature-heading{margin-bottom:38px}
+  .signature-detail-grid{gap:16px}
+  .signature-detail-moment{grid-template-columns:1fr 38px 1fr}
+  .signature-detail-moment article{min-height:170px;padding:25px 9px}
+  .signature-detail-icon{width:34px;height:34px;margin-bottom:12px!important}.signature-detail-icon svg{font-size:15px!important}
+  .signature-detail-moment article>span:not(.signature-detail-icon),.signature-detail-venue div>span{font-size:8px;letter-spacing:.18em}
+  .signature-detail-moment strong{margin-top:10px;font-size:clamp(1.62rem,8vw,2.35rem);line-height:1}
+  .signature-detail-stem{height:92px;font-size:11px}
+  .signature-detail-venue{grid-template-columns:42px 1fr;gap:13px;min-height:0;padding:25px 21px 20px!important}
+  .signature-detail-venue .signature-detail-icon{width:38px;height:38px;align-self:start}
+  .signature-detail-venue strong{font-size:2rem}
+  .signature-detail-venue p{font-size:11px}
+  .signature-detail-venue a{grid-column:1 / -1;width:100%;box-sizing:border-box;margin-top:3px}
+}
+/* RSVP — an ivory stationery panel with restrained gold interaction states. */
+.signature-rsvp{
+  padding-block:116px;
+  background:radial-gradient(ellipse at 50% 8%,rgba(255,255,255,.98),rgba(245,242,236,.92) 54%,rgba(231,226,217,.82));
+}
+.signature-rsvp:before,.signature-rsvp:after{content:"";position:absolute;z-index:0;width:260px;height:260px;border:1px solid rgba(200,169,106,.22);border-radius:50%;pointer-events:none}
+.signature-rsvp:before{top:80px;left:-175px;box-shadow:0 0 0 17px rgba(255,255,255,.3),0 0 0 36px rgba(200,169,106,.04)}
+.signature-rsvp:after{right:-186px;bottom:61px;box-shadow:0 0 0 17px rgba(255,255,255,.3),0 0 0 36px rgba(200,169,106,.04)}
+.signature-rsvp-card{position:relative;z-index:1;max-width:590px;padding:54px 58px;border:1px solid rgba(200,169,106,.48);border-radius:2px;background:linear-gradient(135deg,rgba(255,255,255,.86),rgba(253,251,247,.74));box-shadow:0 24px 54px rgba(72,60,41,.09),inset 0 0 0 7px rgba(255,255,255,.5);backdrop-filter:blur(17px)}
+.signature-rsvp-card:before{content:"";position:absolute;inset:12px;border:1px solid rgba(200,169,106,.2);pointer-events:none}
+.signature-rsvp-card .signature-heading{position:relative;z-index:1;margin-bottom:37px}
+.signature-rsvp-card label{position:relative;z-index:1;margin-top:23px;color:#806b47;font-size:9px;letter-spacing:.2em}
+.signature-rsvp-card input,.signature-rsvp-card textarea{position:relative;z-index:1;margin-top:10px;padding:13px 2px 12px;border-bottom:1px solid rgba(154,123,66,.34);color:#433d31;font-size:13px;line-height:1.45;transition:border-color .25s ease,background .25s ease}
+.signature-rsvp-card input::placeholder,.signature-rsvp-card textarea::placeholder{color:#aaa294;opacity:1}
+.signature-rsvp-card input:focus,.signature-rsvp-card textarea:focus{border-bottom-color:#c8a96a;background:rgba(255,255,255,.33)}
+.signature-rsvp-card textarea{min-height:88px}
+.signature-attendance{position:relative;z-index:1;gap:0;margin-top:28px;padding:5px;border:1px solid rgba(200,169,106,.35);background:rgba(245,242,236,.58)}
+.signature-attendance button{min-height:51px;border:0;background:transparent;color:#756b5a;font-size:9px;letter-spacing:.12em;transition:background .3s ease,color .3s ease,box-shadow .3s ease,transform .3s ease}
+.signature-attendance button.active{border:0;background:#fffdf8;color:#886b35;box-shadow:0 6px 15px rgba(102,83,46,.1),inset 0 0 0 1px rgba(200,169,106,.5)}
+.signature-attendance button:not(.active):hover{color:#9b7b42;background:rgba(255,255,255,.38)}
+.signature-submit{position:relative;z-index:1;min-height:54px;margin-top:31px;border:1px solid #b89555;background:linear-gradient(110deg,#b99451,#cfb174 49%,#b68f4e);box-shadow:0 10px 22px rgba(167,128,59,.17);font-size:9px;letter-spacing:.2em;transition:transform .3s cubic-bezier(.16,1,.3,1),box-shadow .3s ease,filter .3s ease}
+.signature-submit:hover{background:linear-gradient(110deg,#aa8343,#c8a96a 49%,#ad8646);transform:translateY(-3px);box-shadow:0 15px 27px rgba(167,128,59,.24);filter:brightness(1.03)}
+.signature-thanks{position:relative;z-index:1;padding:18px 0 9px}.signature-thanks>svg{display:grid;place-items:center;width:46px;height:46px;margin:auto;border:1px solid rgba(200,169,106,.58);border-radius:50%;padding:8px;box-sizing:border-box;color:#b38d49;box-shadow:0 0 0 6px rgba(200,169,106,.08)}.signature-thanks h3{color:#504733}.signature-thanks p{max-width:385px;margin-inline:auto;color:#777064}
+@media(max-width:700px){
+  .signature-rsvp{padding:82px 16px}.signature-rsvp:before{left:-224px;top:113px}.signature-rsvp:after{right:-224px;bottom:45px}
+  .signature-rsvp-card{padding:42px 23px 31px;border-radius:2px}.signature-rsvp-card:before{inset:8px}
+  .signature-rsvp-card .signature-heading{margin-bottom:31px}.signature-rsvp-card label{margin-top:20px;letter-spacing:.15em}
+  .signature-attendance{margin-top:24px}.signature-attendance button{min-height:49px;font-size:8px;letter-spacing:.07em}
+  .signature-submit{margin-top:28px;min-height:52px;font-size:8px;letter-spacing:.16em}
+}
+/* A quiet marble-and-gold closing for the invitation. */
+.signature-footer{
+  position:relative;
+  overflow:hidden;
+  padding:78px 20px 72px;
+  border-top:1px solid rgba(200,169,106,.52);
+  background:radial-gradient(ellipse at 50% 0%,rgba(255,255,255,.98),rgba(245,242,236,.94) 54%,rgba(232,228,220,.9));
+}
+.signature-footer:before,.signature-footer:after{content:"";position:absolute;z-index:0;width:250px;height:250px;border:1px solid rgba(200,169,106,.22);border-radius:50%;pointer-events:none}
+.signature-footer:before{top:-168px;left:-88px;box-shadow:0 0 0 16px rgba(255,255,255,.32),0 0 0 34px rgba(200,169,106,.04)}
+.signature-footer:after{right:-88px;bottom:-179px;box-shadow:0 0 0 16px rgba(255,255,255,.32),0 0 0 34px rgba(200,169,106,.04)}
+.signature-footer>*{position:relative;z-index:1}
+.signature-footer>svg{width:22px;height:22px;padding:9px;border:1px solid rgba(200,169,106,.52);border-radius:50%;color:#b48e4a;box-shadow:0 0 0 6px rgba(200,169,106,.07)}
+.signature-footer strong{margin-top:18px;color:#514936;font-size:clamp(3rem,7vw,4.7rem);letter-spacing:-.035em;text-shadow:0 2px 0 rgba(255,255,255,.95)}
+.signature-footer .signature-gold-divider{margin-top:23px}
+.signature-footer p{max-width:470px;margin-top:20px;color:#766d5e;font-size:11px;line-height:1.8;letter-spacing:.025em}
+@media(max-width:700px){.signature-footer{padding:64px 18px 58px}.signature-footer strong{margin-top:16px;font-size:clamp(2.75rem,14vw,4rem)}.signature-footer p{font-size:10px}.signature-footer:before{left:-161px}.signature-footer:after{right:-161px}}
+/* Countdown — four ivory timepieces set into a marble panel. */
+.signature-countdown{
+  padding-block:112px;
+  overflow:hidden;
+  background:radial-gradient(ellipse at 50% 0%,rgba(255,255,255,.98),rgba(253,251,247,.94) 55%,rgba(235,232,225,.82));
+}
+.signature-countdown:before{content:"";position:absolute;z-index:0;top:88px;left:50%;width:min(790px,112vw);height:360px;transform:translateX(-50%);border:1px solid rgba(200,169,106,.18);border-radius:50%;box-shadow:0 0 0 22px rgba(255,255,255,.25),0 0 0 45px rgba(200,169,106,.035);pointer-events:none}
+.signature-countdown>div{position:relative;z-index:1}
+.signature-countdown .signature-heading{margin-bottom:44px}
+.signature-timer{position:relative;max-width:760px;gap:11px;margin:0 auto;padding:11px;border:1px solid rgba(200,169,106,.48);background:linear-gradient(135deg,rgba(255,255,255,.76),rgba(245,242,236,.7));box-shadow:0 22px 46px rgba(79,66,43,.09),inset 0 0 0 6px rgba(255,255,255,.48);backdrop-filter:blur(15px)}
+.signature-timer:before{content:"";position:absolute;inset:16px;border:1px solid rgba(200,169,106,.19);pointer-events:none}
+.signature-timer div{position:relative;z-index:1;min-height:154px;padding:26px 9px 21px;border:0!important;background:rgba(253,251,247,.6);box-shadow:inset 0 1px rgba(255,255,255,.95)}
+.signature-timer div:not(:last-child):after{content:"";position:absolute;top:50%;right:-6px;z-index:2;width:3px;height:3px;border-radius:50%;background:#c8a96a;box-shadow:0 11px #c8a96a;transform:translateY(-50%)}
+.signature-timer strong{font-size:clamp(3rem,7vw,5.05rem);line-height:.8;color:#846a3b;text-shadow:0 2px 0 #fff,0 11px 22px rgba(106,83,42,.12)}
+.signature-timer span{margin-top:18px;color:#947644;font-size:8px;letter-spacing:.24em}
+@media(max-width:700px){
+  .signature-countdown{padding:82px 16px}.signature-countdown:before{top:120px;width:650px;height:315px}
+  .signature-countdown .signature-heading{margin-bottom:35px}
+  .signature-timer{gap:5px;padding:6px;border-radius:2px}.signature-timer:before{inset:10px}
+  .signature-timer div{min-height:112px;padding:20px 2px 14px}.signature-timer div:not(:last-child):after{right:-3px;width:2px;height:2px;box-shadow:0 8px #c8a96a}
+  .signature-timer strong{font-size:clamp(2.12rem,11.5vw,3.1rem)}.signature-timer span{margin-top:13px;font-size:7px;letter-spacing:.11em}
+}
+/* Strong final footer palette override for the Signature invitation. */
+.signature-marble .signature-footer{
+  background:#f5f2ec!important;
+  background-image:linear-gradient(135deg,rgba(255,255,255,.95) 0%,rgba(245,242,236,.98) 48%,rgba(231,225,215,.96) 100%)!important;
+  border-top:2px solid #c8a96a!important;
+  box-shadow:inset 0 12px 0 rgba(255,255,255,.58),inset 0 -1px 0 rgba(200,169,106,.32)!important;
+}
+.signature-marble .signature-footer strong{color:#816836!important}
+.signature-marble .signature-footer p{color:#6f675a!important}
+.signature-marble .signature-footer>svg{color:#c09650!important;background:#fffdf8!important}
+
+/* Personal note sourced from the Event description in the invitation editor. */
+.signature-personal-message{
+  overflow:hidden;
+  padding-block:118px;
+  background:radial-gradient(ellipse at 50% 0%,#fffdf8 0%,rgba(245,242,236,.96) 54%,rgba(228,222,211,.9) 100%);
+}
+.signature-personal-message:before,.signature-personal-message:after{
+  content:"";position:absolute;width:310px;height:310px;border:1px solid rgba(200,169,106,.22);border-radius:50%;pointer-events:none;
+}
+.signature-personal-message:before{top:-160px;right:-118px;box-shadow:0 0 0 18px rgba(255,255,255,.38),0 0 0 42px rgba(200,169,106,.04)}
+.signature-personal-message:after{bottom:-180px;left:-144px;box-shadow:0 0 0 19px rgba(255,255,255,.35),0 0 0 44px rgba(200,169,106,.04)}
+.signature-message-paper{
+  position:relative;isolation:isolate;max-width:720px;margin:auto;padding:72px 86px 62px;border:1px solid rgba(181,143,76,.58);background:linear-gradient(135deg,rgba(255,255,255,.92),rgba(252,248,239,.9));box-shadow:0 28px 65px rgba(75,59,33,.13),inset 0 0 0 9px rgba(255,255,255,.52);text-align:center;backdrop-filter:blur(16px);
+}
+.signature-message-paper:before,.signature-message-paper:after{content:"";position:absolute;z-index:-1;pointer-events:none}
+.signature-message-paper:before{inset:14px;border:1px solid rgba(200,169,106,.23)}
+.signature-message-paper:after{inset:-8px 8px 8px -8px;border:1px solid rgba(200,169,106,.16);transform:rotate(-1deg)}
+.signature-message-seal{display:grid;place-items:center;width:54px;height:54px;margin:-100px auto 27px;border:1px solid rgba(190,150,79,.76);border-radius:50%;background:#c8a96a;color:#fff;box-shadow:0 0 0 8px rgba(253,251,247,.9),0 11px 25px rgba(129,96,42,.2);font-size:19px}
+.signature-message-seal svg{fill:currentColor}
+.signature-message-stamp{position:absolute;top:29px;right:32px;padding:6px 8px;border:1px solid rgba(181,143,76,.42);color:rgba(142,109,56,.72);font:700 8px Inter,Arial,sans-serif;letter-spacing:.18em;transform:rotate(8deg)}
+.signature-message-kicker{margin:0;color:#967846;font:700 9px Inter,Arial,sans-serif;letter-spacing:.26em}
+.signature-message-paper .signature-gold-divider{margin:20px auto 27px}
+.signature-message-copy{max-width:540px;margin:0 auto;color:#5d5546;font:500 clamp(1.34rem,2.8vw,1.9rem)/1.7 "Cormorant Garamond",Georgia,serif;white-space:pre-line;text-wrap:pretty}
+.signature-message-signature{display:block;margin-top:31px;color:#9b7c44;font:600 1.1rem/1 "Cormorant Garamond",Georgia,serif;font-style:italic;letter-spacing:.06em}
+.signature-marble[dir="rtl"] .signature-message-stamp{right:auto;left:32px;transform:rotate(-8deg)}
+@media(max-width:700px){
+  .signature-personal-message{padding:92px 16px;background:radial-gradient(ellipse at 50% 0%,#fffdf8,rgba(245,242,236,.98) 58%,rgba(228,222,211,.9))}
+  .signature-personal-message:before{top:-206px;right:-220px}.signature-personal-message:after{bottom:-217px;left:-229px}
+  .signature-message-paper{padding:57px 25px 42px;box-shadow:0 20px 45px rgba(75,59,33,.11),inset 0 0 0 6px rgba(255,255,255,.55)}
+  .signature-message-paper:before{inset:9px}.signature-message-seal{width:48px;height:48px;margin:-81px auto 24px;font-size:17px;box-shadow:0 0 0 6px rgba(253,251,247,.9),0 10px 19px rgba(129,96,42,.18)}
+  .signature-message-stamp{top:20px;right:18px;font-size:7px}.signature-marble[dir="rtl"] .signature-message-stamp{left:18px}
+  .signature-message-kicker{font-size:8px;letter-spacing:.19em}.signature-message-paper .signature-gold-divider{margin:17px auto 22px}
+  .signature-message-copy{font-size:clamp(1.25rem,6vw,1.65rem);line-height:1.72}.signature-message-signature{margin-top:25px;font-size:1rem}
+}
+
+/* A midnight ceremony board gives the Event section its own modern identity. */
+.signature-marble .signature-details{
+  overflow:hidden;
+  padding-block:124px;
+  color:#fbf7ee;
+  background:
+    radial-gradient(circle at 16% 12%,rgba(224,190,113,.2),transparent 23%),
+    radial-gradient(circle at 87% 78%,rgba(104,135,115,.22),transparent 28%),
+    linear-gradient(135deg,#14221e 0%,#1e3028 47%,#14211d 100%);
+  border:0;
+}
+.signature-marble .signature-details:before,.signature-marble .signature-details:after{z-index:0;border-color:rgba(235,203,131,.3)}
+.signature-marble .signature-details:before{top:94px;left:-136px;width:330px;height:330px;box-shadow:0 0 0 18px rgba(255,255,255,.025),0 0 0 42px rgba(228,190,113,.045)}
+.signature-marble .signature-details:after{right:-148px;bottom:70px;width:350px;height:350px;box-shadow:0 0 0 18px rgba(255,255,255,.025),0 0 0 44px rgba(228,190,113,.045)}
+.signature-marble .signature-details .signature-shell{max-width:980px}
+.signature-marble .signature-details .signature-heading{margin-bottom:56px}
+.signature-marble .signature-details .signature-heading p{color:#e4bd72}
+.signature-marble .signature-details .signature-heading h2{color:#fffaf0;text-shadow:0 12px 28px rgba(0,0,0,.2)}
+.signature-marble .signature-details .signature-gold-divider{color:#e4bd72}
+.signature-marble .signature-details .signature-gold-divider i{background:linear-gradient(90deg,transparent,#e4bd72)}
+.signature-marble .signature-detail-grid{gap:20px}
+.signature-marble .signature-detail-moment{
+  position:relative;
+  overflow:hidden;
+  grid-template-columns:1fr 74px 1fr;
+  min-height:236px;
+  border:1px solid rgba(235,203,131,.38);
+  border-radius:3px;
+  background:linear-gradient(120deg,rgba(255,255,255,.13),rgba(255,255,255,.045));
+  box-shadow:inset 0 1px rgba(255,255,255,.19),0 24px 48px rgba(0,0,0,.16);
+}
+.signature-marble .signature-detail-moment:before{
+  content:"";position:absolute;inset:0;pointer-events:none;opacity:.58;background:linear-gradient(115deg,transparent 22%,rgba(255,255,255,.12) 48%,transparent 70%);transform:translateX(-95%);animation:signature-event-sheen 7s ease-in-out infinite;
+}
+.signature-marble .signature-detail-moment article{position:relative;z-index:1;min-height:234px;padding:36px 24px;color:#fffaf0;transition:background .35s ease,transform .35s cubic-bezier(.16,1,.3,1)}
+.signature-marble .signature-detail-moment article:hover{background:rgba(255,255,255,.075);transform:translateY(-4px)}
+.signature-marble .signature-detail-icon{width:50px;height:50px;margin-bottom:18px!important;border-color:rgba(235,203,131,.7);color:#e8c983;box-shadow:0 0 0 7px rgba(235,203,131,.07),0 8px 18px rgba(0,0,0,.13);animation:signature-event-icon 4.8s ease-in-out infinite}
+.signature-marble .signature-detail-icon svg{font-size:19px!important}
+.signature-marble .signature-detail-moment article>span:not(.signature-detail-icon),.signature-marble .signature-detail-venue div>span{color:#e5c77f;font-size:9px;letter-spacing:.28em}
+.signature-marble .signature-detail-moment strong{max-width:300px;margin-top:15px;color:#fffaf0;font-size:clamp(2.35rem,5vw,4rem);line-height:.86;text-shadow:0 9px 22px rgba(0,0,0,.18)}
+.signature-marble .signature-detail-stem{position:relative;z-index:1;height:126px;border-inline-color:rgba(235,203,131,.36);color:#f0d799;font-size:20px;text-shadow:0 0 16px rgba(235,203,131,.6)}
+.signature-marble .signature-detail-stem:before,.signature-marble .signature-detail-stem:after{content:"";position:absolute;left:50%;width:7px;height:7px;border:1px solid #e5c77f;transform:translateX(-50%) rotate(45deg)}
+.signature-marble .signature-detail-stem:before{top:-7px}.signature-marble .signature-detail-stem:after{bottom:-7px}
+.signature-marble .signature-detail-venue{
+  grid-template-columns:68px minmax(0,1fr) auto;
+  gap:23px;
+  min-height:166px;
+  padding:33px 38px!important;
+  border:1px solid rgba(235,203,131,.56)!important;
+  border-radius:3px!important;
+  background:linear-gradient(120deg,#f8f0dc,#e5cc94)!important;
+  box-shadow:0 27px 54px rgba(0,0,0,.2),inset 0 1px rgba(255,255,255,.8)!important;
+  color:#26352d;
+  transition:transform .35s cubic-bezier(.16,1,.3,1),box-shadow .35s ease;
+}
+.signature-marble .signature-detail-venue:hover{transform:translateY(-5px);box-shadow:0 34px 62px rgba(0,0,0,.25),inset 0 1px rgba(255,255,255,.8)!important}
+.signature-marble .signature-detail-venue:before{inset:10px;border-color:rgba(88,75,44,.2)}
+.signature-marble .signature-detail-venue .signature-detail-icon{width:54px;height:54px;margin:0!important;border-color:rgba(112,87,35,.46);background:rgba(255,253,246,.58);color:#906d2f;box-shadow:0 0 0 7px rgba(255,255,255,.22)}
+.signature-marble .signature-detail-venue div>span{color:#7e5c25}
+.signature-marble .signature-detail-venue strong{margin-top:9px;color:#2d3b32;font-size:clamp(2rem,4.2vw,3.25rem);line-height:.9;text-shadow:none}
+.signature-marble .signature-detail-venue p{margin-top:9px;color:#596159;font-size:12px;line-height:1.65}
+.signature-marble .signature-detail-venue a{min-height:47px;padding:0 20px;border:1px solid #284037;background:#284037;color:#fffaf0;box-shadow:0 10px 18px rgba(44,62,51,.16);font-size:9px;letter-spacing:.16em}
+.signature-marble .signature-detail-venue a:hover{background:#172b22;transform:translateY(-3px);box-shadow:0 14px 24px rgba(44,62,51,.24)}
+@keyframes signature-event-sheen{0%,45%{transform:translateX(-95%)}72%,100%{transform:translateX(110%)}}
+@keyframes signature-event-icon{50%{transform:translateY(-5px);box-shadow:0 0 0 9px rgba(235,203,131,.1),0 13px 22px rgba(0,0,0,.16)}}
+@media(max-width:700px){
+  .signature-marble .signature-details{padding:90px 16px;background:radial-gradient(circle at 12% 10%,rgba(224,190,113,.19),transparent 24%),linear-gradient(155deg,#14221e,#203229 60%,#14211d)}
+  .signature-marble .signature-details .signature-heading{margin-bottom:41px}.signature-marble .signature-detail-grid{gap:15px}
+  .signature-marble .signature-detail-moment{grid-template-columns:1fr 43px 1fr;min-height:177px}.signature-marble .signature-detail-moment article{min-height:176px;padding:24px 8px}
+  .signature-marble .signature-detail-icon{width:39px;height:39px;margin-bottom:13px!important;box-shadow:0 0 0 5px rgba(235,203,131,.07),0 7px 14px rgba(0,0,0,.13)}.signature-marble .signature-detail-icon svg{font-size:15px!important}
+  .signature-marble .signature-detail-moment article>span:not(.signature-detail-icon),.signature-marble .signature-detail-venue div>span{font-size:7px;letter-spacing:.17em}.signature-marble .signature-detail-moment strong{margin-top:10px;font-size:clamp(1.7rem,8.4vw,2.55rem)}
+  .signature-marble .signature-detail-stem{height:86px;font-size:14px}.signature-marble .signature-detail-stem:before,.signature-marble .signature-detail-stem:after{width:5px;height:5px}
+  .signature-marble .signature-detail-venue{grid-template-columns:45px minmax(0,1fr);gap:14px;min-height:0;padding:25px 21px 20px!important}.signature-marble .signature-detail-venue .signature-detail-icon{width:40px;height:40px;align-self:start;box-shadow:0 0 0 5px rgba(255,255,255,.22)}
+  .signature-marble .signature-detail-venue strong{font-size:2.15rem}.signature-marble .signature-detail-venue p{font-size:11px}.signature-marble .signature-detail-venue a{grid-column:1 / -1;width:100%;margin-top:4px}
+}
+
+/* Keep the event details as two clear invitation rows: moment, then venue. */
+.signature-marble .signature-details{
+  color:var(--ink);
+  background:radial-gradient(circle at 12% 10%,rgba(200,169,106,.17),transparent 24%),radial-gradient(circle at 90% 86%,rgba(181,171,153,.18),transparent 27%),linear-gradient(145deg,#f8f5ee,#e8e1d5 50%,#fdfbf7);
+}
+.signature-marble .signature-details:before,.signature-marble .signature-details:after{border-color:rgba(200,169,106,.28)}
+.signature-marble .signature-details .signature-heading p{color:#9a7b42}
+.signature-marble .signature-details .signature-heading h2{color:var(--ink);text-shadow:0 8px 22px rgba(85,73,49,.08)}
+.signature-marble .signature-details .signature-gold-divider{color:var(--gold)}
+.signature-marble .signature-details .signature-gold-divider i{background:linear-gradient(90deg,transparent,var(--gold))}
+.signature-marble .signature-detail-grid{grid-template-columns:1fr;gap:18px}
+.signature-marble .signature-detail-moment{
+  min-height:0;
+  grid-template-columns:minmax(0,1fr) 34px minmax(0,1fr);
+  border-color:rgba(200,169,106,.5);
+  background:rgba(255,255,255,.68);
+  box-shadow:inset 0 1px rgba(255,255,255,.95),0 18px 42px rgba(85,73,49,.1);
+}
+.signature-marble .signature-detail-moment:before{opacity:.7;background:linear-gradient(115deg,transparent 22%,rgba(255,255,255,.78) 48%,transparent 70%)}
+.signature-marble .signature-detail-moment article{
+  display:grid;
+  grid-template-columns:52px minmax(0,1fr);
+  grid-template-rows:auto auto;
+  column-gap:17px;
+  min-height:132px;
+  padding:25px 27px;
+  align-content:center;
+  justify-items:start;
+  text-align:start;
+  color:var(--ink);
+}
+.signature-marble .signature-detail-moment article:hover{background:rgba(200,169,106,.08)}
+.signature-marble .signature-detail-icon{border-color:rgba(200,169,106,.68);background:#fffdf8;color:#a27e3e;box-shadow:0 0 0 7px rgba(200,169,106,.08),0 8px 18px rgba(85,73,49,.1)}
+.signature-marble .signature-detail-moment .signature-detail-icon{grid-row:1 / 3;align-self:center;margin:0!important}
+.signature-marble .signature-detail-moment article>span:not(.signature-detail-icon),.signature-marble .signature-detail-venue div>span{align-self:end;margin:0;color:#9a7b42}
+.signature-marble .signature-detail-moment strong{align-self:start;max-width:none;margin-top:7px;color:#4c4537;font-size:clamp(1.65rem,3.3vw,2.55rem);line-height:1.05;text-shadow:none;overflow-wrap:break-word}
+.signature-marble .signature-detail-stem{height:72px;border-inline-color:rgba(200,169,106,.42);color:var(--gold);text-shadow:0 0 16px rgba(200,169,106,.35)}
+.signature-marble .signature-detail-stem:before,.signature-marble .signature-detail-stem:after{border-color:var(--gold)}
+.signature-marble .signature-detail-venue{
+  border-color:rgba(200,169,106,.52)!important;
+  background:linear-gradient(120deg,#fffdf8,#f5f0e7 48%,#e9dfcc)!important;
+  box-shadow:0 20px 44px rgba(85,73,49,.12),inset 0 1px rgba(255,255,255,.92)!important;
+  color:var(--ink);
+}
+.signature-marble .signature-detail-venue:hover{box-shadow:0 28px 52px rgba(85,73,49,.17),inset 0 1px rgba(255,255,255,.9)!important}
+.signature-marble .signature-detail-venue strong{color:#4c4537}
+.signature-marble .signature-detail-venue p{color:var(--muted)}
+.signature-marble .signature-detail-venue a{border-color:#b89555;background:#c8a96a;box-shadow:0 10px 18px rgba(174,139,77,.16)}
+.signature-marble .signature-detail-venue a:hover{background:#ae8b4d;box-shadow:0 14px 24px rgba(174,139,77,.24)}
+@media(max-width:700px){
+  .signature-marble .signature-details{background:radial-gradient(circle at 12% 10%,rgba(200,169,106,.2),transparent 24%),linear-gradient(155deg,#f8f5ee,#e8e1d5 60%,#fdfbf7)}
+  .signature-marble .signature-detail-grid{gap:12px}
+  .signature-marble .signature-detail-moment{grid-template-columns:minmax(0,1fr) 16px minmax(0,1fr);min-height:0}
+  .signature-marble .signature-detail-moment article{grid-template-columns:34px minmax(0,1fr);column-gap:9px;min-height:118px;padding:18px 9px}
+  .signature-marble .signature-detail-moment .signature-detail-icon{width:32px;height:32px;margin:0!important;box-shadow:0 0 0 4px rgba(200,169,106,.08),0 6px 13px rgba(85,73,49,.09)}
+  .signature-marble .signature-detail-moment article>span:not(.signature-detail-icon){font-size:7px;letter-spacing:.13em}
+  .signature-marble .signature-detail-moment strong{margin-top:6px;font-size:clamp(1.12rem,5.6vw,1.48rem);line-height:1.12}
+  .signature-marble .signature-detail-stem{width:1px;height:65px;font-size:9px}
+  .signature-marble .signature-detail-venue{min-height:132px;padding-top:22px!important}
+}
+
+/* Date, time, and venue are three independent full-width rows. */
+.signature-marble .signature-detail-grid>article{
+  box-sizing:border-box;
+  width:100%;
+  max-width:100%;
+  margin-inline:0!important;
+}
+.signature-marble .signature-detail-row{
+  position:relative;
+  display:grid;
+  grid-template-columns:68px minmax(0,1fr);
+  align-items:center;
+  gap:22px;
+  min-height:132px;
+  padding:27px 36px;
+  border:1px solid rgba(200,169,106,.5)!important;
+  background:rgba(255,255,255,.7)!important;
+  box-shadow:inset 0 1px rgba(255,255,255,.96),0 16px 36px rgba(85,73,49,.08)!important;
+  overflow:hidden;
+  transition:transform .35s cubic-bezier(.16,1,.3,1),box-shadow .35s ease;
+}
+.signature-marble .signature-detail-row:after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(110deg,transparent 25%,rgba(255,255,255,.75) 48%,transparent 70%);transform:translateX(-110%);animation:signature-event-sheen 8s ease-in-out infinite}
+.signature-marble .signature-detail-row:hover{transform:translateY(-4px);box-shadow:inset 0 1px rgba(255,255,255,.96),0 22px 42px rgba(85,73,49,.13)!important}
+.signature-marble .signature-detail-time{background:linear-gradient(120deg,rgba(255,255,255,.78),rgba(245,240,231,.82))!important}
+.signature-marble .signature-detail-row .signature-detail-icon{position:relative;z-index:1;width:52px;height:52px;margin:0!important}
+.signature-marble .signature-detail-copy{position:relative;z-index:1;min-width:0;text-align:start}
+.signature-marble .signature-detail-copy>span{display:block;margin:0;color:#9a7b42;font-size:9px;font-weight:700;letter-spacing:.28em;text-transform:uppercase}
+.signature-marble .signature-detail-copy>strong{display:block;margin-top:8px;color:#4c4537;font:600 clamp(1.9rem,4vw,3rem)/1.02 "Cormorant Garamond",Georgia,serif;overflow-wrap:break-word}
+@media(max-width:700px){
+  .signature-marble .signature-detail-row{grid-template-columns:44px minmax(0,1fr);gap:14px;min-height:102px;padding:19px 20px}
+  .signature-marble .signature-detail-row .signature-detail-icon{width:38px;height:38px;box-shadow:0 0 0 5px rgba(200,169,106,.08),0 6px 13px rgba(85,73,49,.09)}
+  .signature-marble .signature-detail-copy>span{font-size:7px;letter-spacing:.18em}
+  .signature-marble .signature-detail-copy>strong{margin-top:5px;font-size:clamp(1.5rem,7vw,2.05rem);line-height:1.08}
+}

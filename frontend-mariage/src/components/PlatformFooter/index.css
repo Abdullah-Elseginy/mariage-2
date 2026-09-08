@@ -1,0 +1,167 @@
+﻿.wil-platform-footer {
+  --footer-bg: #0b0a10;
+  --footer-surface: rgba(255, 255, 255, 0.055);
+  --footer-border: rgba(214, 177, 92, 0.28);
+  --footer-text: #f7ebd2;
+  --footer-muted: rgba(247, 235, 210, 0.66);
+  --footer-accent: #d6b15c;
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  padding: 28px clamp(18px, 5vw, 72px);
+  border-top: 1px solid var(--footer-border);
+  background: var(--footer-bg);
+  color: var(--footer-text);
+}
+
+.wil-platform-footer[data-theme='signature'] {
+  --footer-bg: #f5f2ec;
+  --footer-surface: rgba(255, 255, 255, 0.68);
+  --footer-border: rgba(200, 169, 106, 0.48);
+  --footer-text: #514936;
+  --footer-muted: rgba(81, 73, 54, 0.7);
+  --footer-accent: #b48e4a;
+  background-image: radial-gradient(ellipse at 50% 0%, rgba(255,255,255,.94), transparent 56%), linear-gradient(135deg, #fffdf8, #f5f2ec 56%, #e8e2d8);
+  box-shadow: inset 0 2px #c8a96a, inset 0 -1px rgba(200,169,106,.26);
+}
+
+.wil-platform-footer[data-theme='floral-butterfly'] {
+  --footer-bg: transparent;
+  --footer-surface: rgba(255, 253, 248, 0.1);
+  --footer-border: rgba(126, 63, 153, 0.18);
+  --footer-text: #33273c;
+  --footer-muted: rgba(51, 39, 60, 0.66);
+  --footer-accent: #7e3f99;
+}
+
+.wil-platform-footer[data-theme='love-letter'],
+.wil-platform-footer[data-theme='birthday-default'] {
+  --footer-bg: #fff7ef;
+  --footer-surface: rgba(93, 48, 43, 0.06);
+  --footer-border: rgba(197, 140, 133, 0.34);
+  --footer-text: #3d2d2a;
+  --footer-muted: rgba(61, 45, 42, 0.64);
+  --footer-accent: #a65f62;
+}
+
+.wil-platform-footer[data-theme='royal'] {
+  --footer-bg: #170d08;
+  --footer-border: rgba(224, 179, 95, 0.3);
+  --footer-text: #fff8e7;
+  --footer-muted: rgba(255, 248, 231, 0.64);
+  --footer-accent: #e0b35f;
+}
+
+.wil-platform-footer[data-theme='modern-minimal'] {
+  --footer-bg: #0e0d14;
+  --footer-surface: rgba(230, 195, 135, 0.06);
+  --footer-border: rgba(230, 195, 135, 0.24);
+  --footer-text: #f5f1e8;
+  --footer-muted: rgba(245, 241, 232, 0.58);
+  --footer-accent: #e6c387;
+}
+
+.wil-platform-footer[data-theme='birthday-neon'] {
+  --footer-bg: #05070f;
+  --footer-border: rgba(0, 245, 255, 0.24);
+  --footer-text: #f7fbff;
+  --footer-muted: rgba(247, 251, 255, 0.58);
+  --footer-accent: #00f5ff;
+}
+
+.wil-platform-footer[data-theme='birthday-romantic'],
+.wil-platform-footer[data-theme='love-message'] {
+  --footer-bg: #24030b;
+  --footer-border: rgba(255, 117, 143, 0.28);
+  --footer-text: #fff5f7;
+  --footer-muted: rgba(255, 245, 247, 0.62);
+  --footer-accent: #ff8fa3;
+}
+
+.wil-platform-footer[data-theme='eid'] {
+  --footer-bg: #10251e;
+  --footer-border: rgba(224, 190, 112, 0.3);
+  --footer-text: #fff9e8;
+  --footer-muted: rgba(255, 249, 232, 0.64);
+  --footer-accent: #e0be70;
+}
+
+.wil-platform-footer__inner {
+  width: min(1120px, 100%);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 24px;
+}
+
+.wil-platform-footer__brand {
+  min-width: 0;
+  color: inherit;
+  text-decoration: none;
+}
+
+.wil-platform-footer__brand strong {
+  display: block;
+  color: var(--footer-accent);
+  font-family: Georgia, serif;
+  font-size: 1.8rem;
+  line-height: 1;
+}
+
+.wil-platform-footer__brand span {
+  display: block;
+  margin-top: 7px;
+  color: var(--footer-muted);
+  font-size: 0.82rem;
+  line-height: 1.5;
+}
+
+.wil-platform-footer__links {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.wil-platform-footer__links a {
+  display: grid;
+  width: 40px;
+  height: 40px;
+  place-items: center;
+  border: 1px solid var(--footer-border);
+  border-radius: 50%;
+  background: var(--footer-surface);
+  color: var(--footer-text);
+  font-size: 1rem;
+  transition: transform 180ms ease, border-color 180ms ease, color 180ms ease;
+}
+
+.wil-platform-footer__links a:hover {
+  transform: translateY(-2px);
+  border-color: var(--footer-accent);
+  color: var(--footer-accent);
+}
+
+.wil-platform-footer__copyright {
+  grid-column: 1 / -1;
+  margin: 0;
+  padding-top: 16px;
+  border-top: 1px solid var(--footer-border);
+  color: var(--footer-muted);
+  font-size: 0.75rem;
+  text-align: center;
+}
+
+@media (max-width: 700px) {
+  .wil-platform-footer__inner {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    text-align: center;
+    gap: 18px;
+  }
+
+  .wil-platform-footer__links {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}

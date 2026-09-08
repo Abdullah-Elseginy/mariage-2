@@ -1,0 +1,214 @@
+{
+  "language": {
+    "label": "Language",
+    "modal_title": "Choose language",
+    "english": "English",
+    "arabic": "Arabic",
+    "direction": "LTR"
+  },
+  "common": {
+    "couple": "Abdullah & Walaa",
+    "groom": "Abdullah",
+    "bride": "Walaa",
+    "close": "Close"
+  },
+  "hero": {
+    "open_invitation": "Open wedding invitation",
+    "open": "Open",
+    "kicker": "We are getting married",
+    "body": "Together with their families, invite you to celebrate their wedding.",
+    "save_date": "Save the Date",
+    "view_details": "View Details"
+  },
+  "loading": {
+    "prompt_kicker": "The Invitation Is Ready",
+    "open_prompt": "Open the Invitation Letter"
+  },
+  "loveStory": {
+    "kicker": "The Journey",
+    "title": "Our Love Story",
+    "events": [
+      {
+        "date": "30/1/2026",
+        "title": "First Meet",
+        "desc": "The first hello that quietly started everything."
+      },
+      {
+        "date": "31/1/2026",
+        "title": "Second Meet",
+        "desc": "A second meeting made the story feel real."
+      },
+      {
+        "date": "8/2/2026",
+        "title": "Reciting Al-Fatiha",
+        "desc": "A blessed step witnessed by family and love."
+      },
+      {
+        "date": "13/2/2026",
+        "title": "The Engagement",
+        "desc": "The promise became official, and the next chapter began."
+      },
+      {
+        "date": "2/10/2026",
+        "title": "Marriage Contract Ceremony",
+        "desc": "The sacred promise is written with joy, faith, and family blessings."
+      },
+      {
+        "date": "30/10/2026",
+        "title": "The Marriage Celebration",
+        "desc": "The day everyone gathers to celebrate the beginning of forever."
+      }
+    ]
+  },
+  "event": {
+    "kicker": "Wedding Details",
+    "title": "When & Where",
+    "day_label": "The Wedding Day",
+    "date": "Friday, October 30, 2026",
+    "description": "We would be honored to celebrate this beautiful evening with you and our families.",
+    "time_label": "Time",
+    "time": "8:00 PM",
+    "venue_label": "The Venue",
+    "venue": "Cleopatra Hall",
+    "location": "Qutour Center, Gharbia Governorate",
+    "address": "Address",
+    "landmark": "Nearby Landmark",
+    "landmark_value": "Next to the train station",
+    "open_location": "Open Location",
+    "map_title": "Google Maps - Cleopatra Hall"
+  },
+  "gallery": {
+    "title": "Memories",
+    "image_alt": "Wedding Memory {{number}}"
+  },
+  "countdown": {
+    "title": "Countdown",
+    "finished": "Today is the day!",
+    "units": {
+      "days": "days",
+      "hours": "hours",
+      "minutes": "minutes",
+      "seconds": "seconds"
+    }
+  },
+  "rsvp": {
+    "kicker": "RSVP",
+    "title": "Are you attending?",
+    "name": "Full Name",
+    "name_placeholder": "John Doe",
+    "attending": "Will you attend?",
+    "yes": "Yes, I will attend",
+    "no": "No, I can't make it",
+    "message": "Message (Optional)",
+    "message_placeholder": "Send your wishes...",
+    "submit": "Send RSVP",
+    "thanks": "Thank you, {{name}}!",
+    "yes_reply": "We can't wait to celebrate with you!",
+    "no_reply": "We're sorry you can't make it, but you'll be in our hearts!"
+  },
+  "footer": {
+    "date": "Friday, 30 October 2026",
+    "made_with": "Made with",
+    "for_day": "for our special day"
+  },
+  "audio": {
+    "play": "Play Music",
+    "pause": "Pause Music"
+  },
+  "organizer": {
+    "title": "Organizer Dashboard",
+    "back_to_invitation": "Back to Invitation",
+    "rsvps_tab": "RSVP Responses ({{count}})",
+    "photos_tab": "Party Gallery ({{count}})",
+    "no_rsvps": "No RSVPs submitted yet.",
+    "no_photos": "No guest photos uploaded yet.",
+    "rsvp_guest_name": "Guest Name",
+    "rsvp_attendance": "Attendance",
+    "rsvp_message": "Message",
+    "rsvp_date": "Date",
+    "status_attending": "Attending",
+    "status_not_attending": "Not Attending",
+    "upload_by": "Uploaded by {{name}}",
+    "upload_anonymous": "Uploaded by Guest",
+    "login_title": "Organizer Dashboard",
+    "login_subtitle": "ENTER YOUR CREDENTIALS TO ACCESS INVITATION DATA",
+    "username_label": "username",
+    "username_placeholder": "username",
+    "password_label": "Password",
+    "invalid_credentials": "Invalid username or password.",
+    "authenticating": "Authenticating...",
+    "submit_login": "Access Dashboard",
+    "logout": "Logout",
+    "download_all": "Download All Photos",
+    "zipping": "Zipping...",
+    "download_photo": "Download Photo",
+    "guest_photos_title": "Guest Uploads"
+  },
+  "partyUpload": {
+    "kicker": "Party Moments",
+    "title": "Share Your Photos",
+    "description": "Take photos during our wedding celebration and upload them here!",
+    "name_label": "Your Name (Optional)",
+    "name_placeholder": "Enter your name",
+    "select_photo_label": "Select or Take a Photo",
+    "click_to_upload": "Click to Snap or Upload Image",
+    "supports_format": "Supports JPEG, PNG up to 20MB",
+    "upload_button": "Upload Photo",
+    "uploading": "Uploading photo...",
+    "remove_photo": "Remove Photo",
+    "upload_success": "Upload Successful!",
+    "success_thank_you": "Thank you for sharing your wonderful memory with us!",
+    "upload_another": "Upload Another Photo",
+    "invalid_file_error": "Please select a valid image file.",
+    "file_size_error": "Image size must be less than 20MB.",
+    "no_file_error": "Please select or capture a photo first.",
+    "upload_failed_error": "Failed to upload photo. Please try again."
+  },
+  "portfolio": {
+    "title": "Wanderful Interactive Links",
+    "kicker": "Bring Your Links To Life",
+    "desc": "We design personalized, high-fidelity digital celebration pages that capture your special moments, secured with love and brought alive with premium animations.",
+    "cta_primary": "Create Your Custom Link",
+    "cta_secondary": "Explore Services",
+    "services_title": "Our Premium Offerings",
+    "services_subtitle": "Choose from our curated collection of interactive designs, each tailored to elevate your celebrations.",
+    "wedding_title": "Wedding Invitations",
+    "wedding_desc": "Splitting-heart password locks, vintage love letters, customizable photo galleries, RSVP management, and dynamic coordinates.",
+    "wedding_bullet_1": "Split-Heart passcode locks",
+    "wedding_bullet_2": "RSVP & coordinates integrations",
+    "wedding_bullet_3": "Ambient music auto-play",
+    "birthday_title": "Birthday Greetings",
+    "birthday_desc": "Cyber neon aurora countdowns, self-typing wishes, marquee scrolling albums, and interactive passcode lock entry fields.",
+    "birthday_bullet_1": "Auto-rotating typewriter wishes",
+    "birthday_bullet_2": "Pulsing lock gate with sound effects",
+    "birthday_bullet_3": "Infinite scrolling picture marquees",
+    "eid_title": "Eid & Holidays",
+    "eid_desc": "Elegant templates built with arabesque motifs, warm audio recordings, custom name labels, and animations for greeting loved ones.",
+    "eid_bullet_1": "Customized recipient name greetings",
+    "eid_bullet_2": "Integrated holiday music",
+    "eid_bullet_3": "Polished Arabic and English layouts",
+    "features_title": "Interactive Elements That Stand Out",
+    "features_desc": "We go beyond static PDFs and image attachments. Our links are alive, offering unique tactile user interactions that surprise and delight visitors.",
+    "features_audio_title": "Ambient Audios",
+    "features_audio_desc": "Background music loops and sound effects built on Web Audio APIs.",
+    "features_secured_title": "Secured Gates",
+    "features_secured_desc": "Flexible passcode validations with support for customizable date formats.",
+    "features_sharing_title": "Instant Sharing",
+    "features_sharing_desc": "Clean, lightweight URLs optimized for sharing over WhatsApp or Socials.",
+    "features_mobile_title": "Mobile First",
+    "features_mobile_desc": "Perfect layouts crafted specifically for touch screens and mobile browsers.",
+    "features_preview_label": "Preview Layout",
+    "features_preview_title": "Ahmed & Sarah",
+    "features_preview_desc": "Unlock the gateway to see the wedding details, navigate location coordinates, and RSVP instantly.",
+    "footer_title": "Let's Create Something Wanderful",
+    "footer_desc": "Ready to design a custom interactive link that leaves a lasting impression? Connect with our team today.",
+    "footer_cta": "Chat With Us on WhatsApp",
+    "live_demo": "Live Demo",
+    "order_now": "Order Now",
+    "get_in_touch": "Get In Touch",
+    "our_services": "Our Services",
+    "features": "Features",
+    "why_wil": "Why WIL",
+    "copyright": "© {{year}} WIL (Wanderful Interactive Links). All rights reserved."
+  }
+}

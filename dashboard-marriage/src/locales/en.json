@@ -1,0 +1,299 @@
+{
+  "language": {
+    "label": "Language",
+    "modal_title": "Choose language",
+    "english": "English",
+    "arabic": "Arabic",
+    "direction": "LTR"
+  },
+  "common": {
+    "couple": "Abdullah & Walaa",
+    "groom": "Abdullah",
+    "bride": "Walaa",
+    "close": "Close"
+  },
+  "hero": {
+    "open_invitation": "Open wedding invitation",
+    "open": "Open",
+    "kicker": "We are getting married",
+    "body": "Together with their families, invite you to celebrate their wedding.",
+    "save_date": "Save the Date",
+    "view_details": "View Details"
+  },
+  "loading": {
+    "prompt_kicker": "The Invitation Is Ready",
+    "open_prompt": "Open the Invitation Letter"
+  },
+  "loveStory": {
+    "kicker": "The Journey",
+    "title": "Our Love Story",
+    "events": [
+      {
+        "date": "30/1/2026",
+        "title": "First Meet",
+        "desc": "The first hello that quietly started everything."
+      },
+      {
+        "date": "31/1/2026",
+        "title": "Second Meet",
+        "desc": "A second meeting made the story feel real."
+      },
+      {
+        "date": "8/2/2026",
+        "title": "Reciting Al-Fatiha",
+        "desc": "A blessed step witnessed by family and love."
+      },
+      {
+        "date": "13/2/2026",
+        "title": "The Engagement",
+        "desc": "The promise became official, and the next chapter began."
+      },
+      {
+        "date": "2/10/2026",
+        "title": "Marriage Contract Ceremony",
+        "desc": "The sacred promise is written with joy, faith, and family blessings."
+      },
+      {
+        "date": "30/10/2026",
+        "title": "The Marriage Celebration",
+        "desc": "The day everyone gathers to celebrate the beginning of forever."
+      }
+    ]
+  },
+  "event": {
+    "kicker": "Wedding Details",
+    "title": "When & Where",
+    "day_label": "The Wedding Day",
+    "date": "Friday, October 30, 2026",
+    "description": "We would be honored to celebrate this beautiful evening with you and our families.",
+    "time_label": "Time",
+    "time": "8:00 PM",
+    "venue_label": "The Venue",
+    "venue": "Cleopatra Hall",
+    "location": "Qutour Center, Gharbia Governorate",
+    "address": "Address",
+    "landmark": "Nearby Landmark",
+    "landmark_value": "Next to the train station",
+    "open_location": "Open Location",
+    "map_title": "Google Maps - Cleopatra Hall"
+  },
+  "gallery": {
+    "title": "Memories",
+    "image_alt": "Wedding Memory {{number}}"
+  },
+  "countdown": {
+    "title": "Countdown",
+    "finished": "Today is the day!",
+    "units": {
+      "days": "days",
+      "hours": "hours",
+      "minutes": "minutes",
+      "seconds": "seconds"
+    }
+  },
+  "rsvp": {
+    "kicker": "RSVP",
+    "title": "Are you attending?",
+    "name": "Full Name",
+    "name_placeholder": "John Doe",
+    "attending": "Will you attend?",
+    "yes": "Yes, I will attend",
+    "no": "No, I can't make it",
+    "message": "Message (Optional)",
+    "message_placeholder": "Send your wishes...",
+    "submit": "Send RSVP",
+    "thanks": "Thank you, {{name}}!",
+    "yes_reply": "We can't wait to celebrate with you!",
+    "no_reply": "We're sorry you can't make it, but you'll be in our hearts!"
+  },
+  "footer": {
+    "date": "Friday, 30 October 2026",
+    "made_with": "Made with",
+    "for_day": "for our special day"
+  },
+  "audio": {
+    "play": "Play Music",
+    "pause": "Pause Music"
+  },
+  "party_upload": {
+    "title": "Party Photos",
+    "description": "Capture the beautiful moments of our wedding party and share them directly with us!",
+    "button_text": "Upload Photo",
+    "name_placeholder": "Your Name (Optional)"
+  },
+  "dashboard": {
+    "brand": {
+      "kicker": "Wedding CMS",
+      "title": "Marriage Admin"
+    },
+    "sidebar": {
+      "invitations": "Invitations",
+      "empty": "No invitations yet. Create the first invitation to start.",
+      "past_invitations": "Past invitations",
+      "completed_work": "Completed templates",
+      "completed_work_desc": "Manage all your created templates and invitations"
+    },
+    "header": {
+      "kicker": "Invitation CMS",
+      "title": "Manage wedding invitation data"
+    },
+    "actions": {
+      "new_invitation": "New invitation",
+      "save": "Save",
+      "delete": "Delete",
+      "copy": "Copy",
+      "open": "Open",
+      "edit": "Edit site"
+    },
+    "status": {
+      "synced": "Dashboard synced",
+      "creating": "Creating new invitation",
+      "editing": "Editing {{path}}",
+      "saved": "Invitation saved",
+      "deleted": "Invitation deleted",
+      "working": "Working...",
+      "published": "Published",
+      "draft": "Draft"
+    },
+    "stats": {
+      "total": "Total",
+      "published": "Published",
+      "rsvps": "RSVPs"
+    },
+    "sections": {
+      "couple": "Couple",
+      "invitation": "Invitation",
+      "event": "Event",
+      "story": "Story",
+      "gallery": "Gallery",
+      "rsvp": "RSVP",
+      "footer": "Footer",
+      "countdown": "Countdown",
+      "audio": "Audio",
+      "party_upload": "Guest Uploads"
+    },
+    "fields": {
+      "organizer_username": "Organizer Username",
+      "organizer_password": "Organizer Password",
+      "groom_name": "Bridegroom name",
+      "bride_name": "Bride name",
+      "display_name": "Display name",
+      "published": "Published",
+      "loading_kicker": "Loading kicker",
+      "loading_prompt": "Loading prompt",
+      "hero_kicker": "Hero kicker",
+      "hero_is_enabled": "Show hero section",
+      "open_button": "Open button",
+      "view_details": "View details",
+      "save_date": "Save date text",
+      "hero_body": "Hero body",
+      "event_title": "Section title",
+      "event_is_enabled": "Show event section",
+      "event_date": "Event date",
+      "event_time": "Event time",
+      "venue": "Venue",
+      "location": "Location",
+      "landmark": "Landmark",
+      "map_url": "Map URL",
+      "description": "Description",
+      "story_title": "Story title",
+      "story_is_enabled": "Show story section",
+      "timeline_events": "Timeline events: date | title | description",
+      "gallery_title": "Gallery title",
+      "gallery_is_enabled": "Show gallery section",
+      "image_urls": "Image URLs, one per line",
+      "rsvp_title": "RSVP title",
+      "submit_text": "Submit text",
+      "yes_option": "Yes option",
+      "no_option": "No option",
+      "footer_date": "Footer date",
+      "made_with": "Made with",
+      "for_day": "For day",
+      "route_name": "Invitation route",
+      "open_invitation": "Envelope aria text",
+      "event_kicker": "Event kicker",
+      "day_label": "Wedding day label",
+      "venue_label": "Venue label",
+      "address": "Address label",
+      "landmark_label": "Landmark label",
+      "map_title": "Map title",
+      "open_location": "Open location text",
+      "story_kicker": "Story kicker",
+      "countdown_title": "Countdown title",
+      "countdown_is_enabled": "Show countdown section",
+      "target_date": "Countdown target date",
+      "finished_text": "Countdown finished text",
+      "rsvp_kicker": "RSVP kicker",
+      "rsvp_name": "RSVP name label",
+      "rsvp_name_placeholder": "RSVP name placeholder",
+      "attending_label": "Attendance question",
+      "message_label": "Message label",
+      "message_placeholder": "Message placeholder",
+      "thanks_text": "Thanks text with {{name}}",
+      "yes_reply": "Attending reply",
+      "no_reply": "Not attending reply",
+      "audio_src": "Audio URL",
+      "audio_is_enabled": "Show audio player",
+      "audio_play": "Play text",
+      "audio_pause": "Pause text",
+      "audio_volume": "Audio volume 0 to 1",
+      "template": "Invitation template",
+      "party_upload_is_enabled": "Enable guest photo uploads",
+      "rsvp_is_enabled": "Enable RSVP section",
+      "footer_is_enabled": "Show footer section",
+      "party_upload_title": "Upload section title",
+      "party_upload_description": "Upload section description",
+      "party_upload_button_text": "Upload button text",
+      "party_upload_name_placeholder": "Name placeholder"
+    },
+    "api": "API",
+    "overview": {
+      "kicker": "Invitation Sites",
+      "title": "Past invitations",
+      "description": "Edit an existing invitation site or open its public link."
+    },
+    "editor": {
+      "add_kicker": "New Invitation",
+      "add_title": "Add invitation site",
+      "edit_kicker": "Invitation Editor",
+      "edit_title": "Edit invitation site"
+    },
+    "confirm_delete": {
+      "title": "Delete invitation site?",
+      "message": "Delete {{name}} and remove this invitation site from the dashboard?"
+    },
+    "content_locale": {
+      "label": "Site language",
+      "hint": "Choose the language for this invitation site. The inputs below use that language, and guests will see the same language.",
+      "english": "English",
+      "arabic": "Arabic"
+    },
+    "templates": {
+      "one": "Classic Invitation",
+      "one_description": "Cinematic curtain intro with an animated envelope and scrolling sections.",
+      "two": "Signature Invitation",
+      "two_description": "Editorial premium layout with warm tones and refined motion.",
+      "three": "Royal Entrance",
+      "three_description": "Luxury palace door opening with golden motion, gallery story, event details, and RSVP.",
+      "four": "The Love Letter",
+      "four_description": "Ivory envelope opening, rose-gold details, paper notes, polaroid gallery, and reply card RSVP.",
+      "five": "Floral Butterfly",
+      "five_description": "White floral garden design with a blooming entrance, flying butterflies, soft flower colors, gallery, details, and RSVP.",
+      "six": "Modern Minimalist",
+      "six_description": "Sleek and clean dark/champagne-gold design with glassmorphic cards, large modern serif typography, and custom micro-interactions.",
+      "picker_hint": "Choose the guest experience. Each template uses the same invitation content you configure below.",
+      "selected": "Selected",
+      "preview": "Preview"
+    },
+    "eid": {
+      "sidebar": "Eid greetings",
+      "new": "New Eid greeting"
+    }
+  },
+  "theme": {
+    "light": "Light",
+    "dark": "Dark",
+    "switch_to_light": "Switch to light mode",
+    "switch_to_dark": "Switch to dark mode"
+  }
+}

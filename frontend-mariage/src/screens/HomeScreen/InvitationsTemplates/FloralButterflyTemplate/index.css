@@ -1,0 +1,83 @@
+.floral-marquee-track {
+  animation: floral-marquee 18s linear infinite;
+  transform: translate3d(0, 0, 0);
+  will-change: transform;
+}
+
+.floral-marquee-track.floral-marquee-slow {
+  animation-duration: 24s;
+}
+
+.floral-marquee-track.floral-marquee-reverse {
+  animation-name: floral-marquee-rtl;
+  animation-direction: normal;
+}
+
+@keyframes floral-marquee-rtl {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+
+  to {
+    transform: translate3d(50%, 0, 0);
+  }
+}
+
+.floral-marquee-track:hover {
+  animation-play-state: paused;
+}
+
+.floral-audio-player button {
+  border-color: rgba(203, 167, 238, 0.58) !important;
+  background: rgba(255, 253, 248, 0.9) !important;
+  color: #7e3f99 !important;
+  box-shadow: 0 18px 42px rgba(126, 63, 153, 0.18) !important;
+}
+
+.floral-audio-player button:hover {
+  background: #7e3f99 !important;
+  color: #fffdf8 !important;
+  border-color: #7e3f99 !important;
+}
+
+.floral-audio-player button span {
+  border: 1px solid rgba(203, 167, 238, 0.36);
+  background: #fffdf8;
+  color: #7e3f99;
+  box-shadow: 0 14px 30px rgba(126, 63, 153, 0.16);
+}
+
+.floral-audio-player > span {
+  background: rgba(203, 167, 238, 0.5) !important;
+}
+
+.floral-gallery-card {
+  border: 3px solid #cba7ee !important;
+  background: #f4effb !important;
+  box-shadow:
+    0 0 0 5px rgba(255, 253, 248, 0.95),
+    0 18px 46px rgba(126, 63, 153, 0.14) !important;
+  outline: 0 !important;
+}
+
+.floral-gallery-card:hover {
+  border-color: #7e3f99 !important;
+}
+
+.floral-gallery-image {
+  display: block;
+  border: 2px solid #efe3fa !important;
+  outline: 2px solid rgba(159, 115, 194, 0.55) !important;
+  outline-offset: -2px;
+  box-shadow: none !important;
+}
+
+@keyframes floral-marquee {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}

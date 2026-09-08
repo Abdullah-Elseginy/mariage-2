@@ -1,0 +1,44 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
+
+class LoveMessage extends Model
+{
+    use HasFactory;
+
+    protected $fillable = [
+        'code',
+        'slug',
+        'recipient_name',
+        'sender_name',
+        'is_published',
+        'is_demo',
+        'locale',
+        'font_family',
+        'template',
+        'content',
+    ];
+
+    protected function casts(): array
+    {
+        return [
+            'is_published' => 'boolean',
+            'is_demo' => 'boolean',
+            'content' => 'array',
+        ];
+    }
+
+    public function getPublicPathAttribute(): string
+    {
+        return "{$this->slug}-{$this->code}";
+    }
+
+    public static function makeSlug(string $recipientName, string $senderName): string
+    {
+        return Str::slug($recipientName.'-'.$senderName) ?: 'love-message';
+    }
+}

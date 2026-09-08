@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Alexandria:wght@400;500;600;700&family=Amiri:wght@400;700&family=Aref+Ruqaa:wght@400;700&family=Cairo:wght@400;500;600;700&family=Changa:wght@400;500;600;700&family=Comfortaa:wght@400;500;600;700&family=Cormorant+Garamond:wght@500;600;700&family=El+Messiri:wght@400;500;600;700&family=Handjet:wght@400;500;600;700&family=Josefin+Sans:wght@400;500;600;700&family=Lalezar&family=Lora:wght@400;500;600;700&family=Noto+Naskh+Arabic:wght@400;500;600;700&family=Outfit:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&family=Quicksand:wght@400;500;600;700&display=swap');
+
+.wil-font-theme[data-font-family='elegant'] {
+  --wil-latin-font: 'Playfair Display', serif;
+  --wil-arabic-font: 'Amiri', serif;
+}
+
+.wil-font-theme[data-font-family='romantic'] {
+  --wil-latin-font: 'Cormorant Garamond', serif;
+  --wil-arabic-font: 'Aref Ruqaa', serif;
+}
+
+.wil-font-theme[data-font-family='modern'] {
+  --wil-latin-font: 'Outfit', sans-serif;
+  --wil-arabic-font: 'Cairo', sans-serif;
+}
+
+.wil-font-theme[data-font-family='classic'] {
+  --wil-latin-font: 'Lora', serif;
+  --wil-arabic-font: 'Noto Naskh Arabic', serif;
+}
+
+.wil-font-theme[data-font-family='playful'] {
+  --wil-latin-font: 'Handjet', cursive;
+  --wil-arabic-font: 'Lalezar', cursive;
+}
+
+.wil-font-theme[data-font-family='cheerful'] {
+  --wil-latin-font: 'Comfortaa', sans-serif;
+  --wil-arabic-font: 'Alexandria', sans-serif;
+}
+
+.wil-font-theme[data-font-family='sunny'] {
+  --wil-latin-font: 'Quicksand', sans-serif;
+  --wil-arabic-font: 'Changa', sans-serif;
+}
+
+.wil-font-theme[data-font-family='bloom'] {
+  --wil-latin-font: 'Josefin Sans', sans-serif;
+  --wil-arabic-font: 'El Messiri', sans-serif;
+}
+
+.wil-font-theme,
+.wil-font-theme * {
+  font-family: var(--wil-latin-font, 'Playfair Display', serif) !important;
+}
+
+.wil-font-theme[dir='rtl'],
+.wil-font-theme[dir='rtl'] * {
+  font-family: var(--wil-arabic-font, 'Amiri', serif) !important;
+}

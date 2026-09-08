@@ -1,0 +1,10 @@
+.home-screen {
+  position: relative;
+  width: 100%;
+}
+
+.home-screen[data-template='floral-butterfly'] {
+  background:
+    radial-gradient(circle at 12% 20%, rgba(203, 167, 238, 0.2), transparent 32%),
+    linear-gradient(135deg, #fffdf8, #eadcf7);
+}

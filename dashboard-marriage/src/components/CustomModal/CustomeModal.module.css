@@ -1,0 +1,19 @@
+/* Custom styles for arrows */
+.slick_prev, .slick_next {
+    font-size: 2rem;
+    z-index: 10;
+  }
+  
+  .slick_prev::before,
+  .slick_next::before {
+    color: #006A67; /* Custom arrow color */
+  }
+  
+  .slick_prev {
+    left: -25px; /* Adjust position */
+  }
+  
+  .slick_next {
+    right: -25px; /* Adjust position */
+  }
+  

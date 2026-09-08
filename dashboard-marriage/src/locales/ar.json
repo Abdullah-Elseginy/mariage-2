@@ -1,0 +1,300 @@
+﻿{
+  "language": {
+    "label": "اللغة",
+    "modal_title": "اختر اللغة",
+    "english": "الإنجليزية",
+    "arabic": "العربية",
+    "direction": "من اليمين إلى اليسار"
+  },
+  "common": {
+    "couple": "عبدالله و ولاء",
+    "groom": "عبدالله",
+    "bride": "ولاء",
+    "close": "إغلاق"
+  },
+  "hero": {
+    "open_invitation": "افتح دعوة الزفاف",
+    "open": "افتح",
+    "kicker": "نحن على موعد مع الزفاف",
+    "body": "بمشاركة عائلتينا، ندعوكم للاحتفال معنا بزفافنا.",
+    "save_date": "احفظ التاريخ",
+    "view_details": "عرض التفاصيل"
+  },
+  "loading": {
+    "prompt_kicker": "الدعوة جاهزة",
+    "open_prompt": "افتح جواب الدعوة"
+  },
+  "loveStory": {
+    "kicker": "الرحلة",
+    "title": "قصة حبنا",
+    "events": [
+      {
+        "date": "30/1/2026",
+        "title": "أول لقاء",
+        "desc": "كانت البداية بكلمة مرحباً هادئة صنعت كل شيء."
+      },
+      {
+        "date": "31/1/2026",
+        "title": "ثاني لقاء",
+        "desc": "في اللقاء الثاني بدأت القصة تبدو حقيقية."
+      },
+      {
+        "date": "8/2/2026",
+        "title": "قراءة الفاتحة",
+        "desc": "خطوة مباركة شهدتها العائلة واحتضنها الحب."
+      },
+      {
+        "date": "13/2/2026",
+        "title": "الخطوبة",
+        "desc": "أصبح الوعد رسمياً وبدأ فصل جديد من الحكاية."
+      },
+      {
+        "date": "2/10/2026",
+        "title": "عقد القران",
+        "desc": "يُكتب الوعد المقدس بفرح وإيمان وبركة العائلة."
+      },
+      {
+        "date": "30/10/2026",
+        "title": "حفل الزفاف",
+        "desc": "اليوم الذي نجتمع فيه للاحتفال ببداية العمر معاً."
+      }
+    ]
+  },
+  "event": {
+    "kicker": "تفاصيل الزفاف",
+    "title": "الموعد والمكان",
+    "day_label": "يوم الزفاف",
+    "date": "الجمعة، 30 أكتوبر 2026",
+    "description": "يسعدنا ويشرفنا أن تشاركونا هذه الليلة الجميلة مع عائلتينا.",
+    "time_label": "الوقت",
+    "time": "8:00 مساءً",
+    "venue_label": "قاعة الحفل",
+    "venue": "قاعة كليوباترا",
+    "location": "مركز قطور، محافظة الغربية",
+    "address": "العنوان",
+    "landmark": "علامة مميزة",
+    "landmark_value": "بجوار محطة القطار",
+    "open_location": "فتح الموقع",
+    "map_title": "خرائط جوجل - قاعة كليوباترا"
+  },
+  "gallery": {
+    "title": "ذكريات",
+    "image_alt": "ذكرى من الزفاف {{number}}"
+  },
+  "countdown": {
+    "title": "العد التنازلي",
+    "finished": "اليوم هو يوم الزفاف!",
+    "units": {
+      "days": "أيام",
+      "hours": "ساعات",
+      "minutes": "دقائق",
+      "seconds": "ثواني"
+    }
+  },
+  "rsvp": {
+    "kicker": "تأكيد الحضور",
+    "title": "هل ستحضر؟",
+    "name": "الاسم بالكامل",
+    "name_placeholder": "اكتب اسمك",
+    "attending": "هل ستتمكن من الحضور؟",
+    "yes": "نعم، سأحضر",
+    "no": "لا، لن أتمكن من الحضور",
+    "message": "رسالة اختيارية",
+    "message_placeholder": "اكتب تهنئتك...",
+    "submit": "إرسال الرد",
+    "thanks": "شكراً لك، {{name}}!",
+    "yes_reply": "ننتظر الاحتفال معك بكل فرح!",
+    "no_reply": "نأسف لعدم حضورك، وستبقى في قلوبنا."
+  },
+  "footer": {
+    "date": "الجمعة، 30 أكتوبر 2026",
+    "made_with": "صُنع بكل",
+    "for_day": "ليومنا المميز"
+  },
+  "audio": {
+    "play": "تشغيل الموسيقى",
+    "pause": "إيقاف الموسيقى"
+  },
+  "party_upload": {
+    "title": "صور الحفل",
+    "description": "التقطوا اللحظات الجميلة في حفل زفافنا وشاركوها معنا مباشرة!",
+    "button_text": "رفع الصورة",
+    "name_placeholder": "الاسم (اختياري)"
+  },
+  "dashboard": {
+    "brand": {
+      "kicker": "نظام الدعوات",
+      "title": "إدارة الزواج"
+    },
+    "sidebar": {
+      "invitations": "الدعوات",
+      "empty": "لا توجد دعوات بعد. أنشئ أول دعوة للبدء.",
+      "past_invitations": "الدعوات السابقة",
+      "completed_work": "النماذج المنجزة",
+      "completed_work_desc": "إدارة جميع النماذج والدعوات المنجزة سابقاً"
+    },
+    "header": {
+      "kicker": "لوحة الدعوات",
+      "title": "إدارة بيانات دعوات الزفاف"
+    },
+    "actions": {
+      "new_invitation": "دعوة جديدة",
+      "save": "حفظ",
+      "delete": "حذف",
+      "copy": "نسخ",
+      "open": "فتح",
+      "edit": "تعديل الموقع"
+    },
+    "status": {
+      "synced": "تمت مزامنة اللوحة",
+      "creating": "إنشاء دعوة جديدة",
+      "editing": "تعديل {{path}}",
+      "saved": "تم حفظ الدعوة",
+      "deleted": "تم حذف الدعوة",
+      "working": "جار العمل...",
+      "published": "منشورة",
+      "draft": "مسودة"
+    },
+    "stats": {
+      "total": "الإجمالي",
+      "published": "المنشورة",
+      "rsvps": "تأكيدات الحضور"
+    },
+    "sections": {
+      "couple": "العروسان",
+      "invitation": "الدعوة",
+      "event": "المناسبة",
+      "story": "القصة",
+      "gallery": "الصور",
+      "rsvp": "الحضور",
+      "footer": "التذييل",
+      "countdown": "العد التنازلي",
+      "audio": "الصوت",
+      "party_upload": "رفع صور الحضور"
+    },
+    "fields": {
+      "organizer_username": "اسم مستخدم المنظم",
+      "organizer_password": "كلمة مرور المنظم",
+      "groom_name": "اسم العريس",
+      "bride_name": "اسم العروس",
+      "display_name": "الاسم المعروض",
+      "published": "منشورة",
+      "loading_kicker": "عنوان شاشة التحميل",
+      "loading_prompt": "رسالة شاشة التحميل",
+      "hero_kicker": "عنوان الدعوة",
+      "hero_is_enabled": "إظهار قسم الدعوة",
+      "open_button": "زر الفتح",
+      "view_details": "نص عرض التفاصيل",
+      "save_date": "نص حفظ التاريخ",
+      "hero_body": "نص الدعوة",
+      "event_title": "عنوان القسم",
+      "event_is_enabled": "إظهار قسم المناسبة",
+      "event_date": "تاريخ المناسبة",
+      "event_time": "وقت المناسبة",
+      "venue": "القاعة",
+      "location": "الموقع",
+      "landmark": "علامة مميزة",
+      "map_url": "رابط الخريطة",
+      "description": "الوصف",
+      "story_title": "عنوان القصة",
+      "story_is_enabled": "إظهار قسم القصة",
+      "timeline_events": "أحداث القصة: التاريخ | العنوان | الوصف",
+      "gallery_title": "عنوان الصور",
+      "gallery_is_enabled": "إظهار قسم الصور",
+      "image_urls": "روابط الصور، رابط في كل سطر",
+      "rsvp_title": "عنوان الحضور",
+      "submit_text": "نص الإرسال",
+      "yes_option": "خيار نعم",
+      "no_option": "خيار لا",
+      "footer_date": "تاريخ التذييل",
+      "made_with": "صنع بكل",
+      "for_day": "ليومنا",
+      "route_name": "رابط الدعوة",
+      "open_invitation": "نص فتح الظرف",
+      "event_kicker": "عنوان تمهيدي للمناسبة",
+      "day_label": "وصف يوم الزفاف",
+      "venue_label": "وصف القاعة",
+      "address": "وصف العنوان",
+      "landmark_label": "وصف العلامة",
+      "map_title": "عنوان الخريطة",
+      "open_location": "نص فتح الموقع",
+      "story_kicker": "عنوان تمهيدي للقصة",
+      "countdown_title": "عنوان العد",
+      "countdown_is_enabled": "إظهار قسم العد التنازلي",
+      "target_date": "موعد العد",
+      "finished_text": "نص انتهاء العد",
+      "rsvp_kicker": "عنوان تمهيدي للحضور",
+      "rsvp_name": "تسمية الاسم",
+      "rsvp_name_placeholder": "مثال الاسم",
+      "attending_label": "سؤال الحضور",
+      "message_label": "تسمية الرسالة",
+      "message_placeholder": "مثال الرسالة",
+      "thanks_text": "نص الشكر مع {{name}}",
+      "yes_reply": "رد الحضور",
+      "no_reply": "رد عدم الحضور",
+      "audio_src": "رابط الصوت",
+      "audio_is_enabled": "إظهار مشغل الصوت",
+      "audio_play": "نص التشغيل",
+      "audio_pause": "نص الإيقاف",
+      "audio_volume": "مستوى الصوت 0 إلى 1",
+      "template": "قالب الدعوة",
+      "party_upload_is_enabled": "تفعيل رفع صور الحضور",
+      "rsvp_is_enabled": "تفعيل قسم تأكيد الحضور",
+      "footer_is_enabled": "إظهار قسم التذييل",
+      "party_upload_title": "عنوان قسم الرفع",
+      "party_upload_description": "وصف قسم الرفع",
+      "party_upload_button_text": "نص زر الرفع",
+      "party_upload_name_placeholder": "مثال حقل الاسم"
+    },
+    "api": "واجهة البرمجة",
+    "overview": {
+      "kicker": "مواقع الدعوات",
+      "title": "الدعوات السابقة",
+      "description": "عدل موقع دعوة موجود أو افتح رابطه العام."
+    },
+    "editor": {
+      "add_kicker": "دعوة جديدة",
+      "add_title": "إضافة موقع دعوة",
+      "edit_kicker": "محرر الدعوة",
+      "edit_title": "تعديل موقع الدعوة"
+    },
+    "confirm_delete": {
+      "title": "حذف موقع الدعوة؟",
+      "message": "هل تريد حذف {{name}} وإزالة موقع الدعوة من اللوحة؟"
+    },
+    "content_locale": {
+      "label": "لغة الموقع",
+      "hint": "اختر لغة موقع الدعوة. الحقول بالأسفل ستكون بهذه اللغة، والضيوف سيشاهدون نفس اللغة.",
+      "english": "الإنجليزية",
+      "arabic": "العربية"
+    },
+    "templates": {
+      "one": "الدعوة الكلاسيكية",
+      "one_description": "مقدمة ستائر سينمائية مع ظرف متحرك وأقسام متتابعة.",
+      "two": "الدعوة المميزة",
+      "two_description": "تصميم تحريري فاخر بألوان دافئة وحركة أنيقة.",
+      "picker_hint": "اختر تجربة الضيوف. كل قالب يستخدم نفس محتوى الدعوة الذي تضبطه أدناه.",
+      "selected": "محدد",
+      "preview": "معاينة",
+      "three": "Royal Entrance",
+      "three_description": "Luxury palace door opening with golden motion, gallery story, event details, and RSVP.",
+      "four": "The Love Letter",
+      "four_description": "Ivory envelope opening, rose-gold details, paper notes, polaroid gallery, and reply card RSVP.",
+      "five": "Floral Butterfly",
+      "five_description": "White floral garden design with a blooming entrance, flying butterflies, soft flower colors, gallery, details, and RSVP.",
+      "six": "التصميم البسيط الحديث (Modern Minimal)",
+      "six_description": "تصميم أنيق وبسيط باللون الداكن مع لمسات ذهبية/بيج وبطاقات زجاجية، وخطوط متميزة وتفاعلات ناعمة وجذابة."
+    },
+    "eid": {
+      "sidebar": "تهاني العيد",
+      "new": "تهنئة عيد جديدة"
+    }
+  },
+  "theme": {
+    "light": "فاتح",
+    "dark": "داكن",
+    "switch_to_light": "التبديل إلى الوضع الفاتح",
+    "switch_to_dark": "التبديل إلى الوضع الداكن"
+  }
+}
+

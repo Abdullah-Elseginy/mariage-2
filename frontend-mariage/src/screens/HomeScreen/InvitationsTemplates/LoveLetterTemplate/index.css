@@ -1,0 +1,84 @@
+.love-letter-curtain-opening .loading-curtain-panel {
+  background:
+    linear-gradient(90deg, rgba(255, 255, 255, 0.22), transparent 12%, rgba(116, 63, 58, 0.16) 50%, rgba(255, 255, 255, 0.16)),
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.18) 0 1px, transparent 1px 9px),
+    repeating-linear-gradient(90deg, rgba(197, 140, 133, 0.16) 0 2px, transparent 2px 42px),
+    linear-gradient(135deg, #fffdf8 0%, #f7dcd3 42%, #c58c85 100%);
+  box-shadow:
+    inset 0 0 110px rgba(145, 82, 75, 0.18),
+    inset 0 0 18px rgba(255, 253, 248, 0.24),
+    0 0 86px rgba(197, 140, 133, 0.12);
+}
+
+.love-letter-curtain-opening .loading-curtain-panel::after {
+  background:
+    radial-gradient(circle at 50% 45%, rgba(255, 253, 248, 0.34), transparent 34%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.18), transparent 22%, transparent 76%, rgba(145, 82, 75, 0.14));
+}
+
+.love-letter-curtain-opening .loading-curtain-panel::before {
+  background:
+    linear-gradient(180deg, transparent, rgba(255, 247, 239, 0.82), transparent),
+    linear-gradient(90deg, rgba(145, 82, 75, 0.22), rgba(255, 253, 248, 0.76), rgba(145, 82, 75, 0.18));
+  box-shadow: 0 0 28px rgba(197, 140, 133, 0.36);
+}
+
+.love-letter-curtain-opening .curtain-panel-glow {
+  border-color: rgba(255, 253, 248, 0.34);
+  box-shadow: inset 0 0 36px rgba(197, 140, 133, 0.12);
+}
+
+.love-letter-curtain-opening .curtain-name {
+  border-color: rgba(197, 140, 133, 0.36);
+  background:
+    linear-gradient(135deg, rgba(255, 253, 248, 0.78), rgba(247, 220, 211, 0.62)),
+    radial-gradient(circle at 50% 0%, rgba(197, 140, 133, 0.2), transparent 68%);
+  box-shadow:
+    0 16px 42px rgba(145, 82, 75, 0.16),
+    0 0 28px rgba(197, 140, 133, 0.2),
+    inset 0 0 18px rgba(255, 253, 248, 0.2);
+  color: #7f4f49;
+  text-shadow: 0 0 18px rgba(255, 253, 248, 0.55);
+}
+
+.love-letter-curtain-opening .curtain-panel-handle {
+  background:
+    linear-gradient(90deg, rgba(145, 82, 75, 0.95), rgba(255, 247, 239, 0.96), rgba(197, 140, 133, 0.95));
+  box-shadow:
+    0 0 24px rgba(197, 140, 133, 0.45),
+    inset 0 0 10px rgba(255, 253, 248, 0.66);
+}
+
+.love-letter-curtain-opening .loading-curtain-line,
+.love-letter-curtain-opening .loading-grip-line {
+  background: linear-gradient(180deg, transparent, rgba(255, 247, 239, 0.95), transparent);
+  box-shadow: 0 0 24px rgba(197, 140, 133, 0.7);
+}
+
+.love-letter-curtain-opening .loading-hand-pull {
+  border-color: rgba(255, 253, 248, 0.86);
+  background: radial-gradient(circle, rgba(255, 253, 248, 0.92), rgba(197, 140, 133, 0.28) 48%, transparent 72%);
+  box-shadow: 0 0 22px rgba(197, 140, 133, 0.58);
+}
+
+.love-letter-curtain-opening .loading-character-groom {
+  margin-left: 0;
+  transform: translate(clamp(-36px, -2.4vw, -18px), 8px);
+}
+
+.love-letter-curtain-opening .loading-character-bride {
+  margin-right: 0;
+  transform: translate(clamp(18px, 2.4vw, 36px), 8px);
+}
+
+@media (max-width: 640px) {
+  .love-letter-curtain-opening .loading-character-groom {
+    margin-left: clamp(-54px, -12vw, -36px);
+    transform: translate(-14px, 8px);
+  }
+
+  .love-letter-curtain-opening .loading-character-bride {
+    margin-right: clamp(-54px, -12vw, -36px);
+    transform: translate(14px, 8px);
+  }
+}

@@ -1,0 +1,54 @@
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: 'Lato', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #0B0A10;
+  color: #F7EBD2;
+}
+
+::selection {
+  background: #D6B15C;
+  color: #0B0A10;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Playfair Display', serif;
+}
+
+.bg-white,
+[class~="bg-white/80"] {
+  background-color: #100E16 !important;
+}
+
+.bg-dark {
+  background-color: #08070B !important;
+}
+
+[class~="bg-cream/50"],
+[class~="bg-cream/30"] {
+  background-color: rgba(16, 14, 22, 0.78) !important;
+}
+
+[class~="bg-dark/5"] {
+  background-color: rgba(255, 255, 255, 0.04) !important;
+}
+
+.shadow-sm,
+.shadow-lg {
+  box-shadow: 0 18px 42px rgba(0, 0, 0, 0.32) !important;
+}
+
+input,
+textarea {
+  color: #F7EBD2;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: rgba(247, 235, 210, 0.48);
+}

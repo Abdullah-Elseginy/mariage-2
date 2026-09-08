@@ -1,0 +1,247 @@
+/* Modern Minimalist Template — Custom Celestial Velvet Gold Aesthetic */
+
+@import url('https://fonts.googleapis.com/css2?family=Alex+Brush&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Montserrat:wght@100..900&display=swap');
+
+.celestial-container {
+  font-family: 'Montserrat', sans-serif;
+  background-color: #07070b;
+  color: #f7f7f9;
+  overflow-x: hidden;
+}
+
+.font-serif-lux {
+  font-family: 'Playfair Display', Georgia, serif;
+}
+
+.font-script {
+  font-family: 'Alex Brush', cursive;
+}
+
+/* Background Cosmic Stardust */
+.stardust-bg {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    radial-gradient(1px 1px at 20px 30px, #fff, rgba(0,0,0,0)),
+    radial-gradient(1px 1px at 40px 70px, #fff, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 50px 160px, #e6c387, rgba(0,0,0,0)),
+    radial-gradient(1px 1px at 80px 120px, #fff, rgba(0,0,0,0)),
+    radial-gradient(1.5px 1.5px at 110px 220px, #e6c387, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 150px 30px, #fff, rgba(0,0,0,0));
+  background-repeat: repeat;
+  background-size: 200px 200px;
+  opacity: 0.15;
+  animation: stardustShift 100s linear infinite;
+}
+
+@keyframes stardustShift {
+  from { background-position: 0 0; }
+  to { background-position: 1000px 1000px; }
+}
+
+/* Split-Screen Hero Styling */
+.hero-split-left {
+  background: linear-gradient(135deg, #0f1016 0%, #07070b 100%);
+  border-right: 1px solid rgba(230, 195, 135, 0.08);
+}
+
+.hero-split-right {
+  background: linear-gradient(135deg, #1b1712 0%, #0d0c0a 100%);
+}
+
+/* Arched Gate Card Styles */
+.gate-arch-card {
+  position: relative;
+  background: rgba(18, 19, 26, 0.75);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  border: 1px solid rgba(230, 195, 135, 0.15);
+  border-radius: 120px 120px 24px 24px; /* Arch shape */
+  box-shadow: 0 30px 60px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.1);
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+.gate-arch-card::after {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: 120px 120px 24px 24px;
+  background: linear-gradient(to bottom, rgba(230, 195, 135, 0.4), transparent 60%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  pointer-events: none;
+}
+
+.gate-arch-card:hover {
+  border-color: rgba(230, 195, 135, 0.5);
+  box-shadow: 0 40px 80px rgba(230, 195, 135, 0.08), 0 0 40px rgba(230, 195, 135, 0.05);
+  transform: translateY(-8px) scale(1.01);
+}
+
+/* Luxury RSVP Container (Modern Dark Glassmorphic) */
+.rsvp-glass-container {
+  background: rgba(22, 23, 30, 0.75);
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  border: 1.5px solid rgba(230, 195, 135, 0.2);
+  border-radius: 28px;
+  box-shadow: 0 40px 80px rgba(0, 0, 0, 0.6), inset 0 1px 1px rgba(255, 255, 255, 0.05);
+}
+
+/* Luxury Input Field Styles */
+.luxury-glass-input {
+  background: rgba(255, 255, 255, 0.03) !important;
+  border: 1px solid rgba(230, 195, 135, 0.15) !important;
+  color: #ffffff !important;
+  border-radius: 16px;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.luxury-glass-input:focus {
+  border-color: #e6c387 !important;
+  background: rgba(255, 255, 255, 0.06) !important;
+  box-shadow: 0 0 0 4px rgba(230, 195, 135, 0.12) !important;
+}
+
+/* RSVP Attendance Selection Cards */
+.attendance-card {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.attendance-card:hover {
+  background: rgba(230, 195, 135, 0.04);
+  border-color: rgba(230, 195, 135, 0.3);
+}
+
+.attendance-card-active {
+  background: rgba(230, 195, 135, 0.08) !important;
+  border-color: #e6c387 !important;
+  box-shadow: 0 8px 24px rgba(230, 195, 135, 0.08);
+}
+
+/* Glowing Celestial Orb countdown */
+.orb-counter {
+  position: relative;
+  background: radial-gradient(circle at center, rgba(30, 24, 18, 0.6) 0%, rgba(13, 13, 18, 0.9) 100%);
+  border: 1.5px solid rgba(230, 195, 135, 0.15);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.5), inset 0 0 20px rgba(230, 195, 135, 0.05);
+}
+
+.orb-counter::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: 9999px;
+  background: linear-gradient(135deg, #e6c387, transparent, #e6c387);
+  opacity: 0.2;
+  animation: orbRotate 12s linear infinite;
+  z-index: -1;
+}
+
+@keyframes orbRotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Gallery Luxury Framed Cards */
+.gallery-luxury-card {
+  position: relative;
+  border: 1px solid rgba(230, 195, 135, 0.15);
+  background: rgba(18, 19, 26, 0.6);
+  padding: 10px;
+  border-radius: 20px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: hidden;
+}
+
+.gallery-luxury-card:hover {
+  transform: scale(1.02) translateY(-4px);
+  border-color: rgba(230, 195, 135, 0.4);
+  box-shadow: 0 20px 45px rgba(230, 195, 135, 0.08);
+}
+
+.gallery-inner-img {
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* --- Butterfly Animation --- */
+.butterfly-container {
+  position: absolute;
+  pointer-events: none;
+  z-index: 5;
+  transform: scale(0.6);
+  opacity: 0.8;
+}
+
+.butterfly {
+  width: 40px;
+  height: 40px;
+  position: relative;
+  transform-style: preserve-3d;
+  transform: rotateX(45deg) rotateY(15deg);
+}
+
+.wing {
+  position: absolute;
+  top: 0;
+  width: 25px;
+  height: 40px;
+  background: radial-gradient(circle at 50% 50%, rgba(230, 195, 135, 0.95), rgba(230, 195, 135, 0.3));
+  border-radius: 50% 50% 0 50%;
+  box-shadow: 0 0 15px rgba(230, 195, 135, 0.6);
+  transform-origin: right center;
+}
+
+.left-wing {
+  left: 0;
+  animation: flapLeft 0.35s ease-in-out infinite alternate;
+}
+
+.right-wing {
+  left: 25px;
+  border-radius: 50% 50% 50% 0;
+  transform-origin: left center;
+  animation: flapRight 0.35s ease-in-out infinite alternate;
+}
+
+@keyframes flapLeft {
+  0% { transform: rotateY(0deg); }
+  100% { transform: rotateY(65deg); }
+}
+
+@keyframes flapRight {
+  0% { transform: rotateY(0deg); }
+  100% { transform: rotateY(-65deg); }
+}
+
+/* Audio Player Custom Styling */
+.celestial-audio button {
+  background: rgba(18, 17, 23, 0.9) !important;
+  border: 1px solid rgba(230, 195, 135, 0.4) !important;
+  color: #e6c387 !important;
+  box-shadow: 0 10px 30px rgba(230, 195, 135, 0.15) !important;
+}
+
+.celestial-audio button:hover {
+  background: #e6c387 !important;
+  color: #07070b !important;
+}
+
+.celestial-audio button span {
+  border: 1px solid rgba(230, 195, 135, 0.2);
+  background: #121117;
+  color: #e6c387;
+}
+
+.celestial-audio > span {
+  background: rgba(230, 195, 135, 0.2) !important;
+}

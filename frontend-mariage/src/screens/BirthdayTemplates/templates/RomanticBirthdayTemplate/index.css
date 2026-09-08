@@ -1,0 +1,297 @@
+@import url('https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&family=Aref+Ruqaa:wght@400;700&family=Cairo:wght@300;400;500;600;700;800;900&family=El+Messiri:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Tajawal:wght@300;400;500;700;900&display=swap');
+
+.romantic-birthday-template {
+  --romantic-bg: #150005;
+  --romantic-velvet: #2a030b;
+  --romantic-rose-quartz: #ffccd5;
+  --romantic-rose-dark: #ff758f;
+  --romantic-rose-glow: rgba(255, 117, 143, 0.4);
+  --romantic-gold: #e5c158;
+  --romantic-gold-glow: rgba(229, 193, 88, 0.35);
+  --romantic-cream: #fff5f6;
+  --romantic-text-light: #fff0f3;
+  --romantic-text-dark: #2d040c;
+
+  font-family: 'El Messiri', 'Cairo', 'Tajawal', sans-serif;
+  background: linear-gradient(to bottom, var(--romantic-bg) 0%, #30040e 50%, #4a0616 100%);
+  color: var(--romantic-text-light);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Magical Celestial & Love Heart Texture */
+.romantic-birthday-template.starry-texture {
+  background-image: radial-gradient(circle at center, transparent 0%, rgba(21, 0, 5, 0.6) 100%),
+                    url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 5C10.5 3.5 8 3.5 6.5 5C5 6.5 5 9 6.5 10.5L12 16L17.5 10.5C19 9 19 6.5 17.5 5C16 3.5 13.5 3.5 12 5Z' fill='%23ff758f' fill-opacity='0.08'/%3E%3Ccircle cx='60' cy='25' r='1.5' fill='%23e5c158' fill-opacity='0.18'/%3E%3Ccircle cx='30' cy='75' r='1' fill='%23ffffff' fill-opacity='0.25'/%3E%3Cpath d='M82 65C80.8 63.8 78.8 63.8 77.6 65C76.4 66.2 76.4 68.2 77.6 69.4L82 73.8L86.4 69.4C87.6 68.2 87.6 66.2 86.4 65C85.2 63.8 83.2 63.8 82 65Z' fill='%23ffccd5' fill-opacity='0.09'/%3E%3C/svg%3E");
+}
+
+/* Luxury Velvet Deck Cards */
+.romantic-birthday-template .velvet-deck-card {
+  background: linear-gradient(135deg, rgba(42, 3, 11, 0.96) 0%, rgba(21, 0, 5, 0.93) 100%);
+  border: 1.5px solid rgba(229, 193, 88, 0.35);
+  border-radius: 28px;
+  box-shadow: 
+    0 25px 55px -10px rgba(10, 1, 3, 0.95),
+    0 0 35px rgba(255, 117, 143, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Astrolabe Circular Ring Glow */
+.romantic-birthday-template .astrolabe-ring {
+  border: 1.2px solid rgba(229, 193, 88, 0.22);
+  border-radius: 50%;
+  position: absolute;
+  pointer-events: none;
+}
+
+/* Glowing text gradients */
+.romantic-birthday-template .text-romantic-gradient {
+  background: linear-gradient(135deg, #e5c158 0%, #ffccd5 50%, #fff0f3 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 2px 4px rgba(21, 0, 5, 0.6));
+}
+
+/* Floating Elements (Petals, Hearts, Stars) Animation */
+@keyframes float-blossom {
+  0% {
+    transform: translateY(-10vh) translateX(0) rotate(0deg) scale(0.8);
+    opacity: 0;
+  }
+  15% {
+    opacity: 0.95;
+  }
+  90% {
+    opacity: 0.9;
+  }
+  100% {
+    transform: translateY(110vh) translateX(var(--drift-x, 100px)) rotate(var(--rot, 360deg)) scale(1.2);
+    opacity: 0;
+  }
+}
+
+.romantic-birthday-template .blossom-element {
+  position: fixed;
+  pointer-events: none;
+  z-index: 5;
+  will-change: transform, opacity;
+}
+
+/* Premium vintage Oval Mirror Frame for avatar */
+.romantic-birthday-template .oval-mirror-frame {
+  aspect-ratio: 4 / 5;
+  border-radius: 50% / 40% 40% 60% 60%;
+  border: 4px double var(--romantic-gold);
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.65),
+    0 0 25px rgba(255, 117, 143, 0.25),
+    inset 0 0 20px rgba(0, 0, 0, 0.7);
+  position: relative;
+  overflow: hidden;
+  background: var(--romantic-velvet);
+}
+.romantic-birthday-template .oval-mirror-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Astrological Dial Card */
+.romantic-birthday-template .astrological-dial {
+  background: rgba(42, 3, 11, 0.92);
+  border: 1.2px solid rgba(229, 193, 88, 0.35);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.45);
+  border-radius: 20px;
+  transition: all 0.3s ease;
+}
+.romantic-birthday-template .astrological-dial:hover {
+  border-color: var(--romantic-rose-dark);
+  box-shadow: 0 15px 30px var(--romantic-rose-glow);
+  transform: translateY(-3px);
+}
+
+/* Rolled parchment scroll cylinder look */
+.romantic-birthday-template .love-parchment-scroll {
+  background: #fdf6eb;
+  background-image: radial-gradient(circle, #ffffff 0%, #fef3e2 100%);
+  color: #3b2314 !important;
+  box-shadow: 
+    inset 0 0 50px rgba(139, 90, 43, 0.22),
+    0 15px 40px rgba(0, 0, 0, 0.45);
+  border-radius: 24px;
+  border: 2px solid #dfc6aa;
+  position: relative;
+}
+.romantic-birthday-template .love-parchment-scroll::before {
+  content: '';
+  position: absolute;
+  inset: 12px;
+  border: 1px dashed rgba(139, 90, 43, 0.3);
+  border-radius: 16px;
+  pointer-events: none;
+}
+
+.romantic-birthday-template .scroll-content p {
+  color: #3c2415 !important;
+}
+
+/* Glass Bottle / Message Scroll Capsule */
+.romantic-birthday-template .letter-capsule {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.07) 100%);
+  border: 2px solid rgba(229, 193, 88, 0.3);
+  border-radius: 28px;
+  box-shadow: 
+    0 25px 50px rgba(15, 1, 3, 0.85),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  position: relative;
+}
+
+/* Wax seal lock styling */
+.romantic-birthday-template .cork-wax-seal {
+  background: radial-gradient(circle, #ff758f 0%, #a4133c 100%);
+  box-shadow: 
+    0 10px 28px var(--romantic-rose-glow),
+    inset 0 0 12px rgba(255, 255, 255, 0.3);
+  border: 3px solid var(--romantic-gold);
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.romantic-birthday-template .cork-wax-seal:hover {
+  transform: scale(1.15) rotate(8deg);
+  box-shadow: 0 15px 35px rgba(255, 117, 143, 0.65);
+}
+
+/* Heartbeat Pulsating keyframes */
+@keyframes pulse-heartbeat {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 
+      0 10px 25px rgba(201, 24, 74, 0.4),
+      0 0 20px rgba(255, 117, 143, 0.25);
+  }
+  50% {
+    transform: scale(1.04);
+    box-shadow: 
+      0 15px 30px rgba(201, 24, 74, 0.55),
+      0 0 35px rgba(255, 117, 143, 0.5);
+  }
+}
+
+/* Optimized Buttons Sizing & Vibrant Styling */
+.romantic-birthday-template .btn-vibrant-love {
+  position: relative;
+  background: linear-gradient(135deg, #ff758f 0%, #c9184a 100%);
+  color: white !important;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  border: 2px solid var(--romantic-gold);
+  border-radius: 9999px;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  cursor: pointer;
+  padding: 16px 36px !important; /* Generous touch-friendly height */
+  font-size: 1rem !important; /* Clear button text size */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 56px;
+  animation: pulse-heartbeat 2.5s infinite;
+}
+.romantic-birthday-template .btn-vibrant-love:hover {
+  transform: translateY(-3px) scale(1.03);
+  animation-play-state: paused;
+  box-shadow: 
+    0 15px 30px rgba(201, 24, 74, 0.65),
+    0 0 35px rgba(255, 117, 143, 0.55);
+}
+.romantic-birthday-template .btn-vibrant-love:active {
+  transform: translateY(-1px) scale(0.97);
+}
+
+.romantic-birthday-template .btn-vibrant-whatsapp {
+  position: relative;
+  background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+  color: white !important;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 9999px;
+  box-shadow: 0 8px 20px rgba(18, 140, 126, 0.3);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  padding: 16px 32px !important; /* Touch friendly sizing */
+  font-size: 0.95rem !important;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 54px;
+}
+.romantic-birthday-template .btn-vibrant-whatsapp:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 25px rgba(18, 140, 126, 0.5);
+}
+
+/* Music Toggle Button ( Sage/Gold ) */
+.romantic-birthday-template .romantic-music-toggle {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 50;
+  width: 54px; /* Big touch-friendly size */
+  height: 54px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #30040e 0%, #150005 100%);
+  border: 1.5px solid var(--romantic-gold);
+  color: var(--romantic-gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
+}
+.romantic-birthday-template .romantic-music-toggle:hover {
+  background: var(--romantic-gold);
+  color: var(--romantic-text-dark);
+  box-shadow: 0 8px 24px var(--romantic-gold-glow);
+  transform: scale(1.08) rotate(15deg);
+}
+
+/* Lock Gate shake and splitting keyframe values */
+@keyframes gate-shake {
+  0%, 100% { transform: scale(1) rotate(0); }
+  20%, 60% { transform: scale(1.02) rotate(-3deg); }
+  40%, 80% { transform: scale(1.02) rotate(3deg); }
+}
+.romantic-birthday-template .animate-gate-shake {
+  animation: gate-shake 0.45s ease-in-out;
+}
+
+/* Custom fonts mapping */
+.romantic-birthday-template .font-amiri {
+  font-family: 'Aref Ruqaa', 'Amiri', serif !important;
+}
+
+.romantic-birthday-template .font-display {
+  font-family: 'El Messiri', 'Playfair Display', 'Cairo', serif !important;
+  font-weight: 700;
+}
+
+.romantic-birthday-template h1,
+.romantic-birthday-template h2,
+.romantic-birthday-template h3,
+.romantic-birthday-template .romantic-recipient-name {
+  font-family: 'El Messiri', 'Playfair Display', serif !important;
+  font-weight: 700;
+}
+
+.romantic-birthday-template p,
+.romantic-birthday-template span,
+.romantic-birthday-template button,
+.romantic-birthday-template input {
+  font-family: 'Cairo', 'Tajawal', 'El Messiri', sans-serif;
+}
