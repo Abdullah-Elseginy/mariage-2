@@ -5,10 +5,11 @@ namespace App\Http\Controllers\Api\V1;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Api\V1\SaveInvitationRequest;
 use App\Http\Resources\InvitationResource;
+use App\Models\GuestPhoto;
 use App\Models\Invitation;
+use App\Models\UploadSetting;
 use App\Support\PersistentMediaStorage;
 use App\Support\PublicRouteUniqueness;
-use App\Models\GuestPhoto;
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Arr;
@@ -283,26 +284,91 @@ class InvitationController extends Controller
             abort(404, 'Invitation link is invalid or no longer available.');
         }
 
+        $settings = UploadSetting::values();
+        $partyUpload = is_array($invitation->party_upload) ? $invitation->party_upload : [];
+        $maxImages = (int) ($partyUpload['max_images'] ?? $settings['guest_max_images']);
+        $maxImageKb = (int) $settings['guest_image_max_kb'];
+
         $validated = $request->validate([
-            'file' => ['required', 'file', 'image', 'max:20480'],
+            'file' => ['required', 'file', 'image', 'mimes:jpg,jpeg,png,webp,gif', 'max:'.$maxImageKb],
             'guest_name' => ['nullable', 'string', 'max:120'],
+            'uploader_id' => ['nullable', 'string', 'min:16', 'max:100'],
+        ], [
+            'file.max' => "Each guest photo must be {$maxImageKb} KB or smaller after compression.",
         ]);
+
+        $uploaderId = $validated['uploader_id'] ?? implode('|', [
+            (string) $request->ip(),
+            (string) $request->userAgent(),
+        ]);
+        $uploaderKey = hash('sha256', $uploaderId);
 
         PersistentMediaStorage::ensureReady();
-        $path = $request->file('file')->store(
-            'invitations/guest_photos',
-            PersistentMediaStorage::diskName()
-        );
+        $guestPhoto = DB::transaction(function () use ($invitation, $request, $validated, $uploaderKey, $maxImages): GuestPhoto {
+            Invitation::query()->whereKey($invitation->id)->lockForUpdate()->first();
 
-        $guestPhoto = GuestPhoto::create([
-            'invitation_id' => $invitation->id,
-            'image_url' => PersistentMediaStorage::url($path),
-            'guest_name' => $validated['guest_name'] ?? null,
-        ]);
+            $uploadedCount = GuestPhoto::query()
+                ->where('invitation_id', $invitation->id)
+                ->where('uploader_key', $uploaderKey)
+                ->count();
+
+            if ($uploadedCount >= $maxImages) {
+                throw ValidationException::withMessages([
+                    'file' => ["You have reached the limit of {$maxImages} photos for this invitation."],
+                ]);
+            }
+
+            $path = $request->file('file')->store(
+                'invitations/guest_photos',
+                PersistentMediaStorage::diskName()
+            );
+
+            return GuestPhoto::create([
+                'invitation_id' => $invitation->id,
+                'image_url' => PersistentMediaStorage::url($path),
+                'guest_name' => $validated['guest_name'] ?? null,
+                'uploader_key' => $uploaderKey,
+            ]);
+        });
+
+        $uploadedCount = GuestPhoto::query()
+            ->where('invitation_id', $invitation->id)
+            ->where('uploader_key', $uploaderKey)
+            ->count();
 
         return response()->json([
-            'data' => $guestPhoto
+            'data' => $guestPhoto,
+            'meta' => [
+                'uploaded_count' => $uploadedCount,
+                'max_images' => $maxImages,
+                'remaining_images' => max(0, $maxImages - $uploadedCount),
+                'max_image_size_kb' => $maxImageKb,
+            ],
         ], 201);
+    }
+
+    public function guestUploadStatus(Request $request, string $publicPath): JsonResponse
+    {
+        [$slug, $code] = $this->splitPublicPath($publicPath);
+        $invitation = Invitation::query()->where('slug', $slug)->where('code', $code)->firstOrFail();
+        $validated = $request->validate([
+            'uploader_id' => ['required', 'string', 'min:16', 'max:100'],
+        ]);
+        $settings = UploadSetting::values();
+        $partyUpload = is_array($invitation->party_upload) ? $invitation->party_upload : [];
+        $maxImages = (int) ($partyUpload['max_images'] ?? $settings['guest_max_images']);
+        $uploadedCount = $invitation->guestPhotos()
+            ->where('uploader_key', hash('sha256', $validated['uploader_id']))
+            ->count();
+
+        return response()->json([
+            'data' => [
+                'uploaded_count' => $uploadedCount,
+                'max_images' => $maxImages,
+                'remaining_images' => max(0, $maxImages - $uploadedCount),
+                'max_image_size_kb' => (int) $settings['guest_image_max_kb'],
+            ],
+        ]);
     }
 
     private function payload(SaveInvitationRequest $request, ?Invitation $invitation = null): array

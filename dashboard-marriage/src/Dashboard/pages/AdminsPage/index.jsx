@@ -8,6 +8,7 @@ import {
   FiServer,
   FiGlobe,
   FiActivity,
+  FiImage,
 } from "react-icons/fi";
 import { useNavigate } from "react-router-dom";
 import DashboardLayout from "../../DashboardLayout";
@@ -18,6 +19,7 @@ import { invitationsApi } from "../../../utils/invitationsApi";
 import { eidGreetingsApi } from "../../../utils/eidGreetingsApi";
 import { birthdayGreetingsApi } from "../../../utils/birthdayGreetingsApi";
 import { getBackendMode, setBackendMode } from "../../../utils/apiConfig";
+import { DEFAULT_UPLOAD_SETTINGS, uploadSettingsApi } from "../../../utils/uploadSettingsApi";
 
 export default function AdminsPage() {
   const toast = useToast();
@@ -34,6 +36,39 @@ export default function AdminsPage() {
   const [backendMode, setLocalBackendMode] = useState(getBackendMode());
   const [testingGlobal, setTestingGlobal] = useState(false);
   const [testingLocal, setTestingLocal] = useState(false);
+  const [uploadSettings, setUploadSettings] = useState(DEFAULT_UPLOAD_SETTINGS);
+  const [savingUploadSettings, setSavingUploadSettings] = useState(false);
+
+  useEffect(() => {
+    uploadSettingsApi.get({ refresh: true })
+      .then(setUploadSettings)
+      .catch((error) => toast.error(error.message));
+  }, [toast]);
+
+  const handleUploadSettingChange = (key, value) => {
+    setUploadSettings((current) => ({ ...current, [key]: value }));
+  };
+
+  const handleSaveUploadSettings = async (event) => {
+    event.preventDefault();
+    const payload = Object.fromEntries(
+      Object.entries(uploadSettings).map(([key, value]) => [key, Number(value)]),
+    );
+
+    setSavingUploadSettings(true);
+    setStatus("Saving upload limits...");
+    try {
+      const saved = await uploadSettingsApi.update(payload);
+      setUploadSettings(saved);
+      setStatus("Upload limits saved");
+      toast.success("Upload limits saved successfully.");
+    } catch (error) {
+      setStatus(error.message);
+      toast.error(error.message);
+    } finally {
+      setSavingUploadSettings(false);
+    }
+  };
 
   const testConnection = async (mode) => {
     if (mode === "global") setTestingGlobal(true);
@@ -412,6 +447,47 @@ export default function AdminsPage() {
                 </button>
               </div>
             )}
+          </section>
+          <section className="col-span-full rounded-xl border border-slate-200 bg-white p-4 shadow-sm dark:border-[#253141] dark:bg-[#0b131c] sm:p-6">
+            <header className="mb-5 flex items-start gap-3 border-b border-slate-100 pb-4 dark:border-white/10">
+              <span className="text-xl text-[#8a6d2f] dark:text-gold"><FiImage /></span>
+              <div>
+                <h2 className="text-xl font-black text-slate-950 dark:text-white">Image Upload Limits</h2>
+                <p className="mt-1 text-xs text-slate-500 dark:text-slate-400">
+                  Images larger than these limits are compressed in the browser. The backend rejects files that still exceed the configured size.
+                </p>
+              </div>
+            </header>
+
+            <form onSubmit={handleSaveUploadSettings} className="grid gap-4 md:grid-cols-3">
+              {[
+                ['guest_image_max_kb', 'Guest image maximum (KB)', 50, 20480],
+                ['guest_max_images', 'Default images per guest', 1, 100],
+                ['gallery_image_max_kb', 'Gallery image maximum (KB)', 50, 20480],
+              ].map(([key, label, min, max]) => (
+                <label key={key} className="grid gap-2 text-xs font-black uppercase tracking-[0.12em] text-slate-500 dark:text-slate-300">
+                  {label}
+                  <input
+                    type="number"
+                    required
+                    min={min}
+                    max={max}
+                    value={uploadSettings[key]}
+                    onChange={(event) => handleUploadSettingChange(key, event.target.value)}
+                    className="min-h-11 rounded-lg border border-slate-200 bg-white px-3 text-sm font-bold normal-case tracking-normal text-slate-900 focus:border-gold focus:outline-none dark:border-[#344458] dark:bg-[#0e1721] dark:text-white"
+                  />
+                </label>
+              ))}
+              <div className="md:col-span-3">
+                <button
+                  type="submit"
+                  disabled={savingUploadSettings}
+                  className="mobile-full-button inline-flex min-h-11 items-center justify-center gap-2 rounded-lg bg-[#111820] px-6 text-sm font-black text-white transition hover:bg-[#22303d] disabled:opacity-50 dark:bg-gold dark:text-[#111820] dark:hover:bg-[#f0cf83]"
+                >
+                  <FiSave /> {savingUploadSettings ? 'Saving...' : 'Save Upload Limits'}
+                </button>
+              </div>
+            </form>
           </section>
           {/* Create Admin Panel */}
           <section className="rounded-lg border border-slate-200 bg-white p-4 shadow-sm dark:border-[#253141] dark:bg-[#0b131c] sm:p-5">

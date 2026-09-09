@@ -244,7 +244,8 @@
       "party_upload_title": "Upload section title",
       "party_upload_description": "Upload section description",
       "party_upload_button_text": "Upload button text",
-      "party_upload_name_placeholder": "Name placeholder"
+      "party_upload_name_placeholder": "Name placeholder",
+      "party_upload_max_images": "Maximum photos per guest (blank uses global setting)"
     },
     "api": "API",
     "overview": {

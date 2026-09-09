@@ -2,25 +2,40 @@
 
 namespace Tests\Feature\Api;
 
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Storage;
 use Tests\TestCase;
 
 class MediaUploadEndpointTest extends TestCase
 {
+    use RefreshDatabase;
+
     public function test_admin_can_upload_gallery_image(): void
     {
         Storage::fake('public');
 
         $response = $this->post('/api/v1/admin/media', [
             'type' => 'gallery',
-            'file' => UploadedFile::fake()->create('memory.jpg', 512, 'image/jpeg'),
+            'file' => UploadedFile::fake()->create('memory.jpg', 400, 'image/jpeg'),
         ], ['Accept' => 'application/json'])
             ->assertCreated()
             ->assertJsonStructure(['data' => ['path', 'url']]);
 
         Storage::disk('public')->assertExists($response->json('data.path'));
         $this->assertStringContainsString('/storage/invitations/gallery/', $response->json('data.url'));
+    }
+
+    public function test_gallery_image_must_fit_configured_limit(): void
+    {
+        Storage::fake('public');
+
+        $this->post('/api/v1/admin/media', [
+            'type' => 'gallery',
+            'file' => UploadedFile::fake()->create('large.jpg', 501, 'image/jpeg'),
+        ], ['Accept' => 'application/json'])
+            ->assertUnprocessable()
+            ->assertJsonValidationErrors('file');
     }
 
     public function test_admin_can_upload_audio_file(): void

@@ -18,6 +18,11 @@ export const invitationAPI = {
     isFormData: true,
     onUploadProgress,
   }),
+  getGuestUploadStatus: (publicPath, uploaderId) => Axios({
+    method: 'GET',
+    path: `/invitations/${publicPath}/guest-upload-status`,
+    params: { uploader_id: uploaderId },
+  }),
   getOrganizerData: (publicPath, credentials) => Axios({
     method: 'GET',
     path: `/invitations/${publicPath}/organizer`,

@@ -8,6 +8,7 @@ use App\Http\Controllers\Api\V1\LoveMessageController;
 use App\Http\Controllers\Api\V1\MediaUploadController;
 use App\Http\Controllers\Api\V1\PortfolioDemoController;
 use App\Http\Controllers\Api\V1\RsvpController;
+use App\Http\Controllers\Api\V1\UploadSettingController;
 use Illuminate\Support\Facades\Route;
 
 Route::prefix('v1')->name('api.v1.')->group(function (): void {
@@ -20,13 +21,16 @@ Route::prefix('v1')->name('api.v1.')->group(function (): void {
     Route::delete('invitations/{publicPath}/guest-photos', [InvitationController::class, 'deleteAllGuestPhotos'])->name('invitations.delete-all-guest-photos');
     Route::delete('invitations/{publicPath}/guest-photos/{id}', [InvitationController::class, 'deleteGuestPhoto'])->name('invitations.delete-guest-photo');
     Route::post('invitations/{publicPath}/guest-photos', [InvitationController::class, 'storeGuestPhoto'])->name('invitations.store-guest-photo');
+    Route::get('invitations/{publicPath}/guest-upload-status', [InvitationController::class, 'guestUploadStatus'])->name('invitations.guest-upload-status');
     Route::get('eid-greetings/{publicPath}', [EidGreetingController::class, 'publicShow'])->name('eid-greetings.public-show');
     Route::get('birthday-greetings/{publicPath}', [BirthdayGreetingController::class, 'publicShow'])->name('birthday-greetings.public-show');
     Route::get('love-messages/{publicPath}', [LoveMessageController::class, 'publicShow'])->name('love-messages.public-show');
     Route::post('rsvps', [RsvpController::class, 'store'])->name('rsvps.store');
+    Route::get('upload-settings', [UploadSettingController::class, 'show'])->name('upload-settings.show');
 
     Route::prefix('admin')->name('admin.')->group(function (): void {
         Route::post('media', [MediaUploadController::class, 'store'])->name('media.store');
+        Route::put('upload-settings', [UploadSettingController::class, 'update'])->name('upload-settings.update');
         Route::apiResource('invitations', InvitationController::class)->except(['create', 'edit']);
         Route::apiResource('eid-greetings', EidGreetingController::class)->except(['create', 'edit']);
         Route::apiResource('birthday-greetings', BirthdayGreetingController::class)->except(['create', 'edit']);

@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources;
 
+use App\Models\UploadSetting;
 use App\Support\MediaUrlNormalizer;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
@@ -12,6 +13,11 @@ class InvitationResource extends JsonResource
     {
         $isAdminRoute = $request->routeIs('api.v1.admin.*');
         $stripMissingMedia = ! $isAdminRoute;
+        $uploadSettings = UploadSetting::values();
+        $partyUpload = $this->value('party_upload', []);
+        $invitationMaxImages = is_array($partyUpload) && isset($partyUpload['max_images'])
+            ? (int) $partyUpload['max_images']
+            : (int) $uploadSettings['guest_max_images'];
 
         return [
             'id' => $this->value('id'),
@@ -35,6 +41,10 @@ class InvitationResource extends JsonResource
             'footer' => $this->normalizedValue('footer', [], $request, $stripMissingMedia),
             'audio' => $this->normalizedValue('audio', [], $request, $stripMissingMedia),
             'party_upload' => $this->normalizedValue('party_upload', [], $request, $stripMissingMedia),
+            'guest_upload_limits' => [
+                'max_image_size_kb' => (int) $uploadSettings['guest_image_max_kb'],
+                'max_images' => $invitationMaxImages,
+            ],
             'rsvps_count' => $this->value('rsvps_count', 0),
             'organizer_username' => $this->when($isAdminRoute, $this->value('organizer_username')),
             'organizer_password' => $this->when($isAdminRoute, $this->value('organizer_password')),

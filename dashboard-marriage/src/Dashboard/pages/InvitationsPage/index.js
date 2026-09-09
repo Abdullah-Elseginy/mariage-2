@@ -121,6 +121,7 @@ const fieldGroups = {
     ['audio.volume', 'dashboard.fields.audio_volume'],
   ],
   party_upload: [
+    ['party_upload.max_images', 'dashboard.fields.party_upload_max_images'],
     ['party_upload.title', 'dashboard.fields.party_upload_title'],
     ['party_upload.button_text', 'dashboard.fields.party_upload_button_text'],
     ['party_upload.name_placeholder', 'dashboard.fields.party_upload_name_placeholder'],

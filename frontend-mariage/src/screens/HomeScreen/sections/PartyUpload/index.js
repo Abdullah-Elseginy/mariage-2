@@ -1,9 +1,26 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FiCamera, FiCheckCircle, FiXCircle } from 'react-icons/fi';
 import { useTranslation } from 'react-i18next';
 import { invitationAPI } from '../../../../utils/api';
 import { CustomBottom, CustomInput } from '../../../../components';
+import { compressImageToSize } from '../../../../utils/imageCompression';
+
+let sessionUploaderId = null;
+const getUploaderId = () => {
+  const storageKey = 'guest_photo_uploader_id';
+  if (sessionUploaderId) return sessionUploaderId;
+  try {
+    sessionUploaderId = localStorage.getItem(storageKey);
+  } catch {}
+  if (!sessionUploaderId) {
+    sessionUploaderId = window.crypto?.randomUUID?.() || `${Date.now()}-${Math.random().toString(36).slice(2)}`;
+    try {
+      localStorage.setItem(storageKey, sessionUploaderId);
+    } catch {}
+  }
+  return sessionUploaderId;
+};
 
 const themeStyles = {
   classic: {
@@ -138,42 +155,61 @@ const PartyUpload = ({ invitation, invitationPath }) => {
 
   const pathKey = invitation?.public_path || invitationPath;
   const [guestName, setGuestName] = useState('');
-  const [selectedFile, setSelectedFile] = useState(null);
-  const [previewUrl, setPreviewUrl] = useState('');
-  const [status, setStatus] = useState(() => localStorage.getItem('photo_uploaded_' + pathKey) === 'true' ? 'succeeded' : 'idle'); // idle, uploading, succeeded, failed
+  const maxImages = Number(invitation?.guest_upload_limits?.max_images || copy.max_images || 4);
+  const maxImageSizeKb = Number(invitation?.guest_upload_limits?.max_image_size_kb || 350);
+  const countStorageKey = `guest_photo_count_${pathKey}`;
+  const [uploadedCount, setUploadedCount] = useState(() => Number(localStorage.getItem(countStorageKey) || 0));
+  const [selectedFiles, setSelectedFiles] = useState([]);
+  const [previewUrls, setPreviewUrls] = useState([]);
+  const [status, setStatus] = useState('idle'); // idle, uploading, succeeded, failed
   const [progress, setProgress] = useState(0);
   const [errorMsg, setErrorMsg] = useState('');
+
+  useEffect(() => {
+    if (!pathKey || !copy.is_enabled) return;
+    invitationAPI.getGuestUploadStatus(pathKey, getUploaderId())
+      .then((response) => {
+        const count = Number(response?.data?.data?.uploaded_count || 0);
+        setUploadedCount(count);
+        try {
+          localStorage.setItem(countStorageKey, String(count));
+        } catch {}
+      })
+      .catch(() => {});
+  }, [copy.is_enabled, countStorageKey, pathKey]);
 
   // If section is disabled or not configured, don't render it
   if (!copy.is_enabled) return null;
 
   const handleFileChange = (e) => {
-    const file = e.target.files?.[0];
-    if (!file) return;
+    const files = Array.from(e.target.files || []);
+    if (!files.length) return;
 
-    if (!file.type.startsWith('image/')) {
+    if (files.some((file) => !file.type.startsWith('image/'))) {
       setErrorMsg(t('partyUpload.invalid_file_error', 'Please select a valid image file.'));
       return;
     }
 
-    // Limit to 20MB
-    if (file.size > 20 * 1024 * 1024) {
+    if (files.some((file) => file.size > 20 * 1024 * 1024)) {
       setErrorMsg(t('partyUpload.file_size_error', 'Image size must be less than 20MB.'));
       return;
     }
 
-    setSelectedFile(file);
+    const remainingImages = Math.max(0, maxImages - uploadedCount);
+    if (files.length > remainingImages) {
+      setErrorMsg(`You can upload ${remainingImages} more photo${remainingImages === 1 ? '' : 's'} for this invitation.`);
+      return;
+    }
+
+    previewUrls.forEach((url) => URL.revokeObjectURL(url));
+    setSelectedFiles(files);
+    setPreviewUrls(files.map((file) => URL.createObjectURL(file)));
     setErrorMsg('');
-    const reader = new FileReader();
-    reader.onloadend = () => {
-      setPreviewUrl(reader.result);
-    };
-    reader.readAsDataURL(file);
   };
 
   const handleUpload = async (e) => {
     e.preventDefault();
-    if (!selectedFile) {
+    if (!selectedFiles.length) {
       setErrorMsg(t('partyUpload.no_file_error', 'Please select or capture a photo first.'));
       return;
     }
@@ -182,31 +218,51 @@ const PartyUpload = ({ invitation, invitationPath }) => {
     setProgress(0);
     setErrorMsg('');
 
-    const formData = new FormData();
-    formData.append('file', selectedFile);
-    if (guestName.trim()) {
-      formData.append('guest_name', guestName.trim());
-    }
-
+    let successfulUploads = 0;
     try {
       const publicPath = invitation?.public_path || invitationPath;
-      await invitationAPI.uploadGuestPhoto(publicPath, formData, (progressEvent) => {
-        const percentCompleted = Math.round((progressEvent.loaded * 100) / progressEvent.total);
-        setProgress(percentCompleted);
-      });
+      let latestCount = uploadedCount;
+      for (let index = 0; index < selectedFiles.length; index += 1) {
+        const compressedFile = await compressImageToSize(selectedFiles[index], maxImageSizeKb);
+        const formData = new FormData();
+        formData.append('file', compressedFile);
+        formData.append('uploader_id', getUploaderId());
+        if (guestName.trim()) formData.append('guest_name', guestName.trim());
 
-      localStorage.setItem('photo_uploaded_' + pathKey, 'true');
+        const response = await invitationAPI.uploadGuestPhoto(publicPath, formData, (progressEvent) => {
+          const fileProgress = progressEvent.total ? progressEvent.loaded / progressEvent.total : 0;
+          setProgress(Math.round(((index + fileProgress) / selectedFiles.length) * 100));
+        });
+        latestCount = Number(response?.data?.meta?.uploaded_count || latestCount + 1);
+        successfulUploads += 1;
+        setUploadedCount(latestCount);
+        try {
+          localStorage.setItem(countStorageKey, String(latestCount));
+        } catch {}
+      }
+
+      setProgress(100);
       setStatus('succeeded');
     } catch (err) {
       console.error(err);
+      if (successfulUploads > 0) {
+        previewUrls.slice(0, successfulUploads).forEach((url) => URL.revokeObjectURL(url));
+        setSelectedFiles((current) => current.slice(successfulUploads));
+        setPreviewUrls((current) => current.slice(successfulUploads));
+      }
       setStatus('failed');
-      setErrorMsg(err.response?.data?.message || t('partyUpload.upload_failed_error', 'Failed to upload photo. Please try again.'));
+      const message = err.response?.data?.errors?.file?.[0]
+        || err.response?.data?.message
+        || err.message
+        || t('partyUpload.upload_failed_error', 'Failed to upload photo. Please try again.');
+      setErrorMsg(successfulUploads > 0 ? `${successfulUploads} photo(s) uploaded. ${message}` : message);
     }
   };
 
   const resetForm = () => {
-    setSelectedFile(null);
-    setPreviewUrl('');
+    previewUrls.forEach((url) => URL.revokeObjectURL(url));
+    setSelectedFiles([]);
+    setPreviewUrls([]);
     setGuestName('');
     setStatus('idle');
     setProgress(0);
@@ -265,9 +321,12 @@ const PartyUpload = ({ invitation, invitationPath }) => {
                 <button
                   type="button"
                   onClick={resetForm}
+                  disabled={uploadedCount >= maxImages}
                   className={`px-6 py-3 font-black transition ${theme.buttonStyles}`}
                 >
-                  {t('partyUpload.upload_another', 'Upload Another Photo')}
+                  {uploadedCount >= maxImages
+                    ? `Upload limit reached (${maxImages})`
+                    : t('partyUpload.upload_another', 'Upload More Photos')}
                 </button>
               </motion.div>
             ) : (
@@ -293,39 +352,44 @@ const PartyUpload = ({ invitation, invitationPath }) => {
                     type="file"
                     ref={fileInputRef}
                     accept="image/*"
+                    multiple
                     onChange={handleFileChange}
                     className="hidden"
-                    disabled={status === 'uploading'}
+                    disabled={status === 'uploading' || uploadedCount >= maxImages}
                   />
 
-                  {!previewUrl ? (
+                  {!previewUrls.length ? (
                     <button
                       type="button"
                       onClick={() => fileInputRef.current?.click()}
                       className={`w-full min-h-[180px] flex flex-col items-center justify-center border-2 border-dashed transition-colors p-6 group cursor-pointer ${theme.dashedBorder} ${theme.inputBg}`}
-                      disabled={status === 'uploading'}
+                      disabled={status === 'uploading' || uploadedCount >= maxImages}
                     >
                       <FiCamera className={`text-4xl mb-3 transition-colors ${theme.cameraIcon}`} />
                       <span className={`text-sm font-semibold opacity-90 group-hover:opacity-100 transition-opacity ${theme.uploadHint || theme.textColor}`}>
-                        {t('partyUpload.click_to_upload', 'Click to Snap or Upload Image')}
+                        {t('partyUpload.click_to_upload', 'Click to Take or Upload Images')}
                       </span>
                       <span className={`text-xs opacity-65 mt-1 ${theme.uploadHint || theme.textColor}`}>
-                        {t('partyUpload.supports_format', 'Supports JPEG, PNG up to 20MB')}
+                        Images are compressed to {maxImageSizeKb} KB. {Math.max(0, maxImages - uploadedCount)} of {maxImages} remaining.
                       </span>
                     </button>
                   ) : (
-                    <div className={`relative ${theme.previewRoundness || 'rounded-lg'} overflow-hidden border ${theme.cardBorder} ${theme.inputBg}`}>
-                      <img
-                        src={previewUrl}
-                        alt="Selected preview"
-                        className="max-h-[300px] w-full object-contain mx-auto"
-                      />
+                    <div className={`relative grid grid-cols-2 gap-2 p-2 ${theme.previewRoundness || 'rounded-lg'} overflow-hidden border ${theme.cardBorder} ${theme.inputBg}`}>
+                      {previewUrls.map((url, index) => (
+                        <img
+                          key={url}
+                          src={url}
+                          alt={`Selected preview ${index + 1}`}
+                          className="h-40 w-full rounded-md object-cover"
+                        />
+                      ))}
                       {status !== 'uploading' && (
                         <button
                           type="button"
                           onClick={() => {
-                            setSelectedFile(null);
-                            setPreviewUrl('');
+                            previewUrls.forEach((url) => URL.revokeObjectURL(url));
+                            setSelectedFiles([]);
+                            setPreviewUrls([]);
                           }}
                           className="absolute top-2 right-2 p-2 bg-black/60 hover:bg-black/80 rounded-full text-white transition-colors"
                           title={t('partyUpload.remove_photo', 'Remove Photo')}
@@ -365,7 +429,7 @@ const PartyUpload = ({ invitation, invitationPath }) => {
                   type="submit"
                   text={copy.button_text || t('partyUpload.upload_button', 'Upload Photo')}
                   loading={status === 'uploading'}
-                  disabled={status === 'uploading' || !selectedFile}
+                  disabled={status === 'uploading' || !selectedFiles.length}
                   buttonStyles={theme.buttonStyles}
                 />
               </form>

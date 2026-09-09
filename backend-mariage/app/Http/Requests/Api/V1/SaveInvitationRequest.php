@@ -38,6 +38,7 @@ class SaveInvitationRequest extends FormRequest
             'footer' => ['nullable', 'array'],
             'audio' => ['nullable', 'array'],
             'party_upload' => ['nullable', 'array'],
+            'party_upload.max_images' => ['nullable', 'integer', 'min:1', 'max:100'],
             'organizer_username' => ['nullable', 'string', 'max:255'],
             'organizer_password' => ['nullable', 'string', 'max:255'],
         ];

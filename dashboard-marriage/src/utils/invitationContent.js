@@ -31,6 +31,7 @@ const SHARED_FIELD_PATHS = new Set([
   'gallery.image_urls_text',
   'rsvp.is_enabled',
   'party_upload.is_enabled',
+  'party_upload.max_images',
 ]);
 
 const clone = (value) => JSON.parse(JSON.stringify(value));
@@ -153,6 +154,7 @@ export const createEmptyForm = () => ({
   },
   party_upload: {
     is_enabled: false,
+    max_images: '',
     ...buildLocalizedSection(en.party_upload, ar.party_upload, buildPartyUploadLocale),
   },
 });
@@ -275,6 +277,7 @@ export const hydrateInvitation = (invitation) => {
     },
     party_upload: {
       is_enabled: invitation.party_upload?.is_enabled ?? false,
+      max_images: invitation.party_upload?.max_images ?? '',
       ...hydrateLocalizedSection(
         invitation.party_upload,
         { en: base.party_upload.en, ar: base.party_upload.ar },
@@ -378,6 +381,7 @@ export const serializeInvitation = (form) => {
     },
     party_upload: {
       is_enabled: form.party_upload.is_enabled,
+      max_images: form.party_upload.max_images === '' ? null : Number(form.party_upload.max_images),
       en: form.party_upload.en,
       ar: form.party_upload.ar,
     },
