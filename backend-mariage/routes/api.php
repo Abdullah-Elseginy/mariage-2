@@ -20,6 +20,7 @@ Route::prefix('v1')->name('api.v1.')->group(function (): void {
     Route::delete('invitations/{publicPath}/rsvps/{id}', [InvitationController::class, 'deleteRsvp'])->name('invitations.delete-rsvp');
     Route::delete('invitations/{publicPath}/guest-photos', [InvitationController::class, 'deleteAllGuestPhotos'])->name('invitations.delete-all-guest-photos');
     Route::delete('invitations/{publicPath}/guest-photos/{id}', [InvitationController::class, 'deleteGuestPhoto'])->name('invitations.delete-guest-photo');
+    Route::get('invitations/{publicPath}/guest-photos/{id}/download', [InvitationController::class, 'downloadGuestPhoto'])->whereNumber('id')->name('invitations.download-guest-photo');
     Route::post('invitations/{publicPath}/guest-photos', [InvitationController::class, 'storeGuestPhoto'])->name('invitations.store-guest-photo');
     Route::get('invitations/{publicPath}/guest-upload-status', [InvitationController::class, 'guestUploadStatus'])->name('invitations.guest-upload-status');
     Route::get('eid-greetings/{publicPath}', [EidGreetingController::class, 'publicShow'])->name('eid-greetings.public-show');

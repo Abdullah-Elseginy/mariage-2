@@ -100,6 +100,31 @@ const OrganizerDashboard = () => {
   const [downloadingAll, setDownloadingAll] = useState(false);
   const [downloadingSingle, setDownloadingSingle] = useState({});
 
+  const downloadBlob = (blob, filename) => {
+    const blobUrl = window.URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = blobUrl;
+    link.download = filename;
+    link.style.display = 'none';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    window.setTimeout(() => window.URL.revokeObjectURL(blobUrl), 1000);
+  };
+
+  const photoFilename = (photo, blob, index = null) => {
+    let ext = 'jpg';
+    if (blob.type === 'image/png') ext = 'png';
+    else if (blob.type === 'image/webp') ext = 'webp';
+    else if (blob.type === 'image/gif') ext = 'gif';
+
+    const guestName = photo.guest_name
+      ? photo.guest_name.replace(/[^a-zA-Z0-9]/g, '_')
+      : 'guest';
+    const prefix = index === null ? `photo_${photo.id}` : String(index + 1);
+    return `${prefix}_${guestName}.${ext}`;
+  };
+
   const fetchData = async (authCreds) => {
     setLoading(true);
     setError('');
@@ -246,38 +271,12 @@ const OrganizerDashboard = () => {
     const photoId = photo.id;
     setDownloadingSingle((prev) => ({ ...prev, [photoId]: true }));
     try {
-      const url = normalizeMediaUrl(photo.image_url);
-      const response = await fetch(url);
-      const blob = await response.blob();
-      
-      let ext = 'jpg';
-      if (blob.type === 'image/png') ext = 'png';
-      else if (blob.type === 'image/webp') ext = 'webp';
-      else if (blob.type === 'image/gif') ext = 'gif';
-      
-      const guestName = photo.guest_name ? photo.guest_name.replace(/[^a-zA-Z0-9]/g, '_') : 'guest';
-      const filename = `photo_${photoId}_${guestName}.${ext}`;
-
-      const file = new File([blob], filename, { type: blob.type });
-      if (navigator.share && navigator.canShare && navigator.canShare({ files: [file] })) {
-        await navigator.share({
-          files: [file],
-          title: filename,
-        });
-      } else {
-        const blobUrl = window.URL.createObjectURL(blob);
-        const link = document.createElement('a');
-        link.href = blobUrl;
-        link.download = filename;
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-        window.URL.revokeObjectURL(blobUrl);
-      }
+      const response = await invitationAPI.downloadGuestPhoto(invitationPath, photoId, credentials);
+      const blob = response.data;
+      downloadBlob(blob, photoFilename(photo, blob));
     } catch (err) {
       console.error('Failed to download image:', err);
-      // Fallback
-      window.open(normalizeMediaUrl(photo.image_url), '_blank');
+      alert(t('organizer.download_failed', 'Failed to download this photo. Please try again.'));
     } finally {
       setDownloadingSingle((prev) => ({ ...prev, [photoId]: false }));
     }
@@ -291,48 +290,19 @@ const OrganizerDashboard = () => {
       const folder = zip.folder("guest_photos");
       
       const downloadPromises = guest_photos.map(async (photo, index) => {
-        try {
-          const url = normalizeMediaUrl(photo.image_url);
-          const response = await fetch(url);
-          const blob = await response.blob();
-          
-          let ext = 'jpg';
-          if (blob.type === 'image/png') ext = 'png';
-          else if (blob.type === 'image/webp') ext = 'webp';
-          else if (blob.type === 'image/gif') ext = 'gif';
-          
-          const guestName = photo.guest_name ? photo.guest_name.replace(/[^a-zA-Z0-9]/g, '_') : 'guest';
-          const filename = `${index + 1}_${guestName}.${ext}`;
-          folder.file(filename, blob);
-        } catch (err) {
-          console.error(`Failed to fetch and add photo index ${index} to zip:`, err);
-        }
+        const response = await invitationAPI.downloadGuestPhoto(invitationPath, photo.id, credentials);
+        const blob = response.data;
+        folder.file(photoFilename(photo, blob, index), blob);
       });
       
       await Promise.all(downloadPromises);
       
-      const content = await zip.generateAsync({ type: "blob" });
+      const content = await zip.generateAsync({ type: 'blob', compression: 'STORE' });
       const filename = `${invitationPath}_guest_photos.zip`;
-      const file = new File([content], filename, { type: 'application/zip' });
-
-      if (navigator.share && navigator.canShare && navigator.canShare({ files: [file] })) {
-        await navigator.share({
-          files: [file],
-          title: filename,
-        });
-      } else {
-        const blobUrl = window.URL.createObjectURL(content);
-        const link = document.createElement('a');
-        link.href = blobUrl;
-        link.download = filename;
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-        window.URL.revokeObjectURL(blobUrl);
-      }
+      downloadBlob(content, filename);
     } catch (err) {
       console.error('Failed to create zip file:', err);
-      alert('Failed to generate zip file. Please download photos individually.');
+      alert(t('organizer.zip_failed', 'Failed to generate ZIP file. Please try again.'));
     } finally {
       setDownloadingAll(false);
     }

@@ -26,7 +26,7 @@ const canvasToBlob = (canvas, type, quality) => new Promise((resolve, reject) =>
 
 export async function compressImageToSize(file, maxSizeKb) {
   const maxBytes = Math.floor(Number(maxSizeKb) * 1024);
-  const supportedTypes = ['image/jpeg', 'image/png', 'image/webp', 'image/gif'];
+  const supportedTypes = ['image/jpeg', 'image/png', 'image/gif'];
   if (!Number.isFinite(maxBytes) || maxBytes <= 0) return file;
   if (file.size <= maxBytes && supportedTypes.includes(file.type)) return file;
   if (!file.type.startsWith('image/')) throw new Error(`${file.name} is not an image.`);
@@ -43,6 +43,8 @@ export async function compressImageToSize(file, maxSizeKb) {
     canvas.width = width;
     canvas.height = height;
     context.clearRect(0, 0, width, height);
+    context.fillStyle = '#ffffff';
+    context.fillRect(0, 0, width, height);
     context.drawImage(image, 0, 0, width, height);
 
     let low = MIN_QUALITY;
@@ -52,7 +54,7 @@ export async function compressImageToSize(file, maxSizeKb) {
 
     for (let qualityAttempt = 0; qualityAttempt < 8; qualityAttempt += 1) {
       const quality = (low + high) / 2;
-      const blob = await canvasToBlob(canvas, 'image/webp', quality);
+      const blob = await canvasToBlob(canvas, 'image/jpeg', quality);
       if (!smallestBlob || blob.size < smallestBlob.size) smallestBlob = blob;
       if (blob.size <= maxBytes) {
         acceptableBlob = blob;
@@ -63,10 +65,9 @@ export async function compressImageToSize(file, maxSizeKb) {
     }
 
     if (acceptableBlob) {
-      const extension = acceptableBlob.type === 'image/webp' ? 'webp' : 'jpg';
       const baseName = file.name.replace(/\.[^.]+$/, '') || 'image';
-      return new File([acceptableBlob], `${baseName}.${extension}`, {
-        type: acceptableBlob.type,
+      return new File([acceptableBlob], `${baseName}.jpg`, {
+        type: 'image/jpeg',
         lastModified: file.lastModified,
       });
     }

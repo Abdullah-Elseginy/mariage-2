@@ -63,6 +63,15 @@ export const invitationAPI = {
       'X-Organizer-Password': credentials.password,
     } : {},
   }),
+  downloadGuestPhoto: (publicPath, photoId, credentials) => Axios({
+    method: 'GET',
+    path: `/invitations/${publicPath}/guest-photos/${photoId}/download`,
+    responseType: 'blob',
+    header: credentials ? {
+      'X-Organizer-Username': credentials.username,
+      'X-Organizer-Password': credentials.password,
+    } : {},
+  }),
 };
 
 

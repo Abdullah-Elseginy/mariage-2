@@ -197,7 +197,10 @@ const PartyUpload = ({ invitation, invitationPath }) => {
 
     const remainingImages = Math.max(0, maxImages - uploadedCount);
     if (files.length > remainingImages) {
-      setErrorMsg(`You can upload ${remainingImages} more photo${remainingImages === 1 ? '' : 's'} for this invitation.`);
+      setErrorMsg(t('partyUpload.remaining_upload_error', {
+        remaining: remainingImages,
+        defaultValue: `You can upload ${remainingImages} more photo(s) for this invitation.`,
+      }));
       return;
     }
 
@@ -255,7 +258,13 @@ const PartyUpload = ({ invitation, invitationPath }) => {
         || err.response?.data?.message
         || err.message
         || t('partyUpload.upload_failed_error', 'Failed to upload photo. Please try again.');
-      setErrorMsg(successfulUploads > 0 ? `${successfulUploads} photo(s) uploaded. ${message}` : message);
+      setErrorMsg(successfulUploads > 0
+        ? t('partyUpload.partial_upload', {
+            count: successfulUploads,
+            message,
+            defaultValue: `${successfulUploads} photo(s) uploaded. ${message}`,
+          })
+        : message);
     }
   };
 
@@ -325,7 +334,10 @@ const PartyUpload = ({ invitation, invitationPath }) => {
                   className={`px-6 py-3 font-black transition ${theme.buttonStyles}`}
                 >
                   {uploadedCount >= maxImages
-                    ? `Upload limit reached (${maxImages})`
+                    ? t('partyUpload.upload_limit_reached', {
+                        max: maxImages,
+                        defaultValue: `Upload limit reached (${maxImages})`,
+                      })
                     : t('partyUpload.upload_another', 'Upload More Photos')}
                 </button>
               </motion.div>
@@ -370,7 +382,11 @@ const PartyUpload = ({ invitation, invitationPath }) => {
                         {t('partyUpload.click_to_upload', 'Click to Take or Upload Images')}
                       </span>
                       <span className={`text-xs opacity-65 mt-1 ${theme.uploadHint || theme.textColor}`}>
-                        Images are compressed to {maxImageSizeKb} KB. {Math.max(0, maxImages - uploadedCount)} of {maxImages} remaining.
+                        {t('partyUpload.compression_summary', {
+                          remaining: Math.max(0, maxImages - uploadedCount),
+                          max: maxImages,
+                          defaultValue: `${Math.max(0, maxImages - uploadedCount)} of ${maxImages} remaining.`,
+                        })}
                       </span>
                     </button>
                   ) : (

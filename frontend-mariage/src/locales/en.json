@@ -142,9 +142,16 @@
     "download_all": "Download All Photos",
     "zipping": "Zipping...",
     "download_photo": "Download Photo",
-    "guest_photos_title": "Guest Uploads"
+    "guest_photos_title": "Guest Uploads",
+    "download_failed": "Failed to download this photo. Please try again.",
+    "zip_failed": "Failed to generate ZIP file. Please try again."
   },
   "partyUpload": {
+    "compression_summary": "{{remaining}} of {{max}} remaining.",
+    "upload_limit_reached": "Upload limit reached ({{max}})",
+    "image_compressed": "IMAGE COMPRESSED",
+    "remaining_upload_error": "You can upload {{remaining}} more photo(s) for this invitation.",
+    "partial_upload": "{{count}} photo(s) uploaded. {{message}}",
     "kicker": "Party Moments",
     "title": "Share Your Photos",
     "description": "Take photos during our wedding celebration and upload them here!",

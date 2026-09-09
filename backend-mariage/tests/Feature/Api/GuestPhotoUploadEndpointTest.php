@@ -157,6 +157,35 @@ class GuestPhotoUploadEndpointTest extends TestCase
         $this->assertEquals('Bob Photo', $response->json('data.guest_photos.0.guest_name'));
     }
 
+    public function test_organizer_can_download_guest_photo_as_an_attachment(): void
+    {
+        Storage::fake('public');
+
+        $invitation = Invitation::create([
+            'code' => '1234',
+            'slug' => 'download-couple',
+            'groom_name' => 'Download',
+            'bride_name' => 'Couple',
+            'couple_display_name' => 'Download & Couple',
+        ]);
+        $storagePath = 'invitations/guest_photos/photo.jpg';
+        Storage::disk('public')->put($storagePath, 'image-content');
+        $photo = GuestPhoto::create([
+            'invitation_id' => $invitation->id,
+            'image_url' => url('/storage/'.$storagePath),
+            'guest_name' => 'Test Guest',
+        ]);
+        $downloadUrl = "/api/v1/invitations/{$invitation->public_path}/guest-photos/{$photo->id}/download";
+
+        $this->get($downloadUrl)->assertUnauthorized();
+
+        $this->get($downloadUrl, [
+            'X-Organizer-Username' => $invitation->organizer_username,
+            'X-Organizer-Password' => $invitation->organizer_password,
+        ])->assertOk()
+            ->assertHeader('content-disposition', 'attachment; filename=photo_'.$photo->id.'_test-guest.jpg');
+    }
+
     public function test_organizer_unauthorized_access_fails(): void
     {
         $invitation = Invitation::create([

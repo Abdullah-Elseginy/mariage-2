@@ -15,7 +15,10 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 use Illuminate\Validation\ValidationException;
+use Symfony\Component\HttpFoundation\StreamedResponse;
 
 class InvitationController extends Controller
 {
@@ -573,6 +576,59 @@ class InvitationController extends Controller
         $invitation->guestPhotos()->delete();
 
         return response()->json(['message' => 'All guest photos deleted successfully.']);
+    }
+
+    public function downloadGuestPhoto(Request $request, string $publicPath, int $id): StreamedResponse
+    {
+        [$slug, $code] = $this->splitPublicPath($publicPath);
+        $invitation = Invitation::query()->where('slug', $slug)->where('code', $code)->firstOrFail();
+
+        abort_unless($this->canAccessOrganizer($request, $invitation), 401, 'Invalid or missing organizer credentials.');
+
+        $photo = $invitation->guestPhotos()->findOrFail($id);
+        $storagePath = $this->guestPhotoStoragePath($photo);
+        $disk = Storage::disk(PersistentMediaStorage::diskName());
+
+        abort_unless($storagePath && $disk->exists($storagePath), 404, 'Photo file not found.');
+
+        $extension = strtolower(pathinfo($storagePath, PATHINFO_EXTENSION));
+        if (! in_array($extension, ['jpg', 'jpeg', 'png', 'gif', 'webp'], true)) {
+            $extension = 'jpg';
+        }
+        $guestName = Str::slug((string) ($photo->guest_name ?: 'guest')) ?: 'guest';
+        $filename = "photo_{$photo->id}_{$guestName}.{$extension}";
+
+        return $disk->download($storagePath, $filename);
+    }
+
+    private function canAccessOrganizer(Request $request, Invitation $invitation): bool
+    {
+        if ($this->verifyAdmin($request)) {
+            return true;
+        }
+
+        $username = (string) $request->header('X-Organizer-Username');
+        $password = (string) $request->header('X-Organizer-Password');
+
+        return $username !== ''
+            && $password !== ''
+            && hash_equals((string) $invitation->organizer_username, $username)
+            && hash_equals((string) $invitation->organizer_password, $password);
+    }
+
+    private function guestPhotoStoragePath(GuestPhoto $photo): ?string
+    {
+        $urlPath = parse_url((string) $photo->image_url, PHP_URL_PATH);
+        if (! is_string($urlPath) || ! str_starts_with($urlPath, '/storage/')) {
+            return null;
+        }
+
+        $storagePath = rawurldecode(ltrim(substr($urlPath, strlen('/storage/')), '/'));
+
+        return str_starts_with($storagePath, 'invitations/guest_photos/')
+            && ! str_contains($storagePath, '..')
+                ? $storagePath
+                : null;
     }
 
     public function listAdmins(): JsonResponse

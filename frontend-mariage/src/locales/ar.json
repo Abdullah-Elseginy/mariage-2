@@ -116,6 +116,8 @@
     "pause": "إيقاف الموسيقى"
   },
   "organizer": {
+    "download_failed": "تعذر تحميل هذه الصورة. يرجى المحاولة مرة أخرى.",
+    "zip_failed": "تعذر إنشاء ملف ZIP. يرجى المحاولة مرة أخرى.",
     "title": "لوحة تنظيم الحفل",
     "back_to_invitation": "العودة إلى الدعوة",
     "rsvps_tab": "الردود وتأكيدات الحضور ({{count}})",
@@ -145,6 +147,11 @@
     "guest_photos_title": "صور الحضور المرفوعة"
   },
   "partyUpload": {
+    "compression_summary": "متبقٍ {{remaining}} صور من أصل {{max}}.",
+    "upload_limit_reached": "تم الوصول إلى الحد الأقصى لرفع الصور ({{max}})",
+    "image_compressed": "تم ضغط الصورة",
+    "remaining_upload_error": "يمكنك رفع {{remaining}} صور إضافية لهذه الدعوة.",
+    "partial_upload": "تم رفع {{count}} صور. {{message}}",
     "kicker": "صور الحفل",
     "title": "شارك صور الحفل",
     "description": "التقطوا اللحظات الجميلة في حفل زفافنا وشاركوها معنا مباشرة!",
