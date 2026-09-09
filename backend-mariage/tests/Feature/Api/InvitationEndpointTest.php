@@ -44,6 +44,43 @@ class InvitationEndpointTest extends TestCase
             ->assertJsonPath('data.public_path', 'abdullah-and-walaa-4321');
     }
 
+    public function test_guest_upload_section_settings_are_preserved_when_saving(): void
+    {
+        $response = $this->postJson('/api/v1/admin/invitations', [
+            'groom_name' => ['en' => 'Abdullah', 'ar' => 'عبدالله'],
+            'bride_name' => ['en' => 'Walaa', 'ar' => 'ولاء'],
+            'party_upload' => [
+                'is_enabled' => true,
+                'max_images' => 8,
+                'en' => ['title' => 'Share your photos'],
+                'ar' => ['title' => 'شارك صورك'],
+            ],
+        ])
+            ->assertCreated()
+            ->assertJsonPath('data.party_upload.is_enabled', true)
+            ->assertJsonPath('data.party_upload.max_images', 8)
+            ->assertJsonPath('data.party_upload.en.title', 'Share your photos')
+            ->assertJsonPath('data.party_upload.ar.title', 'شارك صورك');
+
+        $invitationId = $response->json('data.id');
+
+        $this->putJson("/api/v1/admin/invitations/{$invitationId}", [
+            'groom_name' => ['en' => 'Abdullah', 'ar' => 'عبدالله'],
+            'bride_name' => ['en' => 'Walaa', 'ar' => 'ولاء'],
+            'party_upload' => [
+                'is_enabled' => true,
+                'max_images' => 12,
+                'en' => ['title' => 'Upload wedding photos'],
+                'ar' => ['title' => 'ارفع صور الزفاف'],
+            ],
+        ])
+            ->assertOk()
+            ->assertJsonPath('data.party_upload.is_enabled', true)
+            ->assertJsonPath('data.party_upload.max_images', 12)
+            ->assertJsonPath('data.party_upload.en.title', 'Upload wedding photos')
+            ->assertJsonPath('data.party_upload.ar.title', 'ارفع صور الزفاف');
+    }
+
     public function test_admin_can_create_royal_invitation_template(): void
     {
         $this->postJson('/api/v1/admin/invitations', [
