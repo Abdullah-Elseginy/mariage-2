@@ -4,13 +4,13 @@ Updated: June 20, 2026
 
 This document describes the current Marriage/WIL monorepo. The platform creates and publishes wedding invitations, Eid greetings, birthday greetings, and interactive love messages.
 
-## 1. Applications
+## 1. Applicationss
 
-| Application | Folder | Purpose | Local URL |
-|---|---|---|---|
-| Laravel API | `backend-mariage/` | Data, media, public endpoints, organizer data, admin CRUD | `http://localhost:8000` |
-| Public frontend | `frontend-mariage/` | Public invitation and greeting experiences | `http://localhost:3000` |
-| Admin dashboard | `dashboard-marriage/` | Create, edit, filter, publish, and open content | Usually `http://localhost:3001` |
+| Application     | Folder                | Purpose                                                   | Local URL                       |
+| --------------- | --------------------- | --------------------------------------------------------- | ------------------------------- |
+| Laravel API     | `backend-mariage/`    | Data, media, public endpoints, organizer data, admin CRUD | `http://localhost:8000`         |
+| Public frontend | `frontend-mariage/`   | Public invitation and greeting experiences                | `http://localhost:3000`         |
+| Admin dashboard | `dashboard-marriage/` | Create, edit, filter, publish, and open content           | Usually `http://localhost:3001` |
 
 Production:
 
@@ -75,19 +75,19 @@ marriage/
 
 Template IDs are unique across all categories and must never be renumbered.
 
-| ID | Category | Template key | Display name |
-|---:|---|---|---|
-| 1 | Invitation | `classic` | Classic |
-| 2 | Invitation | `signature` | Signature |
-| 3 | Invitation | `royal` | Royal Entrance |
-| 4 | Invitation | `love-letter` | Love Letter |
-| 5 | Invitation | `floral-butterfly` | Floral Butterfly |
-| 6 | Invitation | `modern-minimal` | Modern Minimalist |
-| 7 | Eid Greeting | `default` | Default Eid |
-| 8 | Birthday Greeting | `default` | Classic Romantic |
-| 9 | Birthday Greeting | `romantic` | Love & Velvet |
-| 10 | Birthday Greeting | `neon` | Neon Galaxy |
-| 11 | Love Message | `happy-message` | Happy Message |
+|  ID | Category          | Template key       | Display name      |
+| --: | ----------------- | ------------------ | ----------------- |
+|   1 | Invitation        | `classic`          | Classic           |
+|   2 | Invitation        | `signature`        | Signature         |
+|   3 | Invitation        | `royal`            | Royal Entrance    |
+|   4 | Invitation        | `love-letter`      | Love Letter       |
+|   5 | Invitation        | `floral-butterfly` | Floral Butterfly  |
+|   6 | Invitation        | `modern-minimal`   | Modern Minimalist |
+|   7 | Eid Greeting      | `default`          | Default Eid       |
+|   8 | Birthday Greeting | `default`          | Classic Romantic  |
+|   9 | Birthday Greeting | `romantic`         | Love & Velvet     |
+|  10 | Birthday Greeting | `neon`             | Neon Galaxy       |
+|  11 | Love Message      | `happy-message`    | Happy Message     |
 
 Source files:
 
@@ -111,13 +111,13 @@ abdullah-walaa-4321
 demo-happy-message-0011
 ```
 
-| Content | Public route |
-|---|---|
-| Invitation | `/:invitationPath` |
+| Content              | Public route                 |
+| -------------------- | ---------------------------- |
+| Invitation           | `/:invitationPath`           |
 | Invitation organizer | `/:invitationPath/organizer` |
-| Eid greeting | `/eid/:eidPath` |
-| Birthday greeting | `/birthday/:birthdayPath` |
-| Love message | `/love/:loveMessagePath` |
+| Eid greeting         | `/eid/:eidPath`              |
+| Birthday greeting    | `/birthday/:birthdayPath`    |
+| Love message         | `/love/:loveMessagePath`     |
 
 ## 6. Backend
 
@@ -132,32 +132,32 @@ demo-happy-message-0011
 
 ### Models
 
-| Model | Main data |
-|---|---|
-| `Invitation` | Couple names, template, locale, font, sections, organizer credentials |
-| `EidGreeting` | Recipient, sender, template content, locale, font |
-| `BirthdayGreeting` | Recipient, sender, template, content, locale, font, demo flag |
-| `LoveMessage` | Recipient, sender, interactive content, locale, font, demo flag |
-| `Rsvp` | Guest name, attendance, message, locale |
-| `GuestPhoto` | Invitation guest-uploaded image |
-| `Admin` | Dashboard administrator account |
+| Model              | Main data                                                             |
+| ------------------ | --------------------------------------------------------------------- |
+| `Invitation`       | Couple names, template, locale, font, sections, organizer credentials |
+| `EidGreeting`      | Recipient, sender, template content, locale, font                     |
+| `BirthdayGreeting` | Recipient, sender, template, content, locale, font, demo flag         |
+| `LoveMessage`      | Recipient, sender, interactive content, locale, font, demo flag       |
+| `Rsvp`             | Guest name, attendance, message, locale                               |
+| `GuestPhoto`       | Invitation guest-uploaded image                                       |
+| `Admin`            | Dashboard administrator account                                       |
 
 ### Public API
 
-| Method | Endpoint | Description |
-|---|---|---|
-| `GET` | `/api/v1/health` | Application and persistent-media health |
-| `GET` | `/api/v1/invitations/{publicPath}` | Published invitation |
-| `GET` | `/api/v1/invitations/{publicPath}/organizer` | Organizer dashboard data |
-| `POST` | `/api/v1/invitations/{publicPath}/guest-photos` | Guest photo upload |
-| `DELETE` | `/api/v1/invitations/{publicPath}/guest-photos` | Delete all guest photos |
-| `DELETE` | `/api/v1/invitations/{publicPath}/guest-photos/{id}` | Delete one guest photo |
-| `DELETE` | `/api/v1/invitations/{publicPath}/rsvps` | Delete all invitation RSVPs |
-| `DELETE` | `/api/v1/invitations/{publicPath}/rsvps/{id}` | Delete one RSVP |
-| `GET` | `/api/v1/eid-greetings/{publicPath}` | Published Eid greeting |
-| `GET` | `/api/v1/birthday-greetings/{publicPath}` | Published birthday greeting |
-| `GET` | `/api/v1/love-messages/{publicPath}` | Published love message |
-| `POST` | `/api/v1/rsvps` | Submit RSVP |
+| Method   | Endpoint                                             | Description                             |
+| -------- | ---------------------------------------------------- | --------------------------------------- |
+| `GET`    | `/api/v1/health`                                     | Application and persistent-media health |
+| `GET`    | `/api/v1/invitations/{publicPath}`                   | Published invitation                    |
+| `GET`    | `/api/v1/invitations/{publicPath}/organizer`         | Organizer dashboard data                |
+| `POST`   | `/api/v1/invitations/{publicPath}/guest-photos`      | Guest photo upload                      |
+| `DELETE` | `/api/v1/invitations/{publicPath}/guest-photos`      | Delete all guest photos                 |
+| `DELETE` | `/api/v1/invitations/{publicPath}/guest-photos/{id}` | Delete one guest photo                  |
+| `DELETE` | `/api/v1/invitations/{publicPath}/rsvps`             | Delete all invitation RSVPs             |
+| `DELETE` | `/api/v1/invitations/{publicPath}/rsvps/{id}`        | Delete one RSVP                         |
+| `GET`    | `/api/v1/eid-greetings/{publicPath}`                 | Published Eid greeting                  |
+| `GET`    | `/api/v1/birthday-greetings/{publicPath}`            | Published birthday greeting             |
+| `GET`    | `/api/v1/love-messages/{publicPath}`                 | Published love message                  |
+| `POST`   | `/api/v1/rsvps`                                      | Submit RSVP                             |
 
 ### Admin API
 
@@ -172,11 +172,11 @@ All CRUD resources support list, create, show, update, and delete:
 
 Additional endpoints:
 
-| Method | Endpoint |
-|---|---|
-| `POST` | `/api/v1/admin/media` |
-| `GET` | `/api/v1/admin/admins` |
-| `POST` | `/api/v1/admin/admins` |
+| Method   | Endpoint                    |
+| -------- | --------------------------- |
+| `POST`   | `/api/v1/admin/media`       |
+| `GET`    | `/api/v1/admin/admins`      |
+| `POST`   | `/api/v1/admin/admins`      |
 | `DELETE` | `/api/v1/admin/admins/{id}` |
 
 List endpoints support combinations of:
@@ -192,10 +192,10 @@ List endpoints support combinations of:
 
 `POST /api/v1/admin/media` accepts multipart data:
 
-| Field | Value |
-|---|---|
+| Field  | Value                |
+| ------ | -------------------- |
 | `type` | `gallery` or `audio` |
-| `file` | Maximum 20 MB |
+| `file` | Maximum 20 MB        |
 
 Images:
 
@@ -257,11 +257,11 @@ A Volume protects files during redeploys. Railway Volume backups should also be 
 
 ### Important Support Classes
 
-| Class | Responsibility |
-|---|---|
-| `PublicRouteUniqueness` | Prevent duplicate public paths across categories |
-| `MediaUrlNormalizer` | Rewrite stale `/storage` URLs to the current backend |
-| `PersistentMediaStorage` | Select and validate the durable media disk |
+| Class                    | Responsibility                                       |
+| ------------------------ | ---------------------------------------------------- |
+| `PublicRouteUniqueness`  | Prevent duplicate public paths across categories     |
+| `MediaUrlNormalizer`     | Rewrite stale `/storage` URLs to the current backend |
+| `PersistentMediaStorage` | Select and validate the durable media disk           |
 
 ## 7. Public Frontend
 
@@ -448,14 +448,14 @@ Dashboard behavior:
 
 ### Routes
 
-| Route | Screen |
-|---|---|
-| `/completed` | Completed templates grouped by category |
-| `/invitations/new` | New invitation |
-| `/eid-greetings/new` | New Eid greeting |
-| `/birthday-greetings/new` | New birthday greeting |
-| `/love-messages/new` | New love message |
-| `/settings` | Admin accounts/settings |
+| Route                     | Screen                                  |
+| ------------------------- | --------------------------------------- |
+| `/completed`              | Completed templates grouped by category |
+| `/invitations/new`        | New invitation                          |
+| `/eid-greetings/new`      | New Eid greeting                        |
+| `/birthday-greetings/new` | New birthday greeting                   |
+| `/love-messages/new`      | New love message                        |
+| `/settings`               | Admin accounts/settings                 |
 
 List routes redirect to `/completed`; category pages can also render embedded inside the completed screen.
 
@@ -666,28 +666,28 @@ Critical rules:
 
 ## 15. Known Limitations and Risks
 
-| Area | Current status |
-|---|---|
-| Admin authentication | Admin CRUD endpoints are not protected by a complete production authentication layer |
-| JSON validation | Section schemas are only partially validated server-side |
-| Autoplay | Browser policies may block music until the first user interaction |
-| Deleted old media | Files already deleted from temporary Railway storage cannot be reconstructed by URL normalization |
-| Railway Volume | Must be attached in Railway settings; Git code cannot create the service Volume |
-| Backup | Persistent storage still needs Railway backups for accidental deletion protection |
+| Area                 | Current status                                                                                    |
+| -------------------- | ------------------------------------------------------------------------------------------------- |
+| Admin authentication | Admin CRUD endpoints are not protected by a complete production authentication layer              |
+| JSON validation      | Section schemas are only partially validated server-side                                          |
+| Autoplay             | Browser policies may block music until the first user interaction                                 |
+| Deleted old media    | Files already deleted from temporary Railway storage cannot be reconstructed by URL normalization |
+| Railway Volume       | Must be attached in Railway settings; Git code cannot create the service Volume                   |
+| Backup               | Persistent storage still needs Railway backups for accidental deletion protection                 |
 
 ## 16. Key Files
 
-| Purpose | File |
-|---|---|
-| Public routes | `frontend-mariage/src/App.js` |
-| Dashboard routes | `dashboard-marriage/src/App.js` |
-| Backend routes | `backend-mariage/routes/api.php` |
-| Template IDs | `TEMPLATE_IDS.md` |
-| Dashboard template registry | `dashboard-marriage/src/utils/templateRegistry.js` |
-| Invitation content localization | `frontend-mariage/src/utils/invitationContent.js` |
-| Media upload client | `dashboard-marriage/src/utils/mediaUploadApi.js` |
-| Media upload API | `backend-mariage/app/Http/Controllers/Api/V1/MediaUploadController.php` |
-| Persistent storage guard | `backend-mariage/app/Support/PersistentMediaStorage.php` |
-| Media URL repair | `backend-mariage/app/Support/MediaUrlNormalizer.php` |
-| Deployment configuration | `backend-mariage/railway.json` |
-| Deployment checklist | `DEPLOYMENT_CHECKLIST.md` |
+| Purpose                         | File                                                                    |
+| ------------------------------- | ----------------------------------------------------------------------- |
+| Public routes                   | `frontend-mariage/src/App.js`                                           |
+| Dashboard routes                | `dashboard-marriage/src/App.js`                                         |
+| Backend routes                  | `backend-mariage/routes/api.php`                                        |
+| Template IDs                    | `TEMPLATE_IDS.md`                                                       |
+| Dashboard template registry     | `dashboard-marriage/src/utils/templateRegistry.js`                      |
+| Invitation content localization | `frontend-mariage/src/utils/invitationContent.js`                       |
+| Media upload client             | `dashboard-marriage/src/utils/mediaUploadApi.js`                        |
+| Media upload API                | `backend-mariage/app/Http/Controllers/Api/V1/MediaUploadController.php` |
+| Persistent storage guard        | `backend-mariage/app/Support/PersistentMediaStorage.php`                |
+| Media URL repair                | `backend-mariage/app/Support/MediaUrlNormalizer.php`                    |
+| Deployment configuration        | `backend-mariage/railway.json`                                          |
+| Deployment checklist            | `DEPLOYMENT_CHECKLIST.md`                                               |
